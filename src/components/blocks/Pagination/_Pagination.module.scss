@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  max-width: 300px;
+  width: 100%;
+  justify-content: space-between;
+
+  &__item {
+    flex: 1;
+    transition: font-size 0.3s;
+
+    &:hover {
+      font-size: 1.5em;
+    }
+
+    &--t--active {
+      font-size: 1.5em;
+    }
+  }
+}
