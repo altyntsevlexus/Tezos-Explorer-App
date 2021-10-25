@@ -1,0 +1,16 @@
+@import "/src/styles";
+
+.button {
+  width: 75px;
+  height: 30px;
+
+  border: none;
+  border-radius: 5px;
+  background: $c-button-background;
+  text-transform: uppercase;
+  font: {
+    size: 13px;
+    weight: 900;
+  }
+  color: $c-button-text;
+}

@@ -1,0 +1,11 @@
+@import "/src/styles";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 15px;
+
+  @extend %section-border;
+}

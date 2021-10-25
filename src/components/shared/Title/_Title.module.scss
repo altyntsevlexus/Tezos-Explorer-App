@@ -1,0 +1,6 @@
+@import "/src/styles";
+
+.title {
+  @include typography(700, 48px, 150%, $c-text-main);
+  letter-spacing: -0.06em;
+}

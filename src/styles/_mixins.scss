@@ -1,0 +1,9 @@
+@mixin typography($weight, $size, $height, $color) {
+  font: {
+    weight: $weight;
+    size: $size;
+  }
+
+  color: $color;
+  line-height: $height;
+}
