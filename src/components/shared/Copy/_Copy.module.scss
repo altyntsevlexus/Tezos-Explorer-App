@@ -1,0 +1,10 @@
+@import "/src/styles";
+
+.copy {
+  display: flex;
+  justify-content: space-between;
+
+  &__text {
+    @include typography(400, 12px, 14px, $c-text-main);
+  }
+}

@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 
 const initialURL = (network) =>
   `https://api.teztracker.com/v2/data/tezos/${network}`;
