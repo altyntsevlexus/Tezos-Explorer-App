@@ -36,16 +36,18 @@ const transformBlocksData = (blocks) =>
 
 const BlocksProvider = ({ children }) => {
   const [blocks, setBlocks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const network = useNetworkState();
 
   const handleBlocks = (offset, limit) => {
     getBlocks(network, offset, limit)
       .then((response) => transformBlocksData(response.data))
-      .then((res) => setBlocks(res));
+      .then((res) => setBlocks(res))
+      .then(() => setIsLoading(false));
   };
 
-  const data = { blocks, handleBlocks };
+  const data = { blocks, handleBlocks, isLoading };
 
   return (
     <BlocksStateContext.Provider value={data}>
