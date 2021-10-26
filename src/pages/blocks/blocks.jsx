@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from 'react';
-import { useBlocksState } from '../../context/blocksContext.jsx';
+import { useBlocksState } from '../../context/blocksContext';
 
 import Title from '../../components/shared/Title';
 

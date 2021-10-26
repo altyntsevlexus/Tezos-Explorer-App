@@ -1,3 +1,3 @@
-import PerPage from './PerPage.jsx';
+import PerPage from './PerPage';
 
 export default PerPage;

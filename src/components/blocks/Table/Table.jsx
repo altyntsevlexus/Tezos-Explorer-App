@@ -1,6 +1,6 @@
-import propTypes from 'prop-types';
+import propTypes, { shape } from 'prop-types';
 
-import Th from '../Th.jsx';
+import Th from '../Th';
 
 import styled from './_Table.module.scss';
 
@@ -23,7 +23,7 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => (
       {rows.map((row) => (
         <tr key={row.level}>
           {cols.map((col) => (
-            <td key={row[col.key]}>{row[col.key]}</td>
+            <td key={row.level + row[col.key]}>{row[col.key]}</td>
           ))}
         </tr>
       ))}
@@ -32,9 +32,9 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => (
 );
 
 Table.propTypes = {
-  cols: propTypes.array.isRequired,
-  rows: propTypes.array.isRequired,
-  currentSort: propTypes.object,
+  cols: propTypes.arrayOf(shape()).isRequired,
+  rows: propTypes.arrayOf(shape()).isRequired,
+  currentSort: propTypes.shape(),
   sortFunction: propTypes.func,
 };
 
