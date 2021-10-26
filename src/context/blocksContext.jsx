@@ -26,6 +26,7 @@ const transformBlocksData = (blocks) =>
       level: block.level.toString() || '-----',
       baker: block.bakerName || '-----',
       timestamp: date || '-----',
+      priority: block.priority.toString() || '-----',
       numOfOperations: block.number_of_operations.toString() || '-----',
       volume: (block.volume / 1000000).toString() || '-----',
       fees: (block.fees / 1000000).toString() || '-----',
