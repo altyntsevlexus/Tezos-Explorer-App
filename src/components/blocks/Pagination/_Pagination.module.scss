@@ -1,19 +1,25 @@
 .pagination {
   display: flex;
-  max-width: 300px;
+  max-width: 200px;
   width: 100%;
   justify-content: space-between;
+  align-self: flex-end;
 
   &__item {
+    background: none;
+    outline: none;
+    border: none;
+    font-family: Roboto;
     flex: 1;
-    transition: font-size 0.3s;
+    opacity: 0.3;
+    transition: opacity 0.3s;
 
     &:hover {
-      font-size: 1.5em;
+      opacity: 1;
     }
 
     &--t--active {
-      font-size: 1.5em;
+      opacity: 1;
     }
   }
 }
