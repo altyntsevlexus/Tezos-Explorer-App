@@ -1,3 +1,7 @@
+@import "/src/styles";
+
 .footer {
-  display: flex;
+  padding: 15px;
+
+  @extend %section-border;
 }

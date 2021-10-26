@@ -3,20 +3,20 @@ import style from './_Contact.module.scss';
 
 const { contact } = style;
 
-const Link = ({ href, value }) => (
-  <a href={href} className={contact}>
+const Contact = ({ href, value, className }) => (
+  <a href={href} className={` ${contact} ${className} `}>
     {value}
   </a>
 );
 
-export default Link;
+export default Contact;
 
-Link.propTypes = {
-  href: PropTypes.string,
-  value: PropTypes.string,
+Contact.propTypes = {
+  href: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
 
-Link.defaultProps = {
-  href: '#',
-  value: 'Link',
+Contact.defaultProps = {
+  className: '',
 };

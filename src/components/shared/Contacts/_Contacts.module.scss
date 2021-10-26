@@ -1,3 +1,17 @@
 .contacts {
   display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  margin-bottom: 35px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 58px;
+
+    &:not(:last-child) {
+      margin-right: 45px;
+    }
+  }
 }
