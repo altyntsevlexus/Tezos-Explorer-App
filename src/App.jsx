@@ -7,13 +7,16 @@ import AppRouter from './route/AppRouter';
 
 import { NetworkProvider } from './context/networkContext';
 import { BlocksProvider } from './context/blocksContext';
+import { BlockProvider } from './context/blockContext';
 
 const App = () => (
   <>
     <Header />
     <NetworkProvider>
       <BlocksProvider>
-        <AppRouter />
+        <BlockProvider>
+          <AppRouter />
+        </BlockProvider>
       </BlocksProvider>
     </NetworkProvider>
     <Footer />

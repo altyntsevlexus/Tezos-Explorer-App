@@ -1,4 +1,5 @@
 import propTypes, { shape } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useBlocksState } from '../../../context/blocksContext';
 
 import Th from '../Th';
@@ -30,9 +31,15 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
       <tbody>
         {rows.map((row) => (
           <tr key={row.level}>
-            {cols.map((col) => (
-              <td key={row.level + row[col.key]}>{row[col.key]}</td>
-            ))}
+            {cols.map((col) =>
+              col.key === 'level' ? (
+                <td key={row.level + row[col.key]}>
+                  <Link to={`block/${row[col.key]}`}>{row[col.key]} </Link>
+                </td>
+              ) : (
+                <td key={row.level + row[col.key]}>{row[col.key]}</td>
+              ),
+            )}
           </tr>
         ))}
       </tbody>
