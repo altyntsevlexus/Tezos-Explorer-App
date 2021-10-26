@@ -1,3 +1,3 @@
-import Blocks from './blocks.jsx';
+import Blocks from './blocks';
 
 export default Blocks;

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import propTypes from 'prop-types';
 import getBlocks from '../api';
-import { useNetworkState } from './networkContext.jsx';
+import { useNetworkState } from './networkContext';
 
 const BlocksStateContext = createContext([]);
 const useBlocksState = () => useContext(BlocksStateContext);
