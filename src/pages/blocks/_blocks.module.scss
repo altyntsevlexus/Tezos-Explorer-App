@@ -1,20 +1,13 @@
 .blocks {
   display: flex;
   flex-direction: column;
-  padding: 150px 50px;
+  padding: 100px 0;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  gap: 30px;
 
   &__overflow {
     overflow-x: auto;
-    max-width: 1200px;
     width: 100%;
-  }
-
-  &__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }

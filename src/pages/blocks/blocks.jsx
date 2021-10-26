@@ -2,13 +2,11 @@
 import { useEffect, useState } from 'react';
 import { useBlocksState } from '../../context/blocksContext.jsx';
 
-import Header from '../../components/shared/Header';
 import Title from '../../components/shared/Title';
-import Footer from '../../components/shared/Footer';
 
 import Pagination from '../../components/blocks/Pagination';
 import Table from '../../components/blocks/Table';
-import PerPage from '../../components/blocks/PerPage.jsx';
+import PerPage from '../../components/blocks/PerPage';
 
 import styled from './_blocks.module.scss';
 
