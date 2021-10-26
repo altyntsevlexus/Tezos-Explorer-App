@@ -22,8 +22,7 @@ const Th = ({ headerName, sortBy, currentSort, sortFunction }) => {
 Th.propTypes = {
   headerName: propTypes.string.isRequired,
   sortBy: propTypes.string,
-  // eslint-disable-next-line react/forbid-prop-types
-  currentSort: propTypes.object,
+  currentSort: propTypes.shape(),
   sortFunction: propTypes.func,
 };
 

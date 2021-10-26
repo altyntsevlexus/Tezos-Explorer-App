@@ -6,4 +6,7 @@ const initialURL = (network) =>
 const getBlocks = (network = 'mainnet', offset = '0', limit = '15') =>
   axios.get(`${initialURL(network)}/blocks?limit=${limit}&offset=${offset}`);
 
-export default getBlocks;
+const getBlock = (network = 'mainnet', id) =>
+  axios.get(`${initialURL(network)}/blocks/${id}`);
+
+export { getBlocks, getBlock };

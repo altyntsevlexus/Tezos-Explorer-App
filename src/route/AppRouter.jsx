@@ -1,8 +1,12 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Blocks from '../pages/blocks';
+import Block from '../pages/block';
 
-const ROUTE_CONFIG = [{ path: '/blocks', component: Blocks, exact: true }];
+const ROUTE_CONFIG = [
+  { path: '/blocks', component: Blocks, exact: true },
+  { path: '/block/:id', component: Block, exact: true },
+];
 
 const AppRouter = () => (
   <Router>

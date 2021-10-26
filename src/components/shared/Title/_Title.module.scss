@@ -1,5 +1,5 @@
-@import "/src/styles/variables";
-@import "src/styles/mixins";
+@import '/src/styles/variables';
+@import 'src/styles/mixins';
 
 .title {
   @include typography(700, 48px, 150%, $c-text-main);

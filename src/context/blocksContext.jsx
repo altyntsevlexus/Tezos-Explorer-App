@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import propTypes from 'prop-types';
-import getBlocks from '../api';
+import { getBlocks } from '../api';
 import { useNetworkState } from './networkContext';
 
 const BlocksStateContext = createContext([]);
@@ -19,18 +19,28 @@ const transformDate = (date) => {
 
 const transformBlocksData = (blocks) =>
   blocks.map((block) => {
+    const {
+      level,
+      bakerName,
+      priority,
+      number_of_operations,
+      volume,
+      fees,
+      endorsements,
+    } = block;
+
     const newDate = new Date(block.timestamp * 1000);
     const date = transformDate(newDate);
 
     return {
-      level: block.level.toString() || '-----',
-      baker: block.bakerName || '-----',
+      level: level.toString() || '-----',
+      baker: bakerName || '-----',
       timestamp: date || '-----',
-      priority: block.priority.toString() || '-----',
-      numOfOperations: block.number_of_operations.toString() || '-----',
-      volume: (block.volume / 1000000).toString() || '-----',
-      fees: (block.fees / 1000000).toString() || '-----',
-      endorsements: block.endorsements.toString() || '-----',
+      priority: priority.toString() || '-----',
+      numOfOperations: number_of_operations.toString() || '-----',
+      volume: (volume / 1000000).toString() || '-----',
+      fees: (fees / 1000000).toString() || '-----',
+      endorsements: endorsements.toString() || '-----',
     };
   });
 
@@ -41,6 +51,7 @@ const BlocksProvider = ({ children }) => {
   const network = useNetworkState();
 
   const handleBlocks = (offset, limit) => {
+    setIsLoading(true);
     getBlocks(network, offset, limit)
       .then((response) => transformBlocksData(response.data))
       .then((res) => setBlocks(res))

@@ -4,11 +4,12 @@ import { useBlocksState } from '../../context/blocksContext';
 
 import Title from '../../components/shared/Title';
 
-import Pagination from '../../components/blocks/Pagination';
-import Table from '../../components/blocks/Table';
-import PerPage from '../../components/blocks/PerPage';
+import Pagination from '../../components/table/Pagination';
+import Table from '../../components/table/Table';
+import PerPage from '../../components/table/PerPage';
 
 import styled from './_blocks.module.scss';
+import useCurrentLocation from '../../hooks/useCurrentLocation';
 
 const HEADERS = [
   {
@@ -101,9 +102,11 @@ const Blocks = () => {
     handleBlocks(offset, limit);
   }, [currentPage, limit]);
 
+  const { title } = useCurrentLocation();
+
   return (
     <main className={`wrapper ${styled.blocks}`}>
-      <Title value="Blocks" />
+      <Title value={title} />
       <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
       <div className={styled.blocks__overflow}>
         <Table
