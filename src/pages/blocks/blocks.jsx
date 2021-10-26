@@ -4,6 +4,7 @@ import { useBlocksState } from '../../context/blocksContext.jsx';
 
 import Header from '../../components/shared/Header';
 import Title from '../../components/shared/Title';
+import Footer from '../../components/shared/Footer';
 
 import Pagination from '../../components/blocks/Pagination';
 import Table from '../../components/blocks/Table';
@@ -17,12 +18,16 @@ const HEADERS = [
     key: 'level',
   },
   {
+    name: 'Created',
+    key: 'timestamp',
+  },
+  {
     name: 'Baker',
     key: 'baker',
   },
   {
-    name: 'Created',
-    key: 'timestamp',
+    name: 'Priority',
+    key: 'priority',
   },
   {
     name: '# of operations',
@@ -99,22 +104,19 @@ const Blocks = () => {
   }, [currentPage, limit]);
 
   return (
-    <>
-      <Header />
-      <section className={`wrapper ${styled.blocks}`}>
-        <Title value="Blocks" />
-        <div className={styled.blocks__overflow}>
-          <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
-          <Table
-            cols={HEADERS}
-            rows={blocks}
-            currentSort={sort}
-            sortFunction={onSortBy}
-          />
-          <Pagination onPageChanged={onPageChanged} currentPage={currentPage} />
-        </div>
-      </section>
-    </>
+    <main className={`wrapper ${styled.blocks}`}>
+      <Title value="Blocks" />
+      <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
+      <div className={styled.blocks__overflow}>
+        <Table
+          cols={HEADERS}
+          rows={blocks}
+          currentSort={sort}
+          sortFunction={onSortBy}
+        />
+      </div>
+      <Pagination onPageChanged={onPageChanged} currentPage={currentPage} />
+    </main>
   );
 };
 
