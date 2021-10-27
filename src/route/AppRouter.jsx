@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 
 import Header from '../components/shared/Header';
 import Footer from '../components/shared/Footer';
@@ -21,6 +26,9 @@ const AppRouter = () => (
           <route.component />
         </Route>
       ))}
+      <Route exact path={['/', '/home']}>
+        <Redirect to="/blocks" />
+      </Route>
     </Switch>
     <Footer />
   </Router>
