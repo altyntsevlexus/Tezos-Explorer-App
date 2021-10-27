@@ -14,8 +14,6 @@ const useCurrentLocation = () => {
     return i.charAt(0).toUpperCase() + i.slice(1);
   });
 
-  console.log(splitted);
-
   const breadcrumbs = splitted.join(' > ');
   const title = splitted[splitted.length - 1];
 
