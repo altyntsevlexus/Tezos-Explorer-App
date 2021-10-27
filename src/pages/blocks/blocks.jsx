@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useBlocksState } from '../../context/blocksContext';
 
 import Title from '../../components/shared/Title';
-
+import Breadcrumbs from '../../components/shared/Breadcrumbs';
 import Pagination from '../../components/table/Pagination';
 import Table from '../../components/table/Table';
 import PerPage from '../../components/table/PerPage';
@@ -40,7 +40,7 @@ const HEADERS = [
     key: 'fees',
   },
   {
-    name: 'Endorsements',
+    name: '# of endorsements',
     key: 'endorsements',
   },
 ];
@@ -105,6 +105,7 @@ const Blocks = () => {
 
   return (
     <main className={`wrapper ${styled.blocks}`}>
+      <Breadcrumbs />
       <Title value={title} />
       <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
       <div className={styled.blocks__overflow}>

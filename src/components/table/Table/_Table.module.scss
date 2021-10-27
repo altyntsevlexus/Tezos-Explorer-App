@@ -2,6 +2,7 @@
 
 .table {
   width: 100%;
+  border-collapse: collapse;
 
   &__loader {
     @extend %table-substitute
@@ -10,7 +11,7 @@
 
 th,
 td {
-  border-bottom: 1px solid #ddd;
-  padding: 5px 15px;
+  border: 1px solid #ddd;
+  padding: 7px;
   text-align: left;
 }
