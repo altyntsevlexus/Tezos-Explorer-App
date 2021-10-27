@@ -8,7 +8,7 @@ const BlockInfo = ({ headers, block }) => {
       {headers.map((header) => {
         return (
           <div className={styled.block__item} key={header.key}>
-            <p>{header.name}:</p>
+            <p className={styled.block__header}>{header.name}:</p>
             <p>{block[header.key]}</p>
           </div>
         );

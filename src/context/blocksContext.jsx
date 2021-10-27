@@ -38,8 +38,8 @@ const transformBlocksData = (blocks) =>
       timestamp: date || '-----',
       priority: priority.toString() || '-----',
       numOfOperations: number_of_operations.toString() || '-----',
-      volume: (volume / 1000000).toString() || '-----',
-      fees: (fees / 1000000).toString() || '-----',
+      volume: `${volume / 1000000} ꜩ` || '-----',
+      fees: `${fees / 1000000} ꜩ` || '-----',
       endorsements: endorsements.toString() || '-----',
     };
   });

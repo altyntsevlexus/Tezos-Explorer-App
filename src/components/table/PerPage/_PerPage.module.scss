@@ -1,3 +1,12 @@
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
 .perPage {
-  align-self: flex-start;
+  @include typography(400, 14px, 21px, $c-text-main);
+  display: flex;
+  gap: 5px;
+
+  &__text {
+    font-weight: 700;
+  }
 }

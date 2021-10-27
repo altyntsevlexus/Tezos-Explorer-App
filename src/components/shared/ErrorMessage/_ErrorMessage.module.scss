@@ -1,4 +1,5 @@
-@import "/src/styles/extends";
+@import '/src/styles/variables';
+@import '/src/styles/extends';
 
 .error-massage {
   @extend %table-substitute;

@@ -1,11 +1,7 @@
-@import "/src/styles/variables";
-@import "/src/styles/mixins";
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
 
 .copy {
   display: flex;
   justify-content: space-between;
-
-  &__text {
-    @include typography(400, 12px, 14px, $c-text-main);
-  }
 }

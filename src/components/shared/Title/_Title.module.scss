@@ -1,9 +1,8 @@
 @import '/src/styles/variables';
-@import 'src/styles/mixins';
+@import '/src/styles/mixins';
 
 .title {
-  @include typography(700, 48px, 150%, $c-text-main);
-  letter-spacing: -0.06em;
+  @include typography(700, 48px, 72px, $c-text-main);
   text-align: center;
-  margin-bottom: 100px;
+  margin: 60px 0 100px;
 }

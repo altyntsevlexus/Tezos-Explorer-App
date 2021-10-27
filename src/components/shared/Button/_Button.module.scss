@@ -1,16 +1,12 @@
-@import "/src/styles/variables";
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
 
 .button {
   width: 75px;
   height: 30px;
-
-  border: none;
   border-radius: 5px;
   background: $c-button-background;
   text-transform: uppercase;
-  font: {
-    size: 13px;
-    weight: 900;
-  }
-  color: $c-button-text;
+  @include typography(900, 13px, 15px, $c-button-text);
+  letter-spacing: 0.04em;
 }

@@ -1,9 +1,13 @@
-@import "/src/styles/extends";
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import '/src/styles/extends';
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: Roboto, sans-serif;
+  @include typography(400, 12px, 14px, $c-text-main);
 
   padding: 25px 15px;
 

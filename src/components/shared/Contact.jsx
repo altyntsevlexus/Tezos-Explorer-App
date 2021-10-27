@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
-import style from './_Contact.module.scss';
-
-const { contact } = style;
 
 const Contact = ({ href, value, className }) => (
-  <a href={href} className={` ${contact} ${className} `}>
+  <a href={href} className={className}>
     {value}
   </a>
 );
