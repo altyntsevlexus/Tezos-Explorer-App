@@ -1,11 +1,11 @@
-import propTypes from 'prop-types';
+import useCurrentLocation from '../../../hooks/useCurrentLocation';
 
-const Breadcrumbs = ({ value }) => {
-  return <p>{value}</p>;
-};
+import styled from './_Breadcrumbs.module.scss';
 
-Breadcrumbs.propTypes = {
-  value: propTypes.string.isRequired,
+const Breadcrumbs = () => {
+  const { breadcrumbs } = useCurrentLocation();
+
+  return <p className={styled.breadcrumbs}>{breadcrumbs}</p>;
 };
 
 export default Breadcrumbs;

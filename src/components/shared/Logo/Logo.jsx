@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom';
 import styles from './_Logo.module.scss';
 
 const { logo } = styles;
 
 const Logo = () => (
   // eslint-disable-next-line jsx-a11y/anchor-is-valid
-  <a href="#" className={logo}>
+  <Link to="/blocks" className={logo}>
     Logo
-  </a>
+  </Link>
 );
 
 export default Logo;

@@ -1,16 +1,12 @@
 .pagination {
   display: flex;
-  max-width: 200px;
-  width: 100%;
-  justify-content: space-between;
+  gap: 14px;
   align-self: flex-end;
+  font-family: Roboto;
+  font-size: 12px;
 
   &__item {
-    background: none;
-    outline: none;
-    border: none;
-    font-family: Roboto;
-    flex: 1;
+    padding: 0;
     opacity: 0.3;
     transition: opacity 0.3s;
 
@@ -21,5 +17,14 @@
     &--t--active {
       opacity: 1;
     }
+  }
+
+  &__arrows {
+    display: flex;
+    gap: 4px;
+  }
+
+  &__arrow {
+    padding: 0;
   }
 }

@@ -35,20 +35,22 @@ const Pagination = ({ onPageChanged, currentPage }) => {
 
   return (
     <div className={styled.pagination}>
-      <button
-        type="button"
-        className={styled.pagination__item}
-        onClick={() => handlePreviousPage(2)}
-      >
-        {'<<'}
-      </button>
-      <button
-        type="button"
-        className={styled.pagination__item}
-        onClick={() => handlePreviousPage(1)}
-      >
-        {'<'}
-      </button>
+      <div className={styled.pagination__arrows}>
+        <button
+          type="button"
+          className={styled.pagination__arrow}
+          onClick={() => handlePreviousPage(2)}
+        >
+          {'<<'}
+        </button>
+        <button
+          type="button"
+          className={styled.pagination__arrow}
+          onClick={() => handlePreviousPage(1)}
+        >
+          {'<'}
+        </button>
+      </div>
       {pages.map((pageNum) => (
         <button
           type="button"
@@ -64,20 +66,22 @@ const Pagination = ({ onPageChanged, currentPage }) => {
           {pageNum}
         </button>
       ))}
-      <button
-        type="button"
-        className={styled.pagination__item}
-        onClick={() => handleNextPage(1)}
-      >
-        {'>'}
-      </button>
-      <button
-        type="button"
-        className={styled.pagination__item}
-        onClick={() => handleNextPage(2)}
-      >
-        {'>>'}
-      </button>
+      <div className={styled.pagination__arrows}>
+        <button
+          type="button"
+          className={styled.pagination__arrow}
+          onClick={() => handleNextPage(1)}
+        >
+          {'>'}
+        </button>
+        <button
+          type="button"
+          className={styled.pagination__arrow}
+          onClick={() => handleNextPage(2)}
+        >
+          {'>>'}
+        </button>
+      </div>
     </div>
   );
 };

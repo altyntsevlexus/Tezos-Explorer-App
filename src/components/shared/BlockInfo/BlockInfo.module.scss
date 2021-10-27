@@ -1,0 +1,14 @@
+.block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(530px, 2fr));
+  grid-template-rows: repeat(6, 1fr);
+  flex-wrap: wrap;
+  gap: 5px;
+  border: 1px solid black;
+  padding: 15px;
+
+  &__item {
+    display: flex;
+    gap: 5px;
+  }
+}
