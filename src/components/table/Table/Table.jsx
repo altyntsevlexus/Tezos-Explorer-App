@@ -5,12 +5,17 @@ import { useBlocksState } from '../../../context/blocksContext';
 import Th from '../Th';
 
 import styled from './_Table.module.scss';
+import ErrorMessage from '../../shared/ErrorMessage';
 
 const Table = ({ cols, rows, currentSort, sortFunction }) => {
-  const { isLoading } = useBlocksState();
+  const { isLoading, isError } = useBlocksState();
 
   if (isLoading) {
     return <div className={styled.table__loader}>Loading...</div>;
+  }
+
+  if (isError) {
+    return <ErrorMessage />;
   }
 
   return (

@@ -1,0 +1,6 @@
+@import "/src/styles/extends";
+
+.error-massage {
+  @extend %table-substitute;
+  @extend %section-border;
+}
