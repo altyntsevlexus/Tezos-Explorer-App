@@ -7,7 +7,7 @@ import Breadcrumbs from '../../components/shared/Breadcrumbs';
 import useCurrentLocation from '../../hooks/useCurrentLocation';
 import { useBlockState } from '../../context/blockContext';
 
-import styled from './block.module.scss';
+import styled from './_block.module.scss';
 import BlockInfo from '../../components/shared/BlockInfo';
 
 const HEADERS = [
