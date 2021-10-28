@@ -3,7 +3,15 @@ import { createContext, useContext } from 'react';
 
 const NetworkStateContext = createContext('');
 
-const useNetworkState = () => useContext(NetworkStateContext);
+const useNetworkState = () => {
+  const context = useContext(NetworkStateContext);
+
+  if (!context) {
+    throw new Error('useNetworkState must be used within a NetworkProvider');
+  }
+
+  return context;
+};
 
 const NetworkProvider = ({ children }) => (
   <NetworkStateContext.Provider value="mainnet">

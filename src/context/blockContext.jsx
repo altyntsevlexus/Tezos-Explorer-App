@@ -5,7 +5,15 @@ import { useNetworkState } from './networkContext';
 import useTransformDate from '../hooks/useTransformDate';
 
 const BlockStateContext = createContext([]);
-const useBlockState = () => useContext(BlockStateContext);
+const useBlockState = () => {
+  const context = useContext(BlockStateContext);
+
+  if (!context) {
+    throw new Error('BlockStateContext must be used within a BlockProvider');
+  }
+
+  return context;
+};
 
 const transformBlockData = (block) => {
   const {
