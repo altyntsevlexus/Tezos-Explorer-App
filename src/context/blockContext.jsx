@@ -2,20 +2,10 @@ import { createContext, useContext, useState } from 'react';
 import propTypes from 'prop-types';
 import { getBlock } from '../api';
 import { useNetworkState } from './networkContext';
+import useTransformDate from '../hooks/useTransformDate';
 
 const BlockStateContext = createContext([]);
 const useBlockState = () => useContext(BlockStateContext);
-
-const transformDate = (date) => {
-  const year = date.getFullYear();
-  const month = `0${date.getMonth() + 1}`.slice(-2);
-  const day = date.getDate();
-  const hours = `0${date.getHours()}`.slice(-2);
-  const minutes = `0${date.getMinutes()}`.slice(-2);
-  const seconds = `0${date.getSeconds()}`.slice(-2);
-
-  return `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
-};
 
 const transformBlockData = (block) => {
   const {
@@ -34,7 +24,7 @@ const transformBlockData = (block) => {
   } = block.block;
 
   const newDate = new Date(timestamp * 1000);
-  const date = transformDate(newDate);
+  const date = useTransformDate(newDate);
 
   return {
     hash: hash || '-----',
