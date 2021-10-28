@@ -1,12 +1,14 @@
-import useCurrentLocation from '../../hooks/useCurrentLocation';
+import useCurrentLocation from '../../../hooks/useCurrentLocation';
 
-import BreadcrumbsItem from './BreadcrumsItem';
+import BreadcrumbsItem from '../BreadcrumsItem';
+
+import styles from './_Breadcrumbs.module.scss';
 
 const Breadcrumbs = () => {
   const { breadcrumbs } = useCurrentLocation();
 
   return (
-    <div>
+    <div className={styles.breadcrumbs}>
       {breadcrumbs.map((link, index) => {
         if (index === breadcrumbs.length - 1) {
           return <span key="lastItem">{link}</span>;

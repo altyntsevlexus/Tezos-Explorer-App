@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
 import Title from '../components/shared/Title';
-import Breadcrumbs from '../components/shared/Breadcrumbs';
+import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
 import useCurrentLocation from '../hooks/useCurrentLocation';
 import { useBlockState } from '../context/blockContext';
