@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useBlocksState } from '../../context/blocksContext';
 
 import Title from '../../components/shared/Title';
-import Breadcrumbs from '../../components/shared/Breadcrumbs';
+import Breadcrumbs from '../../components/shared/Breadcrumbs/Breadcrumbs';
 import Pagination from '../../components/table/Pagination';
 import Table from '../../components/table/Table';
 import PerPage from '../../components/table/PerPage';
