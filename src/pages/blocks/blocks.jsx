@@ -104,11 +104,11 @@ const Blocks = () => {
   const { title } = useCurrentLocation();
 
   return (
-    <main className={`wrapper ${styled.blocks}`}>
+    <main className="wrapper">
       <Breadcrumbs />
       <Title value={title} />
       <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
-      <div className={styled.blocks__overflow}>
+      <div className={styled.blocks}>
         <Table
           cols={HEADERS}
           rows={blocks}

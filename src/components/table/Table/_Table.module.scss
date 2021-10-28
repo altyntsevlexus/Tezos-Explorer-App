@@ -1,3 +1,4 @@
+@import '/src/styles/variables';
 @import '/src/styles/extends';
 
 .table {
@@ -5,7 +6,7 @@
   border-collapse: collapse;
 
   &__loader {
-    @extend %table-substitute
+    @extend %table-substitute;
   }
 }
 

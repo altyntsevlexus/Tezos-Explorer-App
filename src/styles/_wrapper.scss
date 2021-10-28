@@ -2,7 +2,14 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 25px 0;
+  padding: 25px 50px;
+  font-family: Fira Code, sans-serif;
+  @include typography(400, 12px, 18px, $c-text-main);
+  letter-spacing: -0.06em;
+
+  @media (min-width: 1200px) {
+    padding: 25px 0;
+  }
 }
 
 #root {

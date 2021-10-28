@@ -4,7 +4,7 @@ import styled from './_PerPage.module.scss';
 
 const PerPage = ({ limit, handleChangeLimit }) => (
   <div className={styled.perPage}>
-    <span>Per page:</span>
+    <span className={styled.perPage__text}>Per page:</span>
     <select name="limit" onChange={handleChangeLimit} value={limit}>
       <option value="15">15</option>
       <option value="30">30</option>

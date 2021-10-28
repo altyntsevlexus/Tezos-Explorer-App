@@ -1,7 +1,10 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
 @import '/src/styles/extends';
 
 .footer {
   padding: 15px;
-
+  font-family: Roboto, sans-serif;
+  @include typography(400, 12px, 14px, $c-text-main);
   @extend %section-border;
 }

@@ -1,3 +1,6 @@
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
 .block {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(530px, 2fr));
@@ -6,9 +9,14 @@
   gap: 5px;
   border: 1px solid black;
   padding: 15px;
+  @include typography(400, 14px, 21px, $c-text-main);
 
   &__item {
     display: flex;
     gap: 5px;
+  }
+
+  &__header {
+    font-weight: 700;
   }
 }

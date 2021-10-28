@@ -3,19 +3,18 @@ import { useLocation } from 'react-router';
 const useCurrentLocation = () => {
   const { pathname } = useLocation();
 
-  let splitted = pathname.split('/');
+  let breadcrumbs = pathname.split('/');
 
-  splitted[0] = 'Home';
+  breadcrumbs[0] = 'Home';
 
-  splitted = splitted.map((i) => {
+  breadcrumbs = breadcrumbs.map((i) => {
     if (Number(i)) {
       return Number(i).toLocaleString();
     }
     return i.charAt(0).toUpperCase() + i.slice(1);
   });
 
-  const breadcrumbs = splitted.join(' > ');
-  const title = splitted[splitted.length - 1];
+  const title = breadcrumbs[breadcrumbs.length - 1];
 
   return { breadcrumbs, title };
 };

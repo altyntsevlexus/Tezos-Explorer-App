@@ -38,7 +38,7 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
           <tr key={row.level}>
             {cols.map((col) =>
               col.key === 'level' ? (
-                <td key={row.level + row[col.key]}>
+                <td key={row.level + col.key}>
                   <Link to={`blocks/${row[col.key]}`}>{row[col.key]} </Link>
                 </td>
               ) : (
