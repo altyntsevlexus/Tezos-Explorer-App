@@ -5,7 +5,15 @@ import { useNetworkState } from './networkContext';
 import useTransformDate from '../hooks/useTransformDate';
 
 const BlocksStateContext = createContext([]);
-const useBlocksState = () => useContext(BlocksStateContext);
+const useBlocksState = () => {
+  const context = useContext(BlocksStateContext);
+
+  if (!context) {
+    throw new Error('useBlocksState must be used within a BlocksProvider');
+  }
+
+  return context;
+};
 
 const transformBlocksData = (blocks) =>
   blocks.map((block) => {
