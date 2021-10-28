@@ -12,7 +12,7 @@ import useCurrentLocation from '../../hooks/useCurrentLocation';
 
 const HEADERS = [
   {
-    name: 'Block Id',
+    name: 'Block ID',
     key: 'level',
   },
   {
