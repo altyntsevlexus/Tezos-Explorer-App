@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import propTypes from 'prop-types';
 import { getBlock } from '../api';
 import { useNetworkState } from './networkContext';
@@ -64,10 +64,17 @@ const BlockProvider = ({ children }) => {
       .then(() => setIsLoading(false));
   };
 
-  const data = { block, handleBlock, isLoading };
+  const blockValue = useMemo(
+    () => ({
+      block,
+      handleBlock,
+      isLoading,
+    }),
+    [block, handleBlock, isLoading],
+  );
 
   return (
-    <BlockStateContext.Provider value={data}>
+    <BlockStateContext.Provider value={blockValue}>
       {children}
     </BlockStateContext.Provider>
   );

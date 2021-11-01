@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 import propTypes from 'prop-types';
 
 const ThemeStateContext = createContext();
@@ -15,10 +15,16 @@ const useThemeState = () => {
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
-  const data = { theme, setTheme };
+  const stateValue = useMemo(
+    () => ({
+      theme,
+      setTheme,
+    }),
+    [theme, setTheme],
+  );
 
   return (
-    <ThemeStateContext.Provider value={data}>
+    <ThemeStateContext.Provider value={stateValue}>
       <div className={`background theme-${theme}`}>{children}</div>
     </ThemeStateContext.Provider>
   );
