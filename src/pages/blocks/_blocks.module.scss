@@ -1,3 +1,21 @@
+@import '/src/styles/themes';
+@import '/src/styles/variables';
+
 .blocks {
-  padding: 28px 0;
+  padding: 25px;
+  border-radius: 25px;
+  border: 5px solid;
+  box-shadow: 0px 40px 40px rgba(217, 223, 248, 0.35);
+
+  @include useTheme('border-color', 'table-border');
+  @include useTheme('color', 'table-text');
+  @include useTheme('background-color', 'table-fill');
+
+  &__navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 50px;
+    padding: 30px 0 5px;
+    @include useTheme('color', 'table-headers');
+  }
 }

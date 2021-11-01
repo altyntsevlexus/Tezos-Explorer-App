@@ -3,7 +3,6 @@
   width: 100%;
   margin: 0 auto;
   padding: 25px 50px;
-  font-family: Fira Code, sans-serif;
   @include typography(400, 12px, 18px, $c-text-main);
   letter-spacing: -0.06em;
 
@@ -16,4 +15,5 @@
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  font-family: Montserrat, sans-serif;
 }

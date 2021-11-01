@@ -2,29 +2,15 @@
   display: flex;
   gap: 14px;
   float: right;
-  font-family: Roboto, sans-serif;
   font-size: 12px;
 
   &__item {
+    color: inherit;
     padding: 0;
-    opacity: 0.3;
-    transition: opacity 0.3s;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &--t--active {
-      opacity: 1;
-    }
-  }
-
-  &__arrows {
-    display: flex;
-    gap: 4px;
   }
 
   &__arrow {
+    color: inherit;
     padding: 0;
   }
 }

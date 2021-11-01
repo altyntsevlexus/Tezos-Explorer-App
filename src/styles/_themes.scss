@@ -11,9 +11,9 @@ $themes: (
     background: #ecf0f9,
     table-headers: $link,
     table-text: $dark,
-    border: #d9dff8a6,
-    outBorder: #d9dff8,
     table-fill: $white,
+    table-border: #d9dff8,
+    border: #d9dff8a6,
     row-hover: #ecf0f9bf,
   ),
   dark: (
@@ -22,9 +22,9 @@ $themes: (
     background: linear-gradient(#171531ff, #171531ed),
     table-headers: $white,
     table-text: $light,
-    border: #274673a6,
-    outBorder: $dark,
     table-fill: #25233d,
+    table-border: $dark,
+    border: #274673a6,
     row-hover: #2e2b4d,
   ),
 );

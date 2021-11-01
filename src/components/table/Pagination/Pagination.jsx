@@ -1,31 +1,11 @@
-import { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 
 import styled from './_Pagination.module.scss';
 
 const Pagination = ({ onPageChanged, currentPage }) => {
-  const [pages, setPages] = useState([]);
-
-  const handlePages = (page) => {
-    if (page <= 2) {
-      return [1, 2, 3, 4];
-    }
-    return [page - 1, page, page + 1, page + 2];
-  };
-
-  useEffect(() => {
-    setPages(handlePages(currentPage));
-  }, [currentPage]);
-
-  const handleClick = (e) => {
-    onPageChanged(+e.target.value);
-  };
-
-  const handlePreviousPage = (i) => {
-    if (currentPage > i) {
-      onPageChanged(currentPage - i);
-    } else if (currentPage === i) {
-      onPageChanged(1);
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      onPageChanged(currentPage - 1);
     }
   };
 
@@ -35,53 +15,23 @@ const Pagination = ({ onPageChanged, currentPage }) => {
 
   return (
     <div className={styled.pagination}>
-      <div className={styled.pagination__arrows}>
-        <button
-          type="button"
-          className={styled.pagination__arrow}
-          onClick={() => handlePreviousPage(2)}
-        >
-          {'<<'}
-        </button>
-        <button
-          type="button"
-          className={styled.pagination__arrow}
-          onClick={() => handlePreviousPage(1)}
-        >
-          {'<'}
-        </button>
-      </div>
-      {pages.map((pageNum) => (
-        <button
-          type="button"
-          key={pageNum}
-          value={pageNum}
-          onClick={handleClick}
-          className={` ${styled.pagination__item} ${
-            pageNum === currentPage
-              ? styled['pagination__item--t--active']
-              : null
-          }`}
-        >
-          {pageNum}
-        </button>
-      ))}
-      <div className={styled.pagination__arrows}>
-        <button
-          type="button"
-          className={styled.pagination__arrow}
-          onClick={() => handleNextPage(1)}
-        >
-          {'>'}
-        </button>
-        <button
-          type="button"
-          className={styled.pagination__arrow}
-          onClick={() => handleNextPage(2)}
-        >
-          {'>>'}
-        </button>
-      </div>
+      <button
+        type="button"
+        className={styled.pagination__arrow}
+        onClick={() => handlePreviousPage(1)}
+      >
+        {'<'}
+      </button>
+      <button type="button" className={styled.pagination__item}>
+        {currentPage} of 27
+      </button>
+      <button
+        type="button"
+        className={styled.pagination__arrow}
+        onClick={() => handleNextPage(1)}
+      >
+        {'>'}
+      </button>
     </div>
   );
 };

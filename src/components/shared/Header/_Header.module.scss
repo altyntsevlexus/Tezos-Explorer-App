@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Roboto, sans-serif;
   @include typography(400, 12px, 14px, $c-text-main);
 
   padding: 25px 15px;
