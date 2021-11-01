@@ -1,5 +1,6 @@
 @import '/src/styles/variables';
 @import '/src/styles/extends';
+@import '/src/styles/themes';
 
 .table {
   width: 100%;
@@ -8,11 +9,32 @@
   &__loader {
     @extend %table-substitute;
   }
-}
 
-th,
-td {
-  border: 1px solid #ddd;
-  padding: 7px;
-  text-align: left;
+  a {
+    color: $link;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    min-width: 130px;
+  }
+
+  td {
+    padding: 20px 10px;
+  }
+
+  th {
+    padding: 5px 0px 25px 10px;
+  }
+
+  th button {
+    @include useTheme('color', 'table-headers');
+  }
+
+  tfoot {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

@@ -107,7 +107,6 @@ const Blocks = () => {
     <main className="wrapper">
       <Breadcrumbs />
       <Title value={title} />
-      <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
       <div className={styled.blocks}>
         <Table
           cols={HEADERS}
@@ -115,8 +114,11 @@ const Blocks = () => {
           currentSort={sort}
           sortFunction={onSortBy}
         />
+        <nav className={styled.blocks__navigation}>
+          <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
+          <Pagination onPageChanged={onPageChanged} currentPage={currentPage} />
+        </nav>
       </div>
-      <Pagination onPageChanged={onPageChanged} currentPage={currentPage} />
     </main>
   );
 };

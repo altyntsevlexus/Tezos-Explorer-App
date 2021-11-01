@@ -2,11 +2,14 @@
 @import '/src/styles/variables';
 
 .perPage {
-  @include typography(400, 14px, 21px, $c-text-main);
+  @include typography(400, 14px, 21px, inherit);
   display: flex;
   gap: 5px;
 
-  &__text {
-    font-weight: 700;
+  &__select {
+    color: inherit;
+    border: none;
+    outline: none;
+    background: none;
   }
 }
