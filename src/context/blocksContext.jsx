@@ -44,6 +44,7 @@ const transformBlocksData = (blocks) =>
 
 const BlocksProvider = ({ children }) => {
   const [blocks, setBlocks] = useState([]);
+  const [total, setTotal] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -53,16 +54,18 @@ const BlocksProvider = ({ children }) => {
     setIsError(false);
     setIsLoading(true);
     getBlocks(network, offset, limit)
-      .then((response) => transformBlocksData(response.data))
+      .then((response) => {
+        setTotal(response.headers['x-total-count']);
+        return transformBlocksData(response.data);
+      })
       .then((res) => setBlocks(res))
-      .then(() => setIsLoading(false))
       .catch(() => setIsError(true))
       .finally(() => {
         setIsLoading(false);
       });
   };
 
-  const data = { blocks, handleBlocks, isLoading, isError };
+  const data = { blocks, handleBlocks, isLoading, isError, total };
 
   return (
     <BlocksStateContext.Provider value={data}>
