@@ -1,11 +1,9 @@
 @import '/src/styles/themes';
-@import '/src/styles/variables';
 
 .blocks {
   padding: 25px;
   border-radius: 25px;
   border: 5px solid;
-  box-shadow: 0px 40px 40px rgba(217, 223, 248, 0.35);
 
   @include useTheme('border-color', 'table-border');
   @include useTheme('color', 'table-text');

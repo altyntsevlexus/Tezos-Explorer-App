@@ -19,7 +19,7 @@ const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeStateContext.Provider value={data}>
-      <div className={`theme-${theme}`}>{children}</div>
+      <div className={`background theme-${theme}`}>{children}</div>
     </ThemeStateContext.Provider>
   );
 };
