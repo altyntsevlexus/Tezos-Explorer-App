@@ -11,16 +11,16 @@ import BlockInfo from '../components/shared/BlockInfo';
 
 const HEADERS = [
   { name: 'Hash', key: 'hash' },
+  { name: 'Block time', key: 'blockTime' },
   { name: 'Created at', key: 'timestamp' },
+  { name: 'Block fitness', key: 'fitness' },
   { name: 'Baker', key: 'baker' },
+  { name: 'Gas used', key: 'gas' },
   { name: "Baker's fee", key: 'fees' },
   { name: "Baker's priority", key: 'priority' },
-  { name: 'Transactions volume', key: 'volume' },
-  { name: 'Block time', key: 'blockTime' },
-  { name: 'Block fitness', key: 'fitness' },
-  { name: 'Gas used', key: 'gas' },
   { name: 'Protocol version', key: 'protocol' },
   { name: 'Cycle', key: 'cycle' },
+  { name: 'Transactions volume', key: 'volume' },
   { name: 'Cycle position', key: 'cyclePosition' },
 ];
 

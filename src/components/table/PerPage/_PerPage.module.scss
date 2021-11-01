@@ -2,7 +2,6 @@
 @import '/src/styles/variables';
 
 .perPage {
-  @include typography(400, 14px, 21px, inherit);
   display: flex;
   gap: 5px;
 

@@ -1,6 +1,6 @@
+import { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import useCurrentLocation from '../../../hooks/useCurrentLocation';
-
-import BreadcrumbsItem from '../BreadcrumsItem';
 
 import styles from './_Breadcrumbs.module.scss';
 
@@ -14,7 +14,12 @@ const Breadcrumbs = () => {
           return <span key="lastItem">{link}</span>;
         }
 
-        return <BreadcrumbsItem href={link} value={link} key={link} />;
+        return (
+          <Fragment key={link}>
+            <Link to={`/${link.toLowerCase()}`}>{link}</Link>
+            <span>{' > '}</span>
+          </Fragment>
+        );
       })}
     </div>
   );

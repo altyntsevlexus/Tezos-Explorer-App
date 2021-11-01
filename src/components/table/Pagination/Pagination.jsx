@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 
 import styled from './_Pagination.module.scss';
 
-const Pagination = ({ onPageChanged, currentPage }) => {
+const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
   const handlePreviousPage = () => {
     if (currentPage > 1) {
       onPageChanged(currentPage - 1);
@@ -22,9 +22,9 @@ const Pagination = ({ onPageChanged, currentPage }) => {
       >
         {'<'}
       </button>
-      <button type="button" className={styled.pagination__item}>
-        {currentPage} of 27
-      </button>
+      <p className={styled.pagination__item}>
+        {currentPage} of {totalPages}
+      </p>
       <button
         type="button"
         className={styled.pagination__arrow}
@@ -39,6 +39,7 @@ const Pagination = ({ onPageChanged, currentPage }) => {
 Pagination.propTypes = {
   onPageChanged: propTypes.func.isRequired,
   currentPage: propTypes.number.isRequired,
+  totalPages: propTypes.number.isRequired,
 };
 
 export default Pagination;

@@ -53,13 +53,15 @@ const byField = (field) => (a, b) => {
 };
 
 const Blocks = () => {
-  const { blocks, handleBlocks } = useBlocksState();
+  const { blocks, handleBlocks, total } = useBlocksState();
   const [limit, setLimit] = useState('15');
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState({
     key: 'level',
     direction: false,
   });
+
+  const totalPages = Math.ceil(total / limit);
 
   const onPageChanged = (page) => {
     setCurrentPage(page);
@@ -116,7 +118,11 @@ const Blocks = () => {
         />
         <nav className={styled.blocks__navigation}>
           <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
-          <Pagination onPageChanged={onPageChanged} currentPage={currentPage} />
+          <Pagination
+            onPageChanged={onPageChanged}
+            currentPage={currentPage}
+            totalPages={totalPages}
+          />
         </nav>
       </div>
     </main>

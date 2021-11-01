@@ -1,0 +1,17 @@
+@import '../../../styles/themes';
+
+.baker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: inherit;
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  &__value {
+    color: $link;
+  }
+}
