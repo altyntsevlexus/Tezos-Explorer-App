@@ -1,13 +1,12 @@
 .wrapper {
-  max-width: 1200px;
+  max-width: 1380px;
   width: 100%;
   margin: 0 auto;
-  padding: 25px 50px;
-  @include typography(400, 12px, 18px, $c-text-main);
-  letter-spacing: -0.06em;
+  padding: 50px;
+  @include typography(400, 14px, 18px, inherit);
 
   @media (min-width: 1200px) {
-    padding: 25px 0;
+    padding: 50px 0 110px;
   }
 }
 
@@ -16,4 +15,21 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   font-family: Montserrat, sans-serif;
+}
+
+.background {
+  background: {
+    image: url('../images/background.png');
+    repeat: no-repeat;
+    size: cover;
+    position: center;
+  }
+}
+
+.theme-light {
+  background-color: $background-light;
+}
+
+.theme-dark {
+  background-image: $background-dark;
 }

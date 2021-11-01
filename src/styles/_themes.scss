@@ -3,28 +3,28 @@ $dark: #2d3b59;
 $light: #f0f2f4;
 $white: #ffffff;
 $link: #536dfb;
+$background-light: #ecf0f9;
+$background-dark: linear-gradient(145deg, #171531ff, #171531ed);
 
 $themes: (
   light: (
     header-footer: #274673,
     title: $dark,
-    background: #ecf0f9,
     table-headers: $link,
     table-text: $dark,
     table-fill: $white,
     table-border: #d9dff8,
-    border: #d9dff8a6,
+    row-border: #d9dff8a6,
     row-hover: #ecf0f9bf,
   ),
   dark: (
     header-footer: #1e1c37,
     title: $light,
-    background: linear-gradient(#171531ff, #171531ed),
     table-headers: $white,
     table-text: $light,
     table-fill: #25233d,
     table-border: $dark,
-    border: #274673a6,
+    row-border: #274673a6,
     row-hover: #2e2b4d,
   ),
 );
