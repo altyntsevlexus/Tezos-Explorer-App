@@ -38,14 +38,16 @@ body {
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
-ul[class],
-ol[class] {
+ul,
+ol {
   list-style: none;
 }
 
 a {
   text-decoration-skip-ink: auto;
   text-decoration: none;
+  color: inherit;
+  font-size: inherit;
 }
 
 /* Упрощаем работу с изображениями */

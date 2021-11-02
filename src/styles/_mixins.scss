@@ -1,4 +1,4 @@
-@mixin typography($weight, $size, $height, $color) {
+@mixin typography($weight, $size, $height, $color: inherit) {
   font: {
     weight: $weight;
     size: $size;

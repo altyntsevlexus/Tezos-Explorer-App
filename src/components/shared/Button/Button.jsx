@@ -1,13 +1,22 @@
 import PropTypes from 'prop-types';
 import styles from './_Button.module.scss';
 
-const { button } = styles;
+const viewportWidth = window.innerWidth;
 
-const Button = ({ buttonValue }) => (
-  <button type="button" className={button}>
-    {buttonValue}
-  </button>
-);
+const Button = ({ buttonValue }) => {
+  if (viewportWidth < 830) {
+    return (
+      // eslint-disable-next-line jsx-a11y/anchor-has-content
+      <a className={styles.button__link} href="/login" aria-label="Login" />
+    );
+  }
+
+  return (
+    <button type="button" className={styles.button}>
+      {buttonValue}
+    </button>
+  );
+};
 
 export default Button;
 

@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Contact = ({ href, value, className }) => (
-  <a href={href} className={className}>
+  <Link to={href} className={className}>
     {value}
-  </a>
+  </Link>
 );
 
 export default Contact;

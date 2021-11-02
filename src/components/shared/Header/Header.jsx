@@ -1,13 +1,15 @@
 import styles from './_Header.module.scss';
 import Logo from '../Logo';
 import Button from '../Button';
-
-const { header } = styles;
+import Navigation from '../Navigation';
 
 const Header = () => (
-  <header className={header}>
+  <header className={styles.header}>
     <Logo />
-    <Button />
+    <div className={styles.header__wrapper}>
+      <Navigation />
+      <Button />
+    </div>
   </header>
 );
 
