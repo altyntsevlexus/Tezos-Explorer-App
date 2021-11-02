@@ -1,11 +1,11 @@
 import styles from './_Copy.module.scss';
 import Logo from '../Logo/Logo';
 
-const { copy } = styles;
+const { copy, copy__text } = styles;
 
 const Copy = () => (
   <div className={copy}>
-    <span>@ Copyright. Company name. 2021</span>
+    <address className={copy__text}>@ Copyright. Company name. 2021</address>
     <Logo />
   </div>
 );

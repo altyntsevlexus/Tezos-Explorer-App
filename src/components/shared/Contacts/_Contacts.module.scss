@@ -1,10 +1,12 @@
+@import '/src/styles/mixins';
+
 .contacts {
   display: flex;
   justify-content: space-between;
   max-width: 200px;
   margin-bottom: 35px;
 
-  &__item {
+  &__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,5 +15,10 @@
     &:not(:last-child) {
       margin-right: 45px;
     }
+  }
+
+  &__item {
+    @include typography(500, 14px, 17px);
+    margin-bottom: 16px;
   }
 }

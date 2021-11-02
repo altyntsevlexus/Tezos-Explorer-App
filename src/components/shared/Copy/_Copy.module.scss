@@ -4,4 +4,10 @@
 .copy {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  &__text {
+    display: flex;
+    margin-left: calc(50% - (209px / 2));
+  }
 }

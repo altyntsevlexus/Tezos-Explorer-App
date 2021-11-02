@@ -1,8 +1,9 @@
-@import '/src/styles/variables';
 @import '/src/styles/mixins';
 @import '/src/styles/extends';
+@import '/src/styles/themes';
 
 .footer {
   padding: 15px;
-  @include typography(400, 12px, 14px, $c-text-main);
+  @include typography(400, 12px, 14px, $light);
+  @include useTheme('background', 'header-footer');
 }
