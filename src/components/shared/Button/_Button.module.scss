@@ -3,14 +3,13 @@
 @import '/src/styles/themes';
 
 .button {
-  width: 75px;
-  height: 30px;
+  width: 130px;
+  height: 42px;
   border: 1px solid {
     radius: 5px;
   };
   background: $c-button-background;
-  text-transform: uppercase;
-  @include typography(900, 13px, 15px, $c-button-text);
+  @include typography(400, 18px, 15px, $c-button-text);
   @include useTheme('background', 'button-background');
   @include useTheme('color', 'button-color');
   @include useTheme('border-color', 'button-border');
