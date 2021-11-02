@@ -4,9 +4,16 @@
 @import '/src/styles/themes';
 
 .table {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
   text-align: left;
+
+  @media (min-width: 1200px) {
+    display: table;
+  }
 
   &__loader {
     @extend %table-substitute;
