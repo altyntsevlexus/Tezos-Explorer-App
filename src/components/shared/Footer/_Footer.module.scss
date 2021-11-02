@@ -5,5 +5,4 @@
 .footer {
   padding: 15px;
   @include typography(400, 12px, 14px, $c-text-main);
-  @extend %section-border;
 }

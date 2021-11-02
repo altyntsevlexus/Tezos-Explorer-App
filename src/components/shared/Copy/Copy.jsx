@@ -1,5 +1,5 @@
 import styles from './_Copy.module.scss';
-import Logo from '../Logo';
+import Logo from '../Logo/Logo';
 
 const { copy } = styles;
 

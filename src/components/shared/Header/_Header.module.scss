@@ -1,14 +1,13 @@
-@import '/src/styles/variables';
 @import '/src/styles/mixins';
 @import '/src/styles/extends';
+@import '/src/styles/themes';
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include typography(400, 12px, 14px, $c-text-main);
+  @include typography(400, 12px, 14px, $light);
+  @include useTheme('background-color', 'header-footer');
 
   padding: 25px 15px;
-
-  @extend %section-border;
 }
