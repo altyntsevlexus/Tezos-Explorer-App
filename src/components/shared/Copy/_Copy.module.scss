@@ -6,8 +6,28 @@
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 834px) {
+    flex-direction: column-reverse;
+  }
+
   &__text {
     display: flex;
     margin-left: calc(50% - (209px / 2));
+
+    @media (max-width: 834px) {
+      margin-left: 0;
+    }
+  }
+
+  .copy__logo {
+    @media (max-width: 834px) {
+      align-self: flex-end;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 449px) {
+      align-self: center;
+      margin-bottom: 30px;
+    }
   }
 }
