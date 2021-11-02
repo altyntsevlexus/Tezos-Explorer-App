@@ -1,0 +1,6 @@
+@import '/src/styles/themes';
+@import '/src/styles/mixins';
+
+.logo {
+  @include typography(700, 24px, 29px, $light);
+}
