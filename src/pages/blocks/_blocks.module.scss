@@ -1,19 +1,27 @@
 @import '/src/styles/themes';
 
 .blocks {
-  padding: 25px;
+  padding: 15px;
   border-radius: 25px;
   border: 5px solid;
-
+  width: 100%;
   @include useTheme('border-color', 'table-border');
   @include useTheme('color', 'table-text');
   @include useTheme('background-color', 'table-fill');
 
+  @media (min-width: 1200px) {
+    padding: 25px;
+  }
+
   &__navigation {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 50px;
     padding: 30px 0 5px;
     @include useTheme('color', 'table-headers');
+
+    @media (min-width: 1200px) {
+      justify-content: flex-end;
+    }
   }
 }
