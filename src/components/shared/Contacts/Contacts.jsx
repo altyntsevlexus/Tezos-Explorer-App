@@ -1,8 +1,6 @@
 import styles from './_Contacts.module.scss';
 import Contact from '../Contact';
 
-const { contacts } = styles;
-
 const LINKS_CONFIG = [
   { id: 0, value: 'Home', href: '/home' },
   { id: 1, value: 'Blocks ', href: '/blocks' },
@@ -16,7 +14,7 @@ const LINKS_CONFIG = [
 ];
 
 const Contacts = () => (
-  <div className={contacts}>
+  <div className={styles.contacts}>
     <div className={styles.contacts__wrapper}>
       {LINKS_CONFIG.slice(0, 3).map((item) => {
         const { id, value, href } = item;
