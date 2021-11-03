@@ -6,7 +6,7 @@
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 834px) {
+  @include media(tablet) {
     flex-direction: column-reverse;
   }
 
@@ -14,18 +14,18 @@
     display: flex;
     margin-left: calc(50% - (209px / 2));
 
-    @media (max-width: 834px) {
+    @include media(tablet) {
       margin-left: 0;
     }
   }
 
-  .copy__logo {
-    @media (max-width: 834px) {
+  &__logo {
+    @include media(tablet) {
       align-self: flex-end;
       margin-bottom: 20px;
     }
 
-    @media (max-width: 449px) {
+    @include media(mobile) {
       align-self: center;
       margin-bottom: 30px;
     }

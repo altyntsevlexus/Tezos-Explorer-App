@@ -1,4 +1,5 @@
 @import '/src/styles/themes';
+@import '/src/styles/mixins';
 
 .blocks {
   padding: 25px;
@@ -8,7 +9,7 @@
   @include useTheme('color', 'table-text');
   @include useTheme('background-color', 'table-fill');
 
-  @media (max-width: 1380px) {
+  @include media(desktop) {
     padding: 15px;
   }
 
@@ -23,7 +24,7 @@
     padding: 30px 0 5px;
     @include useTheme('color', 'table-headers');
 
-    @media (max-width: 1380px) {
+    @include media(desktop) {
       justify-content: space-between;
       gap: 0px;
     }

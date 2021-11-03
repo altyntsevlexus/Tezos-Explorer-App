@@ -18,7 +18,7 @@
     width: 100%;
     max-width: 682px;
 
-    @media (max-width: 829px) {
+    @include media(tablet) {
       flex-direction: row-reverse;
       max-width: 60px;
     }

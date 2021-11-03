@@ -5,7 +5,7 @@
   padding: 50px 0 110px;
   @include typography(400, 14px, 18px, inherit);
 
-  @media (max-width: 1380px) {
+  @include media(desktop) {
     padding: 50px 30px 110px;
   }
 
