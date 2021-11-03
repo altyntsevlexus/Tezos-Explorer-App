@@ -7,3 +7,9 @@
   color: $color;
   line-height: $height;
 }
+
+@mixin media($point) {
+  @media only screen and (max-width: $point) {
+    @content;
+  }
+}

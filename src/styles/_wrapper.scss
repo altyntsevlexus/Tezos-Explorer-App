@@ -2,11 +2,11 @@
   max-width: 1380px;
   width: 100%;
   margin: 0 auto;
-  padding: 50px 30px 110px;
+  padding: 50px 0 110px;
   @include typography(400, 14px, 18px, inherit);
 
-  @media (min-width: 1380px) {
-    padding: 50px 0 110px;
+  @media (max-width: 1380px) {
+    padding: 50px 30px 110px;
   }
 
   &__block-title {

@@ -3,8 +3,8 @@
 
 .block {
   display: grid;
-  grid-template-columns: minmax(100px, 535px);
-  grid-template-rows: repeat(12, auto);
+  grid-template-columns: repeat(2, 535px);
+  grid-template-rows: repeat(6, auto);
   grid-auto-flow: column;
   row-gap: 8px;
   column-gap: 165px;
@@ -12,9 +12,9 @@
   border-radius: 25px;
   border: 5px solid;
 
-  @media (min-width: 1380px) {
-    grid-template-columns: repeat(2, 535px);
-    grid-template-rows: repeat(6, auto);
+  @media (max-width: 1380px) {
+    grid-template-columns: minmax(100px, 535px);
+    grid-template-rows: repeat(12, auto);
   }
 
   @include typography(400, 16px, 20px, inherit);
@@ -24,13 +24,13 @@
 
   &__item {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    gap: 50px;
     padding: 5px;
 
-    @media (min-width: 600px) {
-      flex-direction: row;
-      gap: 50px;
+    @media (max-width: 600px) {
+      flex-direction: column;
+      gap: 8px;
     }
   }
 
