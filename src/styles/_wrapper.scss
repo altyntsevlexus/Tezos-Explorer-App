@@ -27,10 +27,9 @@
 
 .theme-dark {
   background: {
-    image: url('../images/background3.png');
+    image: url('../images/background3.png'), $background-dark;
     repeat: no-repeat;
     size: cover;
     position: center;
   }
-  background-image: $background-dark;
 }
