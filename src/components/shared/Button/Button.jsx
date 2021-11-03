@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './_Button.module.scss';
 
 const Button = ({ buttonValue }) => {
@@ -13,10 +14,9 @@ const Button = ({ buttonValue }) => {
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  if (width < 830) {
+  if (width < 834) {
     return (
-      // eslint-disable-next-line jsx-a11y/anchor-has-content
-      <a className={styles.button__link} href="/login" aria-label="Login" />
+      <Link className={styles.button__link} to="/login" aria-label="Login" />
     );
   }
 

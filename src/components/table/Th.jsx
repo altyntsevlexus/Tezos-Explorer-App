@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Th = ({ headerName, sortBy, currentSort, sortFunction }) => {
   const sortArrow = () => {
@@ -20,10 +20,10 @@ const Th = ({ headerName, sortBy, currentSort, sortFunction }) => {
 };
 
 Th.propTypes = {
-  headerName: propTypes.string.isRequired,
-  sortBy: propTypes.string,
-  currentSort: propTypes.shape(),
-  sortFunction: propTypes.func,
+  headerName: PropTypes.string.isRequired,
+  sortBy: PropTypes.string,
+  currentSort: PropTypes.shape(),
+  sortFunction: PropTypes.func,
 };
 
 Th.defaultProps = {

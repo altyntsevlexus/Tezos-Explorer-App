@@ -16,7 +16,11 @@ const Baker = ({ value }) => {
 };
 
 Baker.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
+};
+
+Baker.defaultProps = {
+  value: 'Baker',
 };
 
 export default Baker;

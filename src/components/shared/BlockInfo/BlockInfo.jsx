@@ -1,4 +1,5 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
 import Baker from '../Baker';
 
 import styled from './BlockInfo.module.scss';
@@ -26,8 +27,8 @@ const BlockInfo = ({ headers, block }) => {
 };
 
 BlockInfo.propTypes = {
-  headers: propTypes.arrayOf(propTypes.shape()).isRequired,
-  block: propTypes.shape().isRequired,
+  headers: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  block: PropTypes.shape().isRequired,
 };
 
 export default BlockInfo;
