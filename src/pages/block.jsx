@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import Title from '../components/shared/Title';
+// import Title from '../components/shared/Title';
 import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
 import useCurrentLocation from '../hooks/useCurrentLocation';
 import { useBlockState } from '../context/blockContext';
 
 import BlockInfo from '../components/shared/BlockInfo';
+import BlockTitle from '../components/shared/BlockTitle';
 
 const HEADERS = [
   { name: 'Hash', key: 'hash' },
@@ -36,7 +37,7 @@ const Block = () => {
   return (
     <div className="wrapper">
       <Breadcrumbs />
-      <Title value={`< Block: ${title} >`} />
+      <BlockTitle content={title} className="wrapper__block-title" />
       <BlockInfo headers={HEADERS} block={block} />
     </div>
   );

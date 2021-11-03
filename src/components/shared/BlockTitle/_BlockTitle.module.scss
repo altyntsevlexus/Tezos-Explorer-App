@@ -1,0 +1,44 @@
+@import "/src/styles/mixins";
+@import "/src/styles/themes";
+
+.block-title {
+  @include typography(600, 32px, 39px);
+  @include useTheme('color', 'title');
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 69px;
+
+  @media (max-width: 419px) {
+    @include typography(600, 24px, 29px);
+    max-height: 59px;
+  }
+
+  &__title {
+    @media (max-width: 419px) {
+      @include typography(600, 24px, 29px);
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 35px;
+
+    @media (max-width: 419px) {
+      margin: 0 10px;
+    }
+  }
+
+  &__sub-title {
+    @include typography(400, 18px, 22px);
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+  }
+}

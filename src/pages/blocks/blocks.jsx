@@ -108,7 +108,7 @@ const Blocks = () => {
   return (
     <main className="wrapper">
       <Breadcrumbs />
-      <Title value={title} />
+      <Title value={title} className={styled.blocks__title} />
       <div className={styled.blocks}>
         <Table
           cols={HEADERS}
