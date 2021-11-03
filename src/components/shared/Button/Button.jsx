@@ -3,15 +3,17 @@ import { useEffect, useState } from 'react';
 import styles from './_Button.module.scss';
 
 const Button = ({ buttonValue }) => {
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(window.innerWidth);
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
 
-  useEffect(() =>
-    window.addEventListener('resize', () =>
-      setViewportWidth(window.innerWidth),
-    ),
-  );
+  useEffect(() => {
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
-  if (viewportWidth < 830) {
+  if (width < 830) {
     return (
       // eslint-disable-next-line jsx-a11y/anchor-has-content
       <a className={styles.button__link} href="/login" aria-label="Login" />
