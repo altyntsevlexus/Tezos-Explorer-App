@@ -45,22 +45,24 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
   }
 
   return (
-    <table className={styled.table}>
-      <thead>
-        <tr>
-          {cols.map((col) => (
-            <Th
-              key={col.key}
-              headerName={col.name}
-              sortBy={col.key}
-              sortFunction={sortFunction}
-              currentSort={currentSort}
-            />
-          ))}
-        </tr>
-      </thead>
-      <tbody>{sortedRows()}</tbody>
-    </table>
+    <div className={styled.overflow}>
+      <table className={styled.table}>
+        <thead>
+          <tr>
+            {cols.map((col) => (
+              <Th
+                key={col.key}
+                headerName={col.name}
+                sortBy={col.key}
+                sortFunction={sortFunction}
+                currentSort={currentSort}
+              />
+            ))}
+          </tr>
+        </thead>
+        <tbody>{sortedRows()}</tbody>
+      </table>
+    </div>
   );
 };
 
