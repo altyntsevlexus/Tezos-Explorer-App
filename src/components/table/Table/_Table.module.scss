@@ -4,8 +4,7 @@
 @import '/src/styles/themes';
 
 .table {
-  display: flex;
-  flex-direction: column;
+  display: block;
   width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
@@ -37,6 +36,7 @@
   }
 
   th button {
+    text-align: left;
     @include useTheme('color', 'table-headers');
   }
 

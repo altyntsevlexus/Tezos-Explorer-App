@@ -9,18 +9,19 @@
   @include useTheme('color', 'table-text');
   @include useTheme('background-color', 'table-fill');
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1380px) {
     padding: 25px;
   }
 
   &__navigation {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 0px;
     padding: 30px 0 5px;
     @include useTheme('color', 'table-headers');
 
-    @media (min-width: 1200px) {
+    @media (min-width: 1380px) {
+      gap: 50px;
       justify-content: flex-end;
     }
   }
