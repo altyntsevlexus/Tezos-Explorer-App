@@ -3,12 +3,19 @@
 
 .block {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 535px);
+  grid-template-columns: minmax(100px, 535px);
+  grid-template-rows: repeat(12, auto);
+  grid-auto-flow: column;
   row-gap: 8px;
   column-gap: 165px;
   padding: 50px 25px;
   border-radius: 25px;
   border: 5px solid;
+
+  @media (min-width: 1380px) {
+    grid-template-columns: repeat(2, 535px);
+    grid-template-rows: repeat(6, auto);
+  }
 
   @include typography(400, 16px, 20px, inherit);
   @include useTheme('border-color', 'table-border');
@@ -17,8 +24,14 @@
 
   &__item {
     display: flex;
-    gap: 50px;
+    flex-direction: column;
+    gap: 8px;
     padding: 5px;
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+      gap: 50px;
+    }
   }
 
   &__header {

@@ -2,7 +2,7 @@
   max-width: 1380px;
   width: 100%;
   margin: 0 auto;
-  padding: 30px;
+  padding: 50px 30px 110px;
   @include typography(400, 14px, 18px, inherit);
 
   @media (min-width: 1380px) {
@@ -15,19 +15,22 @@
   font-family: Montserrat, sans-serif;
 }
 
-.background {
+.theme-light {
   background: {
-    image: url('../images/background.png');
+    image: url('../images/background45.png');
+    repeat: no-repeat;
+    size: cover;
+    position: center;
+    color: $background-light;
+  }
+}
+
+.theme-dark {
+  background: {
+    image: url('../images/background3.png');
     repeat: no-repeat;
     size: cover;
     position: center;
   }
-}
-
-.theme-light {
-  background-color: $background-light;
-}
-
-.theme-dark {
   background-image: $background-dark;
 }
