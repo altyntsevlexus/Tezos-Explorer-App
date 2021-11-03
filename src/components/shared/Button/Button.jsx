@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import styles from './_Button.module.scss';
 
-const viewportWidth = window.innerWidth;
-
 const Button = ({ buttonValue }) => {
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  useEffect(() =>
+    window.addEventListener('resize', () =>
+      setViewportWidth(window.innerWidth),
+    ),
+  );
+
   if (viewportWidth < 830) {
     return (
       // eslint-disable-next-line jsx-a11y/anchor-has-content
