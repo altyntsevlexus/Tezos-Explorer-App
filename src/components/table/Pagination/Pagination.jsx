@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styled from './_Pagination.module.scss';
 
@@ -37,9 +37,9 @@ const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
 };
 
 Pagination.propTypes = {
-  onPageChanged: propTypes.func.isRequired,
-  currentPage: propTypes.number.isRequired,
-  totalPages: propTypes.number.isRequired,
+  onPageChanged: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
 };
 
 export default Pagination;

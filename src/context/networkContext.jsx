@@ -1,4 +1,5 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
 import { createContext, useContext } from 'react';
 
 const NetworkStateContext = createContext('');
@@ -20,7 +21,7 @@ const NetworkProvider = ({ children }) => (
 );
 
 NetworkProvider.propTypes = {
-  children: propTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export { useNetworkState, NetworkProvider };

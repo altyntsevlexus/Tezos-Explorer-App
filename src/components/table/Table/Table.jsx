@@ -1,4 +1,4 @@
-import propTypes, { shape } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useBlocksState } from '../../../context/blocksContext';
 
@@ -45,30 +45,32 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
   }
 
   return (
-    <table className={styled.table}>
-      <thead>
-        <tr>
-          {cols.map((col) => (
-            <Th
-              key={col.key}
-              headerName={col.name}
-              sortBy={col.key}
-              sortFunction={sortFunction}
-              currentSort={currentSort}
-            />
-          ))}
-        </tr>
-      </thead>
-      <tbody>{sortedRows()}</tbody>
-    </table>
+    <div className={styled.overflow}>
+      <table className={styled.table}>
+        <thead>
+          <tr>
+            {cols.map((col) => (
+              <Th
+                key={col.key}
+                headerName={col.name}
+                sortBy={col.key}
+                sortFunction={sortFunction}
+                currentSort={currentSort}
+              />
+            ))}
+          </tr>
+        </thead>
+        <tbody>{sortedRows()}</tbody>
+      </table>
+    </div>
   );
 };
 
 Table.propTypes = {
-  cols: propTypes.arrayOf(shape()).isRequired,
-  rows: propTypes.arrayOf(shape()).isRequired,
-  currentSort: propTypes.shape(),
-  sortFunction: propTypes.func,
+  cols: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  rows: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  currentSort: PropTypes.shape(),
+  sortFunction: PropTypes.func,
 };
 
 Table.defaultProps = {

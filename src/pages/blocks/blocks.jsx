@@ -69,6 +69,7 @@ const Blocks = () => {
       key: 'level',
       direction: false,
     });
+    window.scrollTo(0, 0);
   };
 
   const onLimitChanged = (e) => {

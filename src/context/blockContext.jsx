@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useMemo } from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
 import { getBlock } from '../api';
 import { useNetworkState } from './networkContext';
 import useTransformDate from '../hooks/useTransformDate';
@@ -81,7 +82,7 @@ const BlockProvider = ({ children }) => {
 };
 
 BlockProvider.propTypes = {
-  children: propTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export { useBlockState, BlockProvider };

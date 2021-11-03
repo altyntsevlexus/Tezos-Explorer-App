@@ -1,4 +1,4 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import styled from './_PerPage.module.scss';
 
@@ -21,8 +21,8 @@ const PerPage = ({ limit, handleChangeLimit }) => (
 );
 
 PerPage.propTypes = {
-  limit: propTypes.string.isRequired,
-  handleChangeLimit: propTypes.func.isRequired,
+  limit: PropTypes.string.isRequired,
+  handleChangeLimit: PropTypes.func.isRequired,
 };
 
 export default PerPage;

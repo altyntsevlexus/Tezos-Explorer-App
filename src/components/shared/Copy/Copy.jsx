@@ -3,9 +3,7 @@ import Logo from '../Logo/Logo';
 
 const Copy = () => (
   <div className={styles.copy}>
-    <address className={styles.copy__text}>
-      @ Copyright. Company name. 2021
-    </address>
+    <p className={styles.copy__text}>@ Copyright. Company name. 2021</p>
     <Logo className={styles.copy__logo} />
   </div>
 );

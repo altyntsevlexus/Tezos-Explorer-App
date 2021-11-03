@@ -4,15 +4,12 @@
 @import '/src/styles/themes';
 
 .table {
-  display: block;
+  display: table;
+  table-layout: auto;
   width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
   text-align: left;
-
-  @media (min-width: 1200px) {
-    display: table;
-  }
 
   &__loader {
     @extend %table-substitute;
@@ -49,4 +46,9 @@
       @include useTheme('background-color', 'row-hover');
     }
   }
+}
+
+.overflow {
+  width: 100%;
+  overflow-x: auto;
 }

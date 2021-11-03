@@ -6,7 +6,7 @@
   max-width: 200px;
   margin-bottom: 35px;
 
-  @media (max-width: 449px) {
+  @include media(mobile) {
     display: none;
   }
 

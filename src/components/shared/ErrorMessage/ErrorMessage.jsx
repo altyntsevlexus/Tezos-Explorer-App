@@ -1,4 +1,5 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
 import styles from './_ErrorMessage.module.scss';
 
 const ErrorMessage = ({ message }) => (
@@ -8,7 +9,7 @@ const ErrorMessage = ({ message }) => (
 export default ErrorMessage;
 
 ErrorMessage.propTypes = {
-  message: propTypes.string,
+  message: PropTypes.string,
 };
 
 ErrorMessage.defaultProps = {

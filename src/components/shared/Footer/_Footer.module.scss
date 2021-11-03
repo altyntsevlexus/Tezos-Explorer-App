@@ -7,7 +7,7 @@
   @include typography(400, 12px, 14px, $light);
   @include useTheme('background', 'header-footer');
 
-  @media (max-width: 449px) {
+  @include media(mobile) {
     padding: 30px 0;
   }
 }
