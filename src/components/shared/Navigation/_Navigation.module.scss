@@ -3,7 +3,6 @@
 
 .navigation {
   @include typography(500, 18px, 22px, $light);
-  display: flex;
 
   width: 100%;
   max-width: 480px;
@@ -13,6 +12,7 @@
   }
 
   &__list {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -51,7 +51,7 @@
 
       &:after {
         position: absolute;
-        top: calc(50% - 4px);
+        top: calc(50% - 8px);
         right: -15px;
         content: '';
         display: block;
