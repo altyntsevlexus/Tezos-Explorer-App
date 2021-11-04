@@ -35,11 +35,11 @@ const Block = () => {
   useEffect(() => handleBlock(id), []);
 
   return (
-    <div className="wrapper">
+    <main className="wrapper">
       <Breadcrumbs />
-      <BlockTitle content={title} className="wrapper__block-title" />
+      <BlockTitle content={title} className="wrapper__title" />
       <BlockInfo headers={HEADERS} block={block} />
-    </div>
+    </main>
   );
 };
 
