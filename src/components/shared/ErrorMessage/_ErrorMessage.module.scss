@@ -6,4 +6,12 @@
   @extend %table-substitute;
   border: 5px solid;
   @include useTheme('border-color', 'table-border');
+
+  @include media(tablet) {
+    font-size: 30px;
+  }
+
+  @include media(mobile) {
+    font-size: 18px;
+  }
 }
