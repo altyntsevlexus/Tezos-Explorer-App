@@ -1,3 +1,5 @@
+@import 'variables';
+
 @mixin typography($weight, $size, $height, $color: inherit) {
   font: {
     weight: $weight;
@@ -6,6 +8,14 @@
 
   color: $color;
   line-height: $height;
+}
+
+@mixin useTheme($key, $color) {
+  @each $theme-name, $theme-color in $themes {
+    :global(.theme-#{$theme-name}) & {
+      #{$key}: map-get(map-get($themes, $theme-name), $color);
+    }
+  }
 }
 
 @mixin media($point) {

@@ -1,6 +1,5 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
-@import '/src/styles/themes';
 
 .title {
   @include typography(600, 32px, 39px, inherit);

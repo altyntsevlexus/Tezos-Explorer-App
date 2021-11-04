@@ -1,5 +1,4 @@
 @import '/src/styles/mixins';
-@import '/src/styles/themes';
 
 .breadcrumbs {
   @include typography(400, 18px, 22px, inherit);

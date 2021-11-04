@@ -1,5 +1,4 @@
 @import '/src/styles/mixins';
-@import '/src/styles/themes';
 
 .block-title {
   @include typography(600, 32px, 39px);

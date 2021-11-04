@@ -1,7 +1,9 @@
 @import '/src/styles/variables';
 @import '/src/styles/extends';
+@import '/src/styles/mixins';
 
 .error-massage {
   @extend %table-substitute;
-  @extend %section-border;
+  border: 5px solid;
+  @include useTheme('border-color', 'table-border');
 }
