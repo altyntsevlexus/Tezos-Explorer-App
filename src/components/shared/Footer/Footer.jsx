@@ -4,8 +4,10 @@ import Copy from '../Copy';
 
 const Footer = () => (
   <footer className={styles.footer}>
-    <Contacts />
-    <Copy />
+    <div className="wrapper">
+      <Contacts />
+      <Copy />
+    </div>
   </footer>
 );
 

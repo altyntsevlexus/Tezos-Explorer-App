@@ -2,15 +2,18 @@
 @import '/src/styles/extends';
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @include typography(400, 12px, 14px, $light);
+  @include typography(500, 18px, 22px, $light);
   @include useTheme('background-color', 'header-footer');
 
   padding: 25px 15px;
 
   &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;

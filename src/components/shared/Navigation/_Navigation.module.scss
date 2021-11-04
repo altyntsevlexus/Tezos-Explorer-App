@@ -2,8 +2,6 @@
 @import '/src/styles/variables';
 
 .navigation {
-  @include typography(500, 18px, 22px, $light);
-
   width: 100%;
   max-width: 480px;
 

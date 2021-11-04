@@ -5,10 +5,12 @@ import Navigation from '../Navigation';
 
 const Header = () => (
   <header className={styles.header}>
-    <Logo />
-    <div className={styles.header__wrapper}>
-      <Navigation />
-      <Button />
+    <div className={`wrapper ${styles.header__wrapper}`}>
+      <Logo />
+      <div className={styles.header__navigation}>
+        <Navigation />
+        <Button />
+      </div>
     </div>
   </header>
 );

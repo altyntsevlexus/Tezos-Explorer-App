@@ -7,7 +7,6 @@
   border: 1px solid {
     radius: 5px;
   }
-  @include typography(400, 18px, 15px);
   @include useTheme('background', 'button-background');
   @include useTheme('color', 'button-color');
   @include useTheme('border-color', 'button-border');
