@@ -25,7 +25,7 @@ const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeStateContext.Provider value={stateValue}>
-      <div className={`theme-${theme}`}>{children}</div>
+      <div className={`sticky-footer theme-${theme}`}>{children}</div>
     </ThemeStateContext.Provider>
   );
 };

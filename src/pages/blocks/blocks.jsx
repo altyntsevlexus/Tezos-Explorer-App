@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useBlocksState } from '../../context/blocksContext';
 
 import Title from '../../components/shared/Title';
@@ -6,14 +7,17 @@ import Breadcrumbs from '../../components/shared/Breadcrumbs/Breadcrumbs';
 import Pagination from '../../components/table/Pagination';
 import Table from '../../components/table/Table';
 import PerPage from '../../components/table/PerPage';
+import Baker from '../../components/shared/Baker';
 
-import styled from './_blocks.module.scss';
+import styled from './blocks.module.scss';
 import useCurrentLocation from '../../hooks/useCurrentLocation';
+import useAddUnit from '../../hooks/useAddUnit';
 
 const HEADERS = [
   {
     name: 'Block ID',
     key: 'level',
+    render: (row) => <Link to={`/blocks/${row.level}`}>{row.level} </Link>,
   },
   {
     name: 'Created',
@@ -22,6 +26,7 @@ const HEADERS = [
   {
     name: 'Baker',
     key: 'baker',
+    render: (row) => <Baker value={row.baker} />,
   },
   {
     name: 'Priority',
@@ -34,10 +39,12 @@ const HEADERS = [
   {
     name: 'Volume',
     key: 'volume',
+    render: (row) => useAddUnit(row.volume, 'ꜩ'),
   },
   {
     name: 'Fees',
     key: 'fees',
+    render: (row) => useAddUnit(row.fees, 'ꜩ'),
   },
   {
     name: '# of endorsements',

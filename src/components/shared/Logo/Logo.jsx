@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './_Logo.module.scss';
+import styles from './Logo.module.scss';
 
 const Logo = ({ className }) => (
   <Link to="/blocks" className={`${styles.logo} ${className}`}>

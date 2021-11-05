@@ -24,8 +24,21 @@ a {
 }
 
 #root {
-  min-height: 100vh;
   font-family: Montserrat, sans-serif;
+}
+
+main {
+  @include typography(400, 14px, 18px, inherit);
+  padding: 50px 0 110px;
+  flex-grow: 1;
+
+  @include media(desktop) {
+    padding: 50px 30px 110px;
+  }
+}
+
+footer {
+  flex-shrink: 0;
 }
 
 .theme-light {
@@ -47,11 +60,8 @@ a {
   }
 }
 
-main {
-  @include typography(400, 14px, 18px, inherit);
-  padding: 50px 0 110px;
-
-  @include media(desktop) {
-    padding: 50px 30px 110px;
-  }
+.sticky-footer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
