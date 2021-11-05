@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getBlocks } from '../api';
 import { useNetworkState } from './networkContext';
 import useTransformDate from '../hooks/useTransformDate';
+import useDummy from '../hooks/useDummy';
 
 const BlocksStateContext = createContext([]);
 const useBlocksState = () => {
@@ -32,14 +33,14 @@ const transformBlocksData = (blocks) =>
     const date = useTransformDate(newDate);
 
     return {
-      level: level.toString() || '-----',
-      baker: bakerName || '-----',
-      timestamp: date || '-----',
-      priority: priority.toString() || '-----',
-      numOfOperations: number_of_operations.toString() || '-----',
-      volume: `${volume / 1000000} ꜩ` || '-----',
-      fees: `${fees / 1000000} ꜩ` || '-----',
-      endorsements: endorsements.toString() || '-----',
+      level: useDummy(level).toString(),
+      baker: useDummy(bakerName),
+      timestamp: useDummy(date),
+      priority: useDummy(priority).toString(),
+      numOfOperations: useDummy(number_of_operations).toString(),
+      volume: useDummy(volume / 1000000).toString(),
+      fees: useDummy(fees / 1000000).toString(),
+      endorsements: useDummy(endorsements).toString(),
     };
   });
 
@@ -61,9 +62,7 @@ const BlocksProvider = ({ children }) => {
       })
       .then((res) => setBlocks(res))
       .catch(() => setIsError(true))
-      .finally(() => {
-        setIsLoading(false);
-      });
+      .finally(() => setIsLoading(false));
   };
 
   const blocksValue = useMemo(

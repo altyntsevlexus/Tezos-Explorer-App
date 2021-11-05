@@ -1,4 +1,4 @@
-import styles from './_Footer.module.scss';
+import styles from './Footer.module.scss';
 import Contacts from '../Contacts';
 import Copy from '../Copy';
 

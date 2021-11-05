@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './_Button.module.scss';
+import styles from './Button.module.scss';
 
 const Button = ({ buttonValue }) => {
   const [width, setWidth] = useState(window.innerWidth);

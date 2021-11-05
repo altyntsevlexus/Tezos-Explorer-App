@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import useCurrentLocation from '../../../hooks/useCurrentLocation';
 
-import styles from './_Breadcrumbs.module.scss';
+import styles from './Breadcrumbs.module.scss';
 
 const Breadcrumbs = () => {
   const { breadcrumbs } = useCurrentLocation();

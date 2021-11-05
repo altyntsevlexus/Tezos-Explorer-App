@@ -1,6 +1,6 @@
 @import '/src/styles/mixins';
 
-.block {
+.block-info {
   display: grid;
   grid-template-columns: repeat(2, 535px);
   grid-template-rows: repeat(6, auto);

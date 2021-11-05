@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { getBlock } from '../api';
 import { useNetworkState } from './networkContext';
 import useTransformDate from '../hooks/useTransformDate';
+import useDummy from '../hooks/useDummy';
 
 const BlockStateContext = createContext([]);
 const useBlockState = () => {
@@ -36,33 +37,36 @@ const transformBlockData = (block) => {
   const date = useTransformDate(newDate);
 
   return {
-    hash: hash || '-----',
-    timestamp: date || '-----',
-    baker: bakerName || '-----',
-    fees: `${fees / 1000000} ꜩ` || '-----',
-    priority: priority.toString() || '-----',
-    volume: `${volume / 1000000} ꜩ` || '-----',
-    blockTime: `${blockTime} sec` || '-----',
-    fitness: fitness || '-----',
-    gas: (consumedGas / 1000000).toLocaleString() || '-----',
-    protocol: `${protocol.slice(0, 8)} ... ${protocol.slice(-5)}`,
-    cycle: metaCycle.toString() || '-----',
-    cyclePosition: `${metaCyclePosition} out of 4096`,
+    hash: useDummy(hash),
+    timestamp: useDummy(date),
+    baker: useDummy(bakerName),
+    fees: useDummy(fees / 1000000),
+    priority: useDummy(priority).toString(),
+    volume: useDummy(volume / 1000000).toString(),
+    blockTime: useDummy(blockTime).toString(),
+    fitness: useDummy(fitness).toString(),
+    gas: useDummy(consumedGas / 1000000).toLocaleString(),
+    protocol: useDummy(protocol),
+    cycle: useDummy(metaCycle).toString(),
+    cyclePosition: useDummy(metaCyclePosition).toString(),
   };
 };
 
 const BlockProvider = ({ children }) => {
   const [block, setBlock] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   const network = useNetworkState();
 
   const handleBlock = (id) => {
+    setIsError(false);
     setIsLoading(true);
     getBlock(network, id)
       .then((response) => transformBlockData(response.data))
       .then((res) => setBlock(res))
-      .then(() => setIsLoading(false));
+      .catch(() => setIsError(true))
+      .finally(() => setIsLoading(false));
   };
 
   const blockValue = useMemo(
@@ -70,8 +74,9 @@ const BlockProvider = ({ children }) => {
       block,
       handleBlock,
       isLoading,
+      isError,
     }),
-    [block, handleBlock, isLoading],
+    [block, handleBlock, isLoading, isError],
   );
 
   return (

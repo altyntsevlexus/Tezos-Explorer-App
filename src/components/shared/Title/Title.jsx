@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './_Title.module.scss';
+import styles from './Title.module.scss';
 
 const Title = ({ value, className }) => (
   <h1 className={`${styles.title} ${className}`}>{value}</h1>

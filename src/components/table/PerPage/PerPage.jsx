@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-import styled from './_PerPage.module.scss';
+import styled from './PerPage.module.scss';
 
 const PerPage = ({ limit, handleChangeLimit }) => (
-  <div className={styled.perPage}>
+  <div className={styled['per-page']}>
     <span>Rows per page:</span>
     <select
       name="limit"
       onChange={handleChangeLimit}
       value={limit}
-      className={styled.perPage__select}
+      className={styled['per-page__select']}
     >
       <option value="15">15</option>
       <option value="30">30</option>

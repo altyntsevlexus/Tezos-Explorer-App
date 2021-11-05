@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styled from './_Pagination.module.scss';
+import styled from './Pagination.module.scss';
 
 const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
   const handlePreviousPage = () => {
@@ -22,7 +22,7 @@ const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
       >
         {'<'}
       </button>
-      <p className={styled.pagination__item}>
+      <p>
         {currentPage} of {totalPages}
       </p>
       <button

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import styles from './_Navigation.module.scss';
+import { Link } from 'react-router-dom';
+
+import styles from './Navigation.module.scss';
 import { useThemeState } from '../../../context/themeContext';
 
 const NAVIGATION_CONFIG = [
-  { id: 0, content: 'Home', path: '/home', withDropdown: false },
-  { id: 1, content: 'Blocks', path: '/blocks', withDropdown: false },
-  { id: 2, content: 'Bakers', path: '/backers', withDropdown: true },
-  { id: 3, content: 'Chart', path: '/charts', withDropdown: false },
+  { content: 'Home', path: '/home', withDropdown: false },
+  { content: 'Blocks', path: '/blocks', withDropdown: false },
+  { content: 'Bakers', path: '/backers', withDropdown: true },
+  { content: 'Chart', path: '/charts', withDropdown: false },
 ];
 
 const Navigation = () => {
@@ -28,7 +30,7 @@ const Navigation = () => {
       <nav className={styles.navigation}>
         <ul className={`${styles.navigation__list} ${visible}`}>
           {NAVIGATION_CONFIG.map((navItem) => {
-            const { id, content, path, withDropdown } = navItem;
+            const { content, path, withDropdown } = navItem;
 
             return (
               <li
@@ -37,9 +39,9 @@ const Navigation = () => {
                     ? styles['navigation__item--with-dropdown']
                     : styles.navigation__item
                 }
-                key={id}
+                key={content}
               >
-                <a href={path}>{content}</a>
+                <Link to={path}>{content}</Link>
               </li>
             );
           })}
