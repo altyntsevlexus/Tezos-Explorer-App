@@ -1,4 +1,4 @@
-import styles from './Copy.module.scss';
+import styles from './_Copy.module.scss';
 import Logo from '../Logo/Logo';
 
 const Copy = () => {

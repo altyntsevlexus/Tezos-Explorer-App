@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from './BlockInfo.module.scss';
+import styled from './_BlockInfo.module.scss';
 
 const BlockInfo = ({ headers, block }) => {
   return (

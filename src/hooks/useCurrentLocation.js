@@ -11,7 +11,7 @@ const useCurrentLocation = () => {
     if (Number(i)) {
       return Number(i).toLocaleString();
     }
-    return i.charAt(0).toUpperCase() + i.slice(1);
+    return i;
   });
 
   const title = breadcrumbs[breadcrumbs.length - 1];
