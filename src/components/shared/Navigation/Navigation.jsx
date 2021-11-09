@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Navigation.module.scss';
+import styles from './_Navigation.module.scss';
 import { useThemeState } from '../../../context/themeContext';
 
 const NAVIGATION_CONFIG = [

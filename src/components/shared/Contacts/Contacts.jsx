@@ -1,4 +1,4 @@
-import styles from './Contacts.module.scss';
+import styles from './_Contacts.module.scss';
 import Contact from '../Contact';
 
 const LINKS_CONFIG = [

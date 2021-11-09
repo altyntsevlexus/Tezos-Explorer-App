@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Title from '../Title';
-import styles from './BlockTitle.module.scss';
+import styles from './_BlockTitle.module.scss';
 
 const BlockTitle = ({ content, className }) => (
   <div className={`${styles['block-title']} ${className}`}>

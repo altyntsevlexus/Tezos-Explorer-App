@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styled from './Pagination.module.scss';
+import styled from './_Pagination.module.scss';
 
 const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
   const handlePreviousPage = () => {

@@ -9,7 +9,7 @@ import Table from '../../components/table/Table';
 import PerPage from '../../components/table/PerPage';
 import Baker from '../../components/shared/Baker';
 
-import styled from './blocks.module.scss';
+import styled from './_blocks.module.scss';
 import useCurrentLocation from '../../hooks/useCurrentLocation';
 import useAddUnit from '../../hooks/useAddUnit';
 

@@ -4,4 +4,8 @@
 .title {
   @include typography(600, 32px, 39px, inherit);
   @include useTheme('color', 'title');
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
 }
