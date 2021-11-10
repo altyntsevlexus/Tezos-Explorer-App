@@ -1,12 +1,13 @@
-const axios = require('axios');
+import axios from 'axios';
 
-const initialURL = (network) =>
-  `https://api.teztracker.com/v2/data/tezos/${network}`;
+const instance = axios.create({
+  baseURL: 'https://api.teztracker.com/v2/data/tezos/',
+});
 
 const getBlocks = (network = 'mainnet', offset = '0', limit = '15') =>
-  axios.get(`${initialURL(network)}/blocks?limit=${limit}&offset=${offset}`);
+  instance.get(`${network}/blocks?limit=${limit}&offset=${offset}`);
 
 const getBlock = (network = 'mainnet', id) =>
-  axios.get(`${initialURL(network)}/blocks/${id}`);
+  instance.get(`${network}/blocks/${id}`);
 
 export { getBlocks, getBlock };
