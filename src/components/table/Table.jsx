@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useBlocksState } from '../../context/blocksContext';
+import { useBlocksState } from '../../contexts/blocksContext';
 
 import Th from './Th';
 import ErrorMessage from '../shared/ErrorMessage';

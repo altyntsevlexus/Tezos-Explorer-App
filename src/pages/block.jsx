@@ -4,7 +4,7 @@ import { useParams } from 'react-router';
 import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
 import useCurrentLocation from '../hooks/useCurrentLocation';
-import { useBlockState } from '../context/blockContext';
+import { useBlockState } from '../contexts/blockContext';
 
 import BlockInfo from '../components/shared/BlockInfo';
 import BlockTitle from '../components/shared/BlockTitle';

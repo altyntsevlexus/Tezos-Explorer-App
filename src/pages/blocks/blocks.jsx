@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useBlocksState } from '../../context/blocksContext';
+import { useBlocksState } from '../../contexts/blocksContext';
 
 import Title from '../../components/shared/Title';
 import Breadcrumbs from '../../components/shared/Breadcrumbs/Breadcrumbs';

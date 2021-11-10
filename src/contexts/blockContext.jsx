@@ -19,19 +19,21 @@ const useBlockState = () => {
 
 const transformBlockData = (block) => {
   const {
-    hash,
-    timestamp,
-    bakerName,
-    fees,
-    priority,
-    volume,
-    blockTime,
-    fitness,
-    consumedGas,
-    protocol,
-    metaCycle,
-    metaCyclePosition,
-  } = block.block;
+    block: {
+      hash,
+      timestamp,
+      bakerName,
+      fees,
+      priority,
+      volume,
+      blockTime,
+      fitness,
+      consumedGas,
+      protocol,
+      metaCycle,
+      metaCyclePosition,
+    },
+  } = block;
 
   const newDate = new Date(timestamp * 1000);
   const date = useTransformDate(newDate);

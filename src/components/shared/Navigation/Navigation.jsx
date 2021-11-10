@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './_Navigation.module.scss';
-import { useThemeState } from '../../../context/themeContext';
+import { useThemeState } from '../../../contexts/themeContext';
 
 const NAVIGATION_CONFIG = [
   { content: 'Home', path: '/home', withDropdown: false },
