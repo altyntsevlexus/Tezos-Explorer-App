@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { getBlock } from '../api';
@@ -62,14 +62,19 @@ const BlockProvider = ({ children }) => {
 
   const network = useNetworkState();
 
-  const handleBlock = (id) => {
+  // eslint-disable-next-line consistent-return
+  const handleBlock = async (id) => {
     setIsError(false);
     setIsLoading(true);
-    getBlock(network, id)
-      .then((response) => transformBlockData(response.data))
-      .then((res) => setBlock(res))
-      .catch(() => setIsError(true))
-      .finally(() => setIsLoading(false));
+    try {
+      const response = await getBlock(network, id);
+      const transform = transformBlockData(response.data);
+      return setBlock(transform);
+    } catch {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const blockValue = useMemo(
