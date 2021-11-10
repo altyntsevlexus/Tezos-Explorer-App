@@ -11,9 +11,14 @@ import BlockTitle from '../components/shared/BlockTitle';
 import Baker from '../components/shared/Baker';
 
 import useAddUnit from '../hooks/useAddUnit';
+import DataWithCopy from '../components/shared/DataWithCopy';
 
 const HEADERS = [
-  { name: 'Hash', key: 'hash' },
+  {
+    name: 'Hash',
+    key: 'hash',
+    render: (block) => <DataWithCopy value={block.hash} />,
+  },
   { name: 'Created at', key: 'timestamp' },
   {
     name: 'Baker',
