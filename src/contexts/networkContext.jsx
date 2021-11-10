@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { createContext, useContext } from 'react';
 
 const NetworkStateContext = createContext('');
+NetworkStateContext.displayName = 'Network Context';
 
 const useNetworkState = () => {
   const context = useContext(NetworkStateContext);

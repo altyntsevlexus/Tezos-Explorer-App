@@ -7,6 +7,7 @@ import useTransformDate from '../hooks/useTransformDate';
 import useDummy from '../hooks/useDummy';
 
 const BlocksStateContext = createContext([]);
+BlocksStateContext.displayName = 'Blocks Context';
 const useBlocksState = () => {
   const context = useContext(BlocksStateContext);
 
