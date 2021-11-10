@@ -7,7 +7,7 @@ import ErrorMessage from '../shared/ErrorMessage';
 import styled from './_Table.module.scss';
 
 const Table = ({ cols, rows, currentSort, sortFunction }) => {
-  const { isLoading, isError } = useBlocksState();
+  const { isLoading, isError, handleBlocks } = useBlocksState();
 
   const sortedRows = () => {
     return rows.map((row) => (
@@ -26,7 +26,7 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
   }
 
   if (isError) {
-    return <ErrorMessage />;
+    return <ErrorMessage retry={() => handleBlocks(0, 15)} />;
   }
 
   return (

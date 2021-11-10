@@ -12,6 +12,7 @@ import Baker from '../components/shared/Baker';
 
 import useAddUnit from '../hooks/useAddUnit';
 import DataWithCopy from '../components/shared/DataWithCopy';
+import ErrorMessage from '../components/shared/ErrorMessage';
 
 const HEADERS = [
   {
@@ -63,9 +64,17 @@ const Block = () => {
 
   const { id } = useParams();
 
-  const { block, handleBlock } = useBlockState();
+  const { block, handleBlock, isError } = useBlockState();
 
   useEffect(() => handleBlock(id), []);
+
+  if (isError) {
+    return (
+      <main className="wrapper">
+        <ErrorMessage retry={() => handleBlock(0, 15)} />
+      </main>
+    );
+  }
 
   return (
     <main className="wrapper">

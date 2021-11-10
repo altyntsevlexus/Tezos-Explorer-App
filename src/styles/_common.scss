@@ -1,11 +1,16 @@
 @import '/src/styles/variables';
 @import '/src/styles/variables';
 
+.custom-button {
+  cursor: pointer;
+}
+
 button {
+  @extend .custom-button;
+
   background: none;
   outline: none;
   border: none;
-  cursor: pointer;
   padding: 0;
 }
 

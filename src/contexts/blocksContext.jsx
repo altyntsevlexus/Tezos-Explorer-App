@@ -68,19 +68,6 @@ const BlocksProvider = ({ children }) => {
     }
   };
 
-  // const handleBlocks = (offset, limit) => {
-  //   setIsError(false);
-  //   setIsLoading(true);
-  //   getBlocks(network, offset, limit)
-  //     .then((response) => {
-  //       setTotal(response.headers['x-total-count']);
-  //       return transformBlocksData(response.data);
-  //     })
-  //     .then((res) => setBlocks(res))
-  //     .catch(() => setIsError(true))
-  //     .finally(() => setIsLoading(false));
-  // };
-
   const blocksValue = useMemo(
     () => ({
       blocks,
