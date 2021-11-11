@@ -1,0 +1,29 @@
+@import './src/styles/variables';
+@import './src/styles/mixins';
+
+$border-style: 1px solid;
+
+%borders {
+  @include typography(300, 13px, 16px);
+
+  border: {
+    top: $border-style;
+    bottom: $border-style;
+  };
+}
+
+.links {
+  @extend %borders;
+  @include useTheme('border-color', 'links-border');
+  padding: 30px;
+
+  &__item {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  &__anchor {
+
+  }
+}
+

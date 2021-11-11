@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './_Navigation.module.scss';
 import { useThemeState } from '../../../contexts/themeContext';
+import { useNavigationState } from '../../../contexts/navigationC';
 
 const NAVIGATION_CONFIG = [
   { content: 'Home', path: '/home', withDropdown: false },
@@ -13,11 +14,10 @@ const NAVIGATION_CONFIG = [
 
 const Navigation = () => {
   const [isLightTheme, setIsLightTheme] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
 
   const { theme, setTheme } = useThemeState();
+  const { isOpen, setIsOpen } = useNavigationState();
   const themeNow = `${theme[0].toUpperCase()}${theme.slice(1)}`;
-  const visible = isOpen ? styles['navigation__list--is-open'] : '';
 
   useEffect(() => {
     const newTheme = isLightTheme ? 'light' : 'dark';
@@ -28,7 +28,7 @@ const Navigation = () => {
   return (
     <>
       <nav className={styles.navigation}>
-        <ul className={`${styles.navigation__list} ${visible}`}>
+        <ul className={styles.navigation__list}>
           {NAVIGATION_CONFIG.map((navItem) => {
             const { content, path, withDropdown } = navItem;
 

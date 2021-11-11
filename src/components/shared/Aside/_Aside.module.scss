@@ -1,0 +1,48 @@
+@import '/src/styles/mixins';
+
+.aside {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #00000055;
+  display: none;
+
+  &__wrapper {
+    position: absolute;
+    height: 100vh;
+    top: 79px;
+    bottom: 0;
+    left: -1000px;
+    transition: left .5s ease-in;
+    @include useTheme('color', 'aside-text');
+    @include useTheme('background-color', 'aside-fill');
+
+    width: 280px;
+
+    &--opened {
+      left: 0;
+      transition: left .5s;
+    }
+  }
+
+  &__copy{
+    padding: {
+      top: 30px;
+      left: 30px;
+    }
+  }
+
+  &__navigation {
+    display: block;
+  }
+
+  &__copy {
+    @include typography(300, 12px, 15px);
+    padding: 30px;
+  }
+
+  &--opened {
+    display: block;
+  }
+}

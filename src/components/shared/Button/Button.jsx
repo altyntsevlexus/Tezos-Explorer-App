@@ -5,6 +5,8 @@ import styles from './_Button.module.scss';
 
 const Button = ({ buttonValue }) => {
   const [width, setWidth] = useState(window.innerWidth);
+
+  // for testing
   const updateWidth = () => {
     setWidth(window.innerWidth);
   };
@@ -13,6 +15,7 @@ const Button = ({ buttonValue }) => {
     window.addEventListener('resize', updateWidth);
     return () => window.removeEventListener('resize', updateWidth);
   }, []);
+  // for testing end
 
   if (width < 834) {
     return (
