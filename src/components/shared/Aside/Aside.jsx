@@ -6,14 +6,16 @@ import { useNavigationState } from '../../../contexts/navigationC';
 const year = new Date().getFullYear();
 
 const Aside = () => {
-  const { isOpen } = useNavigationState();
+  const { isOpen, setIsOpen } = useNavigationState();
 
   return (
     <>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
       <aside
         className={
           isOpen ? `${styles['aside--opened']} ${styles.aside}` : styles.aside
         }
+        onClick={() => setIsOpen(!isOpen)}
       />
       <div
         className={
