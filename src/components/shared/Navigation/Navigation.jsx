@@ -34,11 +34,7 @@ const Navigation = () => {
 
             return (
               <li
-                className={
-                  withDropdown
-                    ? styles['navigation__item--with-dropdown']
-                    : styles.navigation__item
-                }
+                className={withDropdown && styles.navigation__dropdown}
                 key={content}
               >
                 <Link to={path}>{content}</Link>

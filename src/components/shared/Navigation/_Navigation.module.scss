@@ -24,23 +24,21 @@
     }
   }
 
-  &__item {
-    &--with-dropdown {
-      position: relative;
+  &__dropdown {
+    position: relative;
 
-      &:after {
-        position: absolute;
-        top: calc(50% - 4px);
-        right: -20px;
-        content: '';
-        display: block;
-        width: 0;
-        height: 0;
-        border-top: 9px solid $light;
-        border-left: 6px solid transparent;
-        border-right: 6px solid transparent;
-        border-bottom: none;
-      }
+    &:after {
+      position: absolute;
+      top: calc(50% - 4px);
+      right: -20px;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 9px solid $light;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: none;
     }
   }
 

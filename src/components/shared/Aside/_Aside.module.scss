@@ -6,14 +6,13 @@
   bottom: 0;
   width: 100%;
   background-color: #00000055;
-  display: none;
 
   &__wrapper {
     position: absolute;
     top: 79px;
     bottom: 0;
     left: -1000px;
-    transition: left .5s ease-in;
+    transition: left 0.5s ease-in;
     @include useTheme('color', 'aside-text');
     @include useTheme('background-color', 'aside-fill');
 
@@ -21,11 +20,11 @@
 
     &--opened {
       left: 0;
-      transition: left .5s;
+      transition: left 0.5s;
     }
   }
 
-  &__copy{
+  &__copy {
     padding: {
       top: 30px;
       left: 30px;
@@ -39,9 +38,5 @@
   &__copy {
     @include typography(300, 12px, 15px);
     padding: 30px;
-  }
-
-  &--opened {
-    display: block;
   }
 }

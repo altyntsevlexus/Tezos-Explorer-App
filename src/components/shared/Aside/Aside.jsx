@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import Links from '../Links';
 import styles from './_Aside.module.scss';
 import AsideNav from '../AsideNav';
@@ -10,13 +12,9 @@ const Aside = () => {
 
   return (
     <>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <aside
-        className={
-          isOpen ? `${styles['aside--opened']} ${styles.aside}` : styles.aside
-        }
-        onClick={() => setIsOpen(!isOpen)}
-      />
+      {isOpen ? (
+        <aside className={styles.aside} onClick={() => setIsOpen(!isOpen)} />
+      ) : null}
       <div
         className={
           isOpen
