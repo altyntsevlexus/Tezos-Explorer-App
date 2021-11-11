@@ -2,12 +2,11 @@ import PropTypes from 'prop-types';
 import { useBlocksState } from '../../contexts/blocksContext';
 
 import Th from './Th';
-import ErrorMessage from '../shared/ErrorMessage';
 
 import styled from './_Table.module.scss';
 
 const Table = ({ cols, rows, currentSort, sortFunction }) => {
-  const { isLoading, isError, handleBlocks } = useBlocksState();
+  const { isLoading } = useBlocksState();
 
   const sortedRows = () => {
     return rows.map((row) => (
@@ -23,10 +22,6 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
 
   if (isLoading) {
     return <div className={styled.table__loader}>Loading...</div>;
-  }
-
-  if (isError) {
-    return <ErrorMessage retry={() => handleBlocks(0, 15)} />;
   }
 
   return (

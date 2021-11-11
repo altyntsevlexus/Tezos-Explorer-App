@@ -23,5 +23,9 @@ const DataWithCopy = ({ value }) => {
 export default DataWithCopy;
 
 DataWithCopy.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
+};
+
+DataWithCopy.defaultProps = {
+  value: '',
 };
