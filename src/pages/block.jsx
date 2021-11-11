@@ -71,7 +71,7 @@ const Block = () => {
   if (isError) {
     return (
       <main className="wrapper">
-        <ErrorMessage retry={() => handleBlock(0, 15)} />
+        <ErrorMessage retry={() => handleBlock(id)} />
       </main>
     );
   }
