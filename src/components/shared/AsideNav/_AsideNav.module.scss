@@ -1,0 +1,37 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+
+.aside-nav {
+  @include typography(400, 14px, 17px);
+  padding: 40px 30px;
+
+  &__icon {
+    @include useTheme('fill', 'icon-fill');
+    margin-right: 10px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  &__anchor--with-dropdown {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      top: calc(50% - 4px);
+      right: -20px;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 9px solid;
+      @include useTheme('border-top-color', 'icon-fill');
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: none;
+    }
+  }
+}

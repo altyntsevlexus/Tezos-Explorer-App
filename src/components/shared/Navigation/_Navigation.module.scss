@@ -18,23 +18,9 @@
 
     @include media(tablet) {
       display: none;
-      position: absolute;
-      width: 125px;
-      height: 162px;
-      top: 25px;
-      right: 55px;
-      flex-direction: column;
-      text-align: center;
-      border: 5px solid {
-        radius: 5px;
-      }
 
       @include useTheme('background-color', 'header-footer');
       @include useTheme('border-color', 'table-border');
-
-      &--is-open {
-        display: flex;
-      }
     }
   }
 

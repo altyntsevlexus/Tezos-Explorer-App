@@ -13,6 +13,7 @@ import Baker from '../components/shared/Baker';
 import useAddUnit from '../hooks/useAddUnit';
 import DataWithCopy from '../components/shared/DataWithCopy';
 import ErrorMessage from '../components/shared/ErrorMessage';
+import Aside from '../components/shared/Aside';
 
 const HEADERS = [
   {
@@ -77,11 +78,14 @@ const Block = () => {
   }
 
   return (
-    <main className="wrapper">
-      <Breadcrumbs />
-      <BlockTitle content={title} className="wrapper__title" />
-      <BlockInfo headers={HEADERS} block={block} />
-    </main>
+    <>
+      <main className="wrapper">
+        <Breadcrumbs />
+        <BlockTitle content={title} className="wrapper__title" />
+        <BlockInfo headers={HEADERS} block={block} />
+      </main>
+      <Aside />
+    </>
   );
 };
 

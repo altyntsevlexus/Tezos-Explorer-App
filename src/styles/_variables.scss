@@ -20,6 +20,10 @@ $themes: (
     table-border: #d9dff8,
     row-border: #d9dff8a6,
     row-hover: #ecf0f9bf,
+    links-border: #d9dff8,
+    aside-text: $dark,
+    aside-fill: $white,
+    icon-fill: $dark,
   ),
   dark: (
     button-background: $dark-section,
@@ -33,5 +37,9 @@ $themes: (
     table-border: $dark,
     row-border: #274673a6,
     row-hover: #2e2b4d,
+    links-border: $light-section,
+    aside-text: $light,
+    aside-fill: #25233d,
+    icon-fill: $light,
   ),
 );

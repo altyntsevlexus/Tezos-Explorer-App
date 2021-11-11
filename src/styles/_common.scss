@@ -1,5 +1,9 @@
 @import '/src/styles/variables';
-@import '/src/styles/variables';
+@import '/src/styles/mixins';
+
+#root {
+  position: relative;
+}
 
 .custom-button {
   cursor: pointer;
