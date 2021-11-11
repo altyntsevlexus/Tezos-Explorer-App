@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 const ThemeStateContext = createContext();
+ThemeStateContext.displayName = 'Theme Context';
 const useThemeState = () => {
   const context = useContext(ThemeStateContext);
 

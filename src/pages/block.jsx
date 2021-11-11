@@ -4,16 +4,22 @@ import { useParams } from 'react-router';
 import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
 import useCurrentLocation from '../hooks/useCurrentLocation';
-import { useBlockState } from '../context/blockContext';
+import { useBlockState } from '../contexts/blockContext';
 
 import BlockInfo from '../components/shared/BlockInfo';
 import BlockTitle from '../components/shared/BlockTitle';
 import Baker from '../components/shared/Baker';
 
 import useAddUnit from '../hooks/useAddUnit';
+import DataWithCopy from '../components/shared/DataWithCopy';
+import ErrorMessage from '../components/shared/ErrorMessage';
 
 const HEADERS = [
-  { name: 'Hash', key: 'hash' },
+  {
+    name: 'Hash',
+    key: 'hash',
+    render: (block) => <DataWithCopy value={block.hash} />,
+  },
   { name: 'Created at', key: 'timestamp' },
   {
     name: 'Baker',
@@ -58,9 +64,17 @@ const Block = () => {
 
   const { id } = useParams();
 
-  const { block, handleBlock } = useBlockState();
+  const { block, handleBlock, isError } = useBlockState();
 
   useEffect(() => handleBlock(id), []);
+
+  if (isError) {
+    return (
+      <main className="wrapper">
+        <ErrorMessage retry={() => handleBlock(0, 15)} />
+      </main>
+    );
+  }
 
   return (
     <main className="wrapper">

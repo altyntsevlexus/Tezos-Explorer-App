@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { getBlock } from '../api';
@@ -7,6 +7,7 @@ import useTransformDate from '../hooks/useTransformDate';
 import useDummy from '../hooks/useDummy';
 
 const BlockStateContext = createContext([]);
+BlockStateContext.displayName = 'Block Context';
 const useBlockState = () => {
   const context = useContext(BlockStateContext);
 
@@ -19,19 +20,21 @@ const useBlockState = () => {
 
 const transformBlockData = (block) => {
   const {
-    hash,
-    timestamp,
-    bakerName,
-    fees,
-    priority,
-    volume,
-    blockTime,
-    fitness,
-    consumedGas,
-    protocol,
-    metaCycle,
-    metaCyclePosition,
-  } = block.block;
+    block: {
+      hash,
+      timestamp,
+      bakerName,
+      fees,
+      priority,
+      volume,
+      blockTime,
+      fitness,
+      consumedGas,
+      protocol,
+      metaCycle,
+      metaCyclePosition,
+    },
+  } = block;
 
   const newDate = new Date(timestamp * 1000);
   const date = useTransformDate(newDate);
@@ -59,14 +62,19 @@ const BlockProvider = ({ children }) => {
 
   const network = useNetworkState();
 
-  const handleBlock = (id) => {
+  // eslint-disable-next-line consistent-return
+  const handleBlock = async (id) => {
     setIsError(false);
     setIsLoading(true);
-    getBlock(network, id)
-      .then((response) => transformBlockData(response.data))
-      .then((res) => setBlock(res))
-      .catch(() => setIsError(true))
-      .finally(() => setIsLoading(false));
+    try {
+      const response = await getBlock(network, id);
+      const transform = transformBlockData(response.data);
+      return setBlock(transform);
+    } catch {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const blockValue = useMemo(

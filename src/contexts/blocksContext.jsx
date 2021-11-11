@@ -7,6 +7,7 @@ import useTransformDate from '../hooks/useTransformDate';
 import useDummy from '../hooks/useDummy';
 
 const BlocksStateContext = createContext([]);
+BlocksStateContext.displayName = 'Blocks Context';
 const useBlocksState = () => {
   const context = useContext(BlocksStateContext);
 
@@ -52,17 +53,19 @@ const BlocksProvider = ({ children }) => {
 
   const network = useNetworkState();
 
-  const handleBlocks = (offset, limit) => {
+  const handleBlocks = async (offset, limit) => {
     setIsError(false);
     setIsLoading(true);
-    getBlocks(network, offset, limit)
-      .then((response) => {
-        setTotal(response.headers['x-total-count']);
-        return transformBlocksData(response.data);
-      })
-      .then((res) => setBlocks(res))
-      .catch(() => setIsError(true))
-      .finally(() => setIsLoading(false));
+    try {
+      const response = await getBlocks(network, offset, limit);
+      setTotal(response.headers['x-total-count']);
+      const transform = transformBlocksData(response.data);
+      setBlocks(transform);
+    } catch {
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const blocksValue = useMemo(

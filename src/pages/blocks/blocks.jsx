@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useBlocksState } from '../../context/blocksContext';
+import { useBlocksState } from '../../contexts/blocksContext';
 
 import Title from '../../components/shared/Title';
 import Breadcrumbs from '../../components/shared/Breadcrumbs/Breadcrumbs';
@@ -12,6 +12,7 @@ import Baker from '../../components/shared/Baker';
 import styled from './_blocks.module.scss';
 import useCurrentLocation from '../../hooks/useCurrentLocation';
 import useAddUnit from '../../hooks/useAddUnit';
+import ErrorMessage from '../../components/shared/ErrorMessage';
 
 const HEADERS = [
   {
@@ -60,7 +61,7 @@ const byField = (field) => (a, b) => {
 };
 
 const Blocks = () => {
-  const { blocks, handleBlocks, total } = useBlocksState();
+  const { blocks, handleBlocks, total, isError } = useBlocksState();
   const [limit, setLimit] = useState('15');
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState({
@@ -112,6 +113,15 @@ const Blocks = () => {
   }, [currentPage, limit]);
 
   const { title } = useCurrentLocation();
+
+  if (isError) {
+    return (
+      <main className="wrapper">
+        <Breadcrumbs />
+        <ErrorMessage retry={() => handleBlocks(0, 15)} />
+      </main>
+    );
+  }
 
   return (
     <main className="wrapper">
