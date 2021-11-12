@@ -32,7 +32,7 @@ const ASIDE_CONFIG = [
   },
 ];
 
-const Navigation = ({ isAside, className }) => {
+const Navigation = ({ isAside }) => {
   const [isLightTheme, setIsLightTheme] = useState(true);
 
   const { theme, setTheme } = useThemeState();
@@ -47,7 +47,7 @@ const Navigation = ({ isAside, className }) => {
 
   if (isAside) {
     return (
-      <nav className={`${styles['aside-nav']} ${className}`}>
+      <nav className={`${styles['aside-nav']}`}>
         <ul className={styles['aside-nav__list']}>
           {ASIDE_CONFIG.map((item) => {
             const { content, path, withDropdown, Icon } = item;
@@ -106,10 +106,8 @@ export default Navigation;
 
 Navigation.propTypes = {
   isAside: PropTypes.bool,
-  className: PropTypes.string,
 };
 
 Navigation.defaultProps = {
   isAside: false,
-  className: '',
 };
