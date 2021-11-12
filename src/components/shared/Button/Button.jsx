@@ -17,7 +17,7 @@ const Button = ({ buttonValue }) => {
   }, []);
   // for testing end
 
-  if (width < 834) {
+  if (width <= 834) {
     return (
       <Link className={styles.button__link} to="/login" aria-label="Login" />
     );
