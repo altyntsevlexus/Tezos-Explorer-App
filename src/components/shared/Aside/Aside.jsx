@@ -2,10 +2,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Links from '../Links';
 import styles from './_Aside.module.scss';
-import AsideNav from '../AsideNav';
 import { useNavigationState } from '../../../contexts/navigationC';
-
-const year = new Date().getFullYear();
+import Navigation from '../Navigation';
+import CopyYear from '../CopyYear';
 
 const Aside = () => {
   const { isOpen, setIsOpen } = useNavigationState();
@@ -22,9 +21,9 @@ const Aside = () => {
             : styles.aside__wrapper
         }
       >
-        <AsideNav />
+        <Navigation isAside />
         <Links />
-        <p className={styles.aside__copy}>@ Copyright. Company name. {year}</p>
+        <CopyYear className={styles.aside__copy} />
       </div>
     </>
   );
