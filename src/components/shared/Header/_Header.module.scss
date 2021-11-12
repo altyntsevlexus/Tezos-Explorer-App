@@ -2,8 +2,6 @@
 @import '/src/styles/extends';
 
 .header {
-  position: relative;
-  z-index: 1;
   @include typography(500, 18px, 22px, $light);
   @include useTheme('background-color', 'header-footer');
 
