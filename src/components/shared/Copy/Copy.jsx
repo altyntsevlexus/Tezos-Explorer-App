@@ -1,10 +1,11 @@
 import styles from './_Copy.module.scss';
 import Logo from '../Logo/Logo';
+import CopyYear from '../CopyYear';
 
 const Copy = () => {
   return (
     <div className={styles.copy}>
-      <Copy className={styles.copy__text} />
+      <CopyYear className={styles.copy__text} />
       <Logo className={styles.copy__logo} />
     </div>
   );

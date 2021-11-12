@@ -4,7 +4,7 @@ import Links from '../Links';
 import styles from './_Aside.module.scss';
 import { useNavigationState } from '../../../contexts/navigationC';
 import Navigation from '../Navigation';
-import Copy from '../Copy';
+import CopyYear from '../CopyYear';
 
 const Aside = () => {
   const { isOpen, setIsOpen } = useNavigationState();
@@ -23,7 +23,7 @@ const Aside = () => {
       >
         <Navigation isAside />
         <Links />
-        <Copy className={styles.aside__copy} />
+        <CopyYear className={styles.aside__copy} />
       </div>
     </>
   );
