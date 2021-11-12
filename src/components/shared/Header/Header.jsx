@@ -20,7 +20,7 @@ const Header = () => {
           <Button />
         </div>
       </div>
-      {size <= 824 && <Aside isOpen={isOpen} handleIsOpen={setIsOpen} />}
+      {size <= 834 && <Aside isOpen={isOpen} handleIsOpen={setIsOpen} />}
     </header>
   );
 };
