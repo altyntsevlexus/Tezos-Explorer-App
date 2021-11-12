@@ -1,18 +1,16 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Links from '../Links';
 import styles from './_Aside.module.scss';
-import { useNavigationState } from '../../../contexts/navigationC';
 import Navigation from '../Navigation';
 import Copy from '../Copy';
 
-const Aside = () => {
-  const { isOpen, setIsOpen } = useNavigationState();
-
+const Aside = ({ isOpen, handleIsOpen }) => {
   return (
     <>
       {isOpen ? (
-        <aside className={styles.aside} onClick={() => setIsOpen(!isOpen)} />
+        <aside className={styles.aside} onClick={() => handleIsOpen(!isOpen)} />
       ) : null}
       <div
         className={

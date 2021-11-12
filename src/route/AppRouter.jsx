@@ -10,9 +10,6 @@ import Footer from '../components/shared/Footer';
 
 import Blocks from '../pages/blocks';
 import Block from '../pages/block';
-import Aside from '../components/shared/Aside';
-
-const size = window.innerWidth;
 
 const ROUTE_CONFIG = [
   { path: '/blocks', component: Blocks, exact: true },
@@ -22,7 +19,6 @@ const ROUTE_CONFIG = [
 const AppRouter = () => (
   <Router>
     <Header />
-    {size <= 824 && <Aside />}
     <Switch>
       {ROUTE_CONFIG.map((route, i) => (
         // eslint-disable-next-line react/no-array-index-key

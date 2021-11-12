@@ -6,16 +6,13 @@ import { NetworkProvider } from '../contexts/networkContext';
 import { BlocksProvider } from '../contexts/blocksContext';
 import { BlockProvider } from '../contexts/blockContext';
 import { ThemeProvider } from '../contexts/themeContext';
-import { NavigationProvider } from '../contexts/navigationC';
 
 const App = () => (
   <ThemeProvider>
     <NetworkProvider>
       <BlocksProvider>
         <BlockProvider>
-          <NavigationProvider>
-            <AppRouter />
-          </NavigationProvider>
+          <AppRouter />
         </BlockProvider>
       </BlocksProvider>
     </NetworkProvider>

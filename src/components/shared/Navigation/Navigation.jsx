@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 import styles from './_Navigation.module.scss';
 import { useThemeState } from '../../../contexts/themeContext';
-import { useNavigationState } from '../../../contexts/navigationC';
 
 import { ReactComponent as Home } from '../../../images/home.svg';
 import { ReactComponent as Blocks } from '../../../images/block.svg';
@@ -32,11 +31,10 @@ const ASIDE_CONFIG = [
   },
 ];
 
-const Navigation = ({ isAside }) => {
+const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
   const [isLightTheme, setIsLightTheme] = useState(true);
 
   const { theme, setTheme } = useThemeState();
-  const { isOpen, setIsOpen } = useNavigationState();
   const themeNow = `${theme[0].toUpperCase()}${theme.slice(1)}`;
 
   useEffect(() => {
@@ -96,7 +94,7 @@ const Navigation = ({ isAside }) => {
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div
         className={styles.navigation__burger}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => handleIsOpen(!isOpen)}
       />
     </>
   );
@@ -106,8 +104,12 @@ export default Navigation;
 
 Navigation.propTypes = {
   isAside: PropTypes.bool,
+  isOpen: PropTypes.bool,
+  handleIsOpen: PropTypes.func,
 };
 
 Navigation.defaultProps = {
   isAside: false,
+  isOpen: false,
+  handleIsOpen: () => null,
 };
