@@ -10,4 +10,7 @@ const getBlocks = (network = 'mainnet', offset = 0, limit = 15) =>
 const getBlock = (network = 'mainnet', id) =>
   tezTrakerAPI.get(`${network}/blocks/${id}`);
 
-export { getBlocks, getBlock };
+const getHead = (network = 'mainnet') =>
+  tezTrakerAPI.get(`${network}/blocks/head`);
+
+export { getBlocks, getBlock, getHead };
