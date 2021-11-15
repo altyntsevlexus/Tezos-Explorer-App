@@ -14,10 +14,8 @@
     max-height: 59px;
   }
 
-  &__title {
-    @include media(mobile) {
-      @include typography(600, 24px, 29px);
-    }
+  &__heading {
+    font: inherit;
   }
 
   &__wrapper {
@@ -36,7 +34,7 @@
     @include typography(400, 18px, 22px);
   }
 
-  &__items {
+  &__item {
     display: flex;
     align-items: center;
     cursor: pointer;
