@@ -1,12 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from 'react-router-dom';
-
-import Header from '../components/shared/Header';
-import Footer from '../components/shared/Footer';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Blocks from '../pages/blocks';
 import Block from '../pages/block';
@@ -17,8 +9,7 @@ const ROUTE_CONFIG = [
 ];
 
 const AppRouter = () => (
-  <Router>
-    <Header />
+  <main className="wrapper">
     <Switch>
       {ROUTE_CONFIG.map((route, i) => (
         // eslint-disable-next-line react/no-array-index-key
@@ -30,8 +21,7 @@ const AppRouter = () => (
         <Redirect to="/blocks" />
       </Route>
     </Switch>
-    <Footer />
-  </Router>
+  </main>
 );
 
 export default AppRouter;

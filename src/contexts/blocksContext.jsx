@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { getBlocks } from '../api';
 import { useNetworkState } from './networkContext';
-import useTransformDate from '../hooks/useTransformDate';
-import useDummy from '../hooks/useDummy';
+import useTransformDate from '../utils/transformDate';
+import useDummy from '../utils/isDummy';
 
 const BlocksStateContext = createContext([]);
 BlocksStateContext.displayName = 'Blocks Context';

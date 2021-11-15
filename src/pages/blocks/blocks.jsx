@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { useBlocksState } from '../../contexts/blocksContext';
+import useCurrentLocation from '../../hooks/useCurrentLocation';
+import useAddUnit from '../../utils/addUnit';
 
 import Title from '../../components/shared/Title';
 import Breadcrumbs from '../../components/shared/Breadcrumbs/Breadcrumbs';
@@ -8,11 +11,9 @@ import Pagination from '../../components/table/Pagination';
 import Table from '../../components/table/Table';
 import PerPage from '../../components/table/PerPage';
 import Baker from '../../components/shared/Baker';
+import ErrorMessage from '../../components/shared/ErrorMessage';
 
 import styled from './_blocks.module.scss';
-import useCurrentLocation from '../../hooks/useCurrentLocation';
-import useAddUnit from '../../hooks/useAddUnit';
-import ErrorMessage from '../../components/shared/ErrorMessage';
 
 const HEADERS = [
   {
@@ -114,36 +115,31 @@ const Blocks = () => {
 
   const { title } = useCurrentLocation();
 
-  if (isError) {
-    return (
-      <main className="wrapper">
-        <Breadcrumbs />
-        <ErrorMessage retry={() => handleBlocks(0, 15)} />
-      </main>
-    );
-  }
-
   return (
-    <main className="wrapper">
+    <>
       <Breadcrumbs />
       <Title value={title} className="wrapper__title" />
-      <div className={styled.blocks}>
-        <Table
-          cols={HEADERS}
-          rows={blocks}
-          currentSort={sort}
-          sortFunction={onSortBy}
-        />
-        <nav className={styled.blocks__navigation}>
-          <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
-          <Pagination
-            onPageChanged={onPageChanged}
-            currentPage={currentPage}
-            totalPages={totalPages}
+      {isError ? (
+        <ErrorMessage retry={() => handleBlocks(0, 15)} />
+      ) : (
+        <div className={styled.blocks}>
+          <Table
+            cols={HEADERS}
+            rows={blocks}
+            currentSort={sort}
+            sortFunction={onSortBy}
           />
-        </nav>
-      </div>
-    </main>
+          <nav className={styled.blocks__navigation}>
+            <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
+            <Pagination
+              onPageChanged={onPageChanged}
+              currentPage={currentPage}
+              totalPages={totalPages}
+            />
+          </nav>
+        </div>
+      )}
+    </>
   );
 };
 

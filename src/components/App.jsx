@@ -1,6 +1,10 @@
 import '../styles/index.scss';
 
+import { BrowserRouter as Router } from 'react-router-dom';
 import AppRouter from '../route/AppRouter';
+
+import Header from './shared/Header';
+import Footer from './shared/Footer';
 
 import { NetworkProvider } from '../contexts/networkContext';
 import { BlocksProvider } from '../contexts/blocksContext';
@@ -12,7 +16,11 @@ const App = () => (
     <NetworkProvider>
       <BlocksProvider>
         <BlockProvider>
-          <AppRouter />
+          <Router>
+            <Header />
+            <AppRouter />
+            <Footer />
+          </Router>
         </BlockProvider>
       </BlocksProvider>
     </NetworkProvider>
