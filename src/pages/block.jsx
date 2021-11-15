@@ -3,14 +3,13 @@ import { useParams } from 'react-router';
 
 import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
+import useAddUnit from '../utils/addUnit';
 import useCurrentLocation from '../hooks/useCurrentLocation';
 import { useBlockState } from '../contexts/blockContext';
 
 import BlockInfo from '../components/shared/BlockInfo';
 import BlockTitle from '../components/shared/BlockTitle';
 import Baker from '../components/shared/Baker';
-
-import useAddUnit from '../hooks/useAddUnit';
 import DataWithCopy from '../components/shared/DataWithCopy';
 import ErrorMessage from '../components/shared/ErrorMessage';
 
@@ -68,21 +67,15 @@ const Block = () => {
 
   useEffect(() => handleBlock(id), []);
 
-  if (isError) {
-    return (
-      <main className="wrapper">
-        <ErrorMessage retry={() => handleBlock(id)} />
-      </main>
-    );
-  }
-
   return (
     <>
-      <main className="wrapper">
-        <Breadcrumbs />
-        <BlockTitle content={title} className="wrapper__title" />
+      <Breadcrumbs />
+      <BlockTitle content={title} className="wrapper__title" />
+      {isError ? (
+        <ErrorMessage retry={() => handleBlock(id)} />
+      ) : (
         <BlockInfo headers={HEADERS} block={block} />
-      </main>
+      )}
     </>
   );
 };
