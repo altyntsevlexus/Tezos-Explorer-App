@@ -3,6 +3,11 @@
 
 $border-style: 6px solid transparent;
 $burger-item-margin: -6px;
+$transition: all .2s;
+
+%transition {
+  transition: all .2s;
+}
 
 %dropdown {
   border: {
@@ -28,6 +33,8 @@ $burger-item-margin: -6px;
   width: 22px;
   height: 3px;
   background-color: $light;
+
+  @extend %transition;
 }
 
 @mixin burger-create($position, $value: $burger-item-margin) {
@@ -87,6 +94,24 @@ $burger-item-margin: -6px;
     &:after {
       @include burger-create('bottom');
       @extend %burger-items;
+    }
+
+    &--clicked {
+      background-color: transparent;
+
+      &:before {
+        transform: rotate(
+            -40deg) translate(-5px, 5px);
+
+        @extend %transition;
+      }
+
+      &:after {
+        transform: rotate(
+            40deg) translate(-3px, -4px);
+
+        @extend %transition;
+      }
     }
   }
 }
