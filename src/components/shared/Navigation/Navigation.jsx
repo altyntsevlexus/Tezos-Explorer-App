@@ -60,6 +60,7 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
                       ? styles['aside-nav__anchor--with-dropdown']
                       : styles['aside-nav__anchor']
                   }
+                  onClick={() => handleIsOpen(!isOpen)}
                 >
                   {content}
                 </Link>
@@ -93,7 +94,11 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
       </nav>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div
-        className={styles.navigation__burger}
+        className={
+          isOpen
+            ? `${styles.navigation__burger} ${styles['navigation__burger--clicked']}`
+            : styles.navigation__burger
+        }
         onClick={() => handleIsOpen(!isOpen)}
       />
     </>

@@ -1,8 +1,9 @@
 @import '/src/styles/mixins';
+$header-height: 79px;
 
 .aside {
   position: absolute;
-  top: 79px;
+  top: $header-height;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -10,7 +11,7 @@
 
   &__wrapper {
     position: absolute;
-    top: 79px;
+    top: $header-height;
     bottom: 0;
     left: -1000px;
     transition: left 0.5s ease-in;

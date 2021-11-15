@@ -1,5 +1,6 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
+@import "extends";
 
 #root {
   position: relative;
@@ -73,4 +74,8 @@ footer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.error {
+  @extend %table-substitute;
 }

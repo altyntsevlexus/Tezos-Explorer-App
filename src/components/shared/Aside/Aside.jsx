@@ -9,9 +9,7 @@ import Copy from '../Copy';
 const Aside = ({ isOpen, handleIsOpen }) => {
   return (
     <>
-      {isOpen ? (
-        <aside className={styles.aside} onClick={() => handleIsOpen(!isOpen)} />
-      ) : null}
+      {isOpen ? <aside className={styles.aside} /> : null}
       <div
         className={
           isOpen
@@ -19,7 +17,7 @@ const Aside = ({ isOpen, handleIsOpen }) => {
             : styles.aside__wrapper
         }
       >
-        <Navigation isAside />
+        <Navigation isAside handleIsOpen={handleIsOpen} isOpen={isOpen} />
         <Links />
         <div className={styles.aside__copy}>
           <Copy />

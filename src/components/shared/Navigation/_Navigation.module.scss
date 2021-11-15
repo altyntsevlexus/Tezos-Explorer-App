@@ -1,6 +1,50 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
 
+$border-style: 6px solid transparent;
+$burger-item-margin: -6px;
+$transition: all .2s;
+
+%transition {
+  transition: all .2s;
+}
+
+%dropdown {
+  border: {
+    left: $border-style;
+    right: $border-style;
+    bottom: none;
+  }
+
+  position: absolute;
+  top: calc(50% - 4px);
+  right: -20px;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 9px solid;
+}
+
+%burger-items {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: $light;
+
+  @extend %transition;
+}
+
+@mixin burger-create($position, $value: $burger-item-margin) {
+  @if $position == 'top' {
+    top: $value;
+  } @else {
+    bottom: $value;
+  }
+}
+
 .navigation {
   width: 100%;
   max-width: 480px;
@@ -10,7 +54,6 @@
   }
 
   &__list {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -28,17 +71,7 @@
     position: relative;
 
     &:after {
-      position: absolute;
-      top: calc(50% - 4px);
-      right: -20px;
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-top: 9px solid $light;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-bottom: none;
+      @extend %dropdown;
     }
   }
 
@@ -54,23 +87,31 @@
     }
 
     &:before {
-      position: absolute;
-      content: '';
-      top: -6px;
-      display: block;
-      width: 22px;
-      height: 3px;
-      background-color: $light;
+      @include burger-create('top');
+      @extend %burger-items;
     }
 
     &:after {
-      position: absolute;
-      content: '';
-      bottom: -6px;
-      display: block;
-      width: 22px;
-      height: 3px;
-      background-color: $light;
+      @include burger-create('bottom');
+      @extend %burger-items;
+    }
+
+    &--clicked {
+      background-color: transparent;
+
+      &:before {
+        transform: rotate(
+            -40deg) translate(-5px, 5px);
+
+        @extend %transition;
+      }
+
+      &:after {
+        transform: rotate(
+            40deg) translate(-3px, -4px);
+
+        @extend %transition;
+      }
     }
   }
 }
@@ -96,18 +137,8 @@
     position: relative;
 
     &:after {
-      position: absolute;
-      top: calc(50% - 4px);
-      right: -20px;
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      border-top: 9px solid;
       @include useTheme('border-top-color', 'icon-fill');
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-bottom: none;
+      @extend %dropdown;
     }
   }
 }

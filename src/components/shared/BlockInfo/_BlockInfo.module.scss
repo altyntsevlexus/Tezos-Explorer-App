@@ -1,4 +1,5 @@
 @import '/src/styles/mixins';
+@import "/src/styles/extends";
 
 .block-info {
   display: grid;
@@ -49,5 +50,9 @@
     cursor: pointer;
 
     background: url("../../../images/copy.png") no-repeat;
+  }
+
+  &__loader {
+    @extend %table-substitute;
   }
 }
