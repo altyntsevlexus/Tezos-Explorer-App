@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { getBlock } from '../api';
+import { getBlock, getHead } from '../api';
 import { useNetworkState } from './networkContext';
 import useTransformDate from '../utils/transformDate';
 import useDummy from '../utils/isDummy';
@@ -21,6 +21,7 @@ const useBlockState = () => {
 const transformBlockData = (block) => {
   const {
     block: {
+      level,
       hash,
       timestamp,
       bakerName,
@@ -40,36 +41,39 @@ const transformBlockData = (block) => {
   const date = useTransformDate(newDate);
 
   return {
+    level: useDummy(level),
     hash: useDummy(hash),
     timestamp: useDummy(date),
     baker: useDummy(bakerName),
     fees: useDummy(fees / 1000000),
-    priority: useDummy(priority).toString(),
-    volume: useDummy(volume / 1000000).toString(),
-    blockTime: useDummy(blockTime).toString(),
-    fitness: useDummy(fitness).toString(),
-    gas: useDummy(consumedGas / 1000000).toLocaleString(),
+    priority: useDummy(priority),
+    volume: useDummy(volume / 1000000),
+    blockTime: useDummy(blockTime),
+    fitness: useDummy(fitness),
+    gas: useDummy(consumedGas / 1000000),
     protocol: useDummy(protocol),
-    cycle: useDummy(metaCycle).toString(),
-    cyclePosition: useDummy(metaCyclePosition).toString(),
+    cycle: useDummy(metaCycle),
+    cyclePosition: useDummy(metaCyclePosition),
   };
 };
 
 const BlockProvider = ({ children }) => {
   const [block, setBlock] = useState({});
+  const [total, setTotal] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   const network = useNetworkState();
 
-  // eslint-disable-next-line consistent-return
   const handleBlock = async (id) => {
     setIsError(false);
     setIsLoading(true);
     try {
       const response = await getBlock(network, id);
       const transform = transformBlockData(response.data);
-      return setBlock(transform);
+      const head = await getHead();
+      setTotal(head.data.level);
+      setBlock(transform);
     } catch {
       setIsError(true);
     } finally {
@@ -80,6 +84,7 @@ const BlockProvider = ({ children }) => {
   const blockValue = useMemo(
     () => ({
       block,
+      total,
       handleBlock,
       isLoading,
       isError,

@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { getBlocks } from '../api';
+import { getBlocks, getHead } from '../api';
 import { useNetworkState } from './networkContext';
 import useTransformDate from '../utils/transformDate';
 import useDummy from '../utils/isDummy';
@@ -34,14 +34,14 @@ const transformBlocksData = (blocks) =>
     const date = useTransformDate(newDate);
 
     return {
-      level: useDummy(level).toString(),
+      level: useDummy(level),
       baker: useDummy(bakerName),
       timestamp: useDummy(date),
-      priority: useDummy(priority).toString(),
-      numOfOperations: useDummy(number_of_operations).toString(),
-      volume: useDummy(volume / 1000000).toString(),
-      fees: useDummy(fees / 1000000).toString(),
-      endorsements: useDummy(endorsements).toString(),
+      priority: useDummy(priority),
+      numOfOperations: useDummy(number_of_operations),
+      volume: useDummy(volume / 1000000),
+      fees: useDummy(fees / 1000000),
+      endorsements: useDummy(endorsements),
     };
   });
 
@@ -58,8 +58,9 @@ const BlocksProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const response = await getBlocks(network, offset, limit);
-      setTotal(response.headers['x-total-count']);
       const transform = transformBlocksData(response.data);
+      const head = await getHead();
+      setTotal(head.data.level);
       setBlocks(transform);
     } catch {
       setIsError(true);

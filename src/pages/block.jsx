@@ -4,7 +4,6 @@ import { useParams } from 'react-router';
 import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
 import useAddUnit from '../utils/addUnit';
-import useCurrentLocation from '../hooks/useCurrentLocation';
 import { useBlockState } from '../contexts/blockContext';
 
 import BlockInfo from '../components/shared/BlockInfo';
@@ -59,18 +58,16 @@ const HEADERS = [
 ];
 
 const Block = () => {
-  const { title } = useCurrentLocation();
-
   const { id } = useParams();
 
   const { block, handleBlock, isError } = useBlockState();
 
-  useEffect(() => handleBlock(id), []);
+  useEffect(() => handleBlock(id), [id]);
 
   return (
     <>
       <Breadcrumbs />
-      <BlockTitle content={title} className="wrapper__title" />
+      <BlockTitle className="wrapper__title" />
       {isError ? (
         <ErrorMessage retry={() => handleBlock(id)} />
       ) : (
