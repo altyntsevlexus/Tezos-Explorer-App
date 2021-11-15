@@ -60,6 +60,7 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
                       ? styles['aside-nav__anchor--with-dropdown']
                       : styles['aside-nav__anchor']
                   }
+                  onClick={() => handleIsOpen(!isOpen)}
                 >
                   {content}
                 </Link>
