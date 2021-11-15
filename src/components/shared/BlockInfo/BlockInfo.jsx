@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import styled from './_BlockInfo.module.scss';
+import { useBlockState } from '../../../contexts/blockContext';
 
 const BlockInfo = ({ headers, block }) => {
+  const { isLoading } = useBlockState();
+
+  if (isLoading) {
+    return <div className={styled['block-info__loader']}>Loading...</div>;
+  }
+
   return (
     <div className={styled['block-info']}>
       {headers.map((header) => {
