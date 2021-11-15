@@ -2,6 +2,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Blocks from '../pages/blocks';
 import Block from '../pages/block';
+import Error404 from '../components/shared/Error404';
 
 const ROUTE_CONFIG = [
   { path: '/blocks', component: Blocks, exact: true },
@@ -19,6 +20,9 @@ const AppRouter = () => (
       ))}
       <Route exact path={['/', '/home']}>
         <Redirect to="/blocks" />
+      </Route>
+      <Route path="*">
+        <Error404 />
       </Route>
     </Switch>
   </main>
