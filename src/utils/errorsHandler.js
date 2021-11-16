@@ -1,7 +1,9 @@
 import { toast } from 'react-toastify';
 
 const errorNotifications = {
+  500: 'Internal error',
   404: 'Page not found',
+  400: 'Bad request',
 };
 
 const errorStatuses = Object.keys(errorNotifications);
