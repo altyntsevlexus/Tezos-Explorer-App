@@ -99,11 +99,11 @@ $burger-item-margin: -6px;
       background-color: transparent;
 
       &:before {
-        transform: rotate(-45deg);
+        transform: rotate(-45deg) translate(-5px, 5px);
       }
 
       &:after {
-        transform: rotate(45deg);
+        transform: rotate(45deg) translate(-3px, -4px);
       }
     }
   }
