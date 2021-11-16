@@ -10,7 +10,11 @@ import Aside from '../Aside/Aside';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleIsOpen = () => setIsOpen(!isOpen);
+  const handleIsOpen = (e) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(!isOpen);
+    }
+  };
 
   const location = useLocation();
 
