@@ -1,19 +1,25 @@
 import PropTypes from 'prop-types';
+import styles from './Th.module.scss';
 
 const Th = ({ headerName, sortBy, currentSort, sortFunction }) => {
   const sortArrow = () => {
     if (sortBy === currentSort.key) {
       return currentSort.direction
-        ? String.fromCharCode(8593)
-        : String.fromCharCode(8595);
+        ? `${styles.arrow} ${styles['arrow--d--up']}`
+        : `${styles.arrow} ${styles['arrow--d--down']}`;
     }
     return null;
   };
 
   return (
     <th>
-      <button type="button" value={sortBy} onClick={sortFunction}>
-        {headerName} {sortArrow()}
+      <button
+        type="button"
+        value={sortBy}
+        onClick={sortFunction}
+        className={sortArrow()}
+      >
+        {headerName}
       </button>
     </th>
   );

@@ -9,15 +9,15 @@ import Copy from '../Copy';
 const Aside = ({ isOpen, handleIsOpen }) => {
   return (
     <>
-      {isOpen ? <aside className={styles.aside} /> : null}
+      {isOpen ? (
+        <aside onClick={handleIsOpen} className={styles.modal} />
+      ) : null}
       <div
         className={
-          isOpen
-            ? `${styles['aside__wrapper--opened']} ${styles.aside__wrapper}`
-            : styles.aside__wrapper
+          isOpen ? `${styles['aside--opened']} ${styles.aside}` : styles.aside
         }
       >
-        <Navigation isAside handleIsOpen={handleIsOpen} isOpen={isOpen} />
+        <Navigation isAside />
         <Links />
         <div className={styles.aside__copy}>
           <Copy />
