@@ -6,9 +6,10 @@ import styles from './_Aside.module.scss';
 import Navigation from '../Navigation';
 import Copy from '../Copy';
 
-const Aside = ({ isOpen }) => {
+const Aside = ({ isOpen, handleIsOpen }) => {
   return (
     <aside
+      onClick={handleIsOpen}
       className={
         isOpen ? `${styles['aside--opened']} ${styles.aside}` : styles.aside
       }
