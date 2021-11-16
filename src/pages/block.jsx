@@ -60,7 +60,7 @@ const HEADERS = [
 const Block = () => {
   const { id } = useParams();
 
-  const { block, handleBlock, isError } = useBlockState();
+  const { block, handleBlock, isError, error } = useBlockState();
 
   useEffect(() => handleBlock(id), [id]);
 
@@ -69,7 +69,7 @@ const Block = () => {
       <Breadcrumbs />
       <BlockTitle className="wrapper__title" />
       {isError ? (
-        <ErrorMessage retry={() => handleBlock(id)} />
+        <ErrorMessage retry={() => handleBlock(id)} message={error} />
       ) : (
         <BlockInfo headers={HEADERS} block={block} />
       )}

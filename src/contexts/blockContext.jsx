@@ -5,6 +5,7 @@ import { getBlock, getHead } from '../api';
 import { useNetworkState } from './networkContext';
 import useTransformDate from '../utils/transformDate';
 import useDummy from '../utils/isDummy';
+import handleError from '../utils/errorsHandler';
 
 const BlockStateContext = createContext([]);
 BlockStateContext.displayName = 'Block Context';
@@ -74,7 +75,8 @@ const BlockProvider = ({ children }) => {
       const head = await getHead();
       setTotal(head.data.level);
       setBlock(transform);
-    } catch {
+    } catch (e) {
+      handleError(e);
       setIsError(true);
     } finally {
       setIsLoading(false);
