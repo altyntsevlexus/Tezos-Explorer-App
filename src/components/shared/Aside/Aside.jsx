@@ -6,15 +6,18 @@ import styles from './_Aside.module.scss';
 import Navigation from '../Navigation';
 import Copy from '../Copy';
 
-const Aside = ({ isOpen, handleIsOpen }) => {
+const Aside = ({ isOpen }) => {
   return (
-    <>
-      {isOpen ? (
-        <aside onClick={handleIsOpen} className={styles.modal} />
-      ) : null}
+    <aside
+      className={
+        isOpen ? `${styles['aside--opened']} ${styles.aside}` : styles.aside
+      }
+    >
       <div
         className={
-          isOpen ? `${styles['aside--opened']} ${styles.aside}` : styles.aside
+          isOpen
+            ? `${styles['aside__wrapper--opened']} ${styles.aside__wrapper}`
+            : styles.aside__wrapper
         }
       >
         <Navigation isAside />
@@ -23,7 +26,7 @@ const Aside = ({ isOpen, handleIsOpen }) => {
           <Copy />
         </div>
       </div>
-    </>
+    </aside>
   );
 };
 
