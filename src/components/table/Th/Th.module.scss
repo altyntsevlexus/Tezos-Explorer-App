@@ -1,0 +1,33 @@
+$border-style: 6px solid transparent;
+
+.arrow {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -20px;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  &--d {
+    &--up::after {
+      border: {
+        left: $border-style;
+        right: $border-style;
+        bottom: 9px solid;
+        top: none;
+      }
+    }
+    &--down::after {
+      border: {
+        left: $border-style;
+        right: $border-style;
+        bottom: none;
+        top: 9px solid;
+      }
+    }
+  }
+}

@@ -5,25 +5,16 @@ $header-height: 79px;
   position: absolute;
   top: $header-height;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #00000055;
+  left: -1000px;
+  transition: left 0.5s ease-in;
+  @include useTheme('color', 'aside-text');
+  @include useTheme('background-color', 'aside-fill');
 
-  &__wrapper {
-    position: absolute;
-    top: $header-height;
-    bottom: 0;
-    left: -1000px;
-    transition: left 0.5s ease-in;
-    @include useTheme('color', 'aside-text');
-    @include useTheme('background-color', 'aside-fill');
+  width: 280px;
 
-    width: 280px;
-
-    &--opened {
-      left: 0;
-      transition: left 0.5s;
-    }
+  &--opened {
+    left: 0;
+    transition: left 0.5s;
   }
 
   &__copy {
@@ -33,12 +24,17 @@ $header-height: 79px;
     }
   }
 
-  &__navigation {
-    display: block;
-  }
-
   &__copy {
     @include typography(300, 12px, 15px);
     padding: 30px;
   }
+}
+
+.modal {
+  position: absolute;
+  top: $header-height;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #00000055;
 }

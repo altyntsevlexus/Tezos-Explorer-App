@@ -3,10 +3,9 @@
 
 $border-style: 6px solid transparent;
 $burger-item-margin: -6px;
-$transition: all .2s;
 
 %transition {
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 %dropdown {
@@ -100,17 +99,11 @@ $transition: all .2s;
       background-color: transparent;
 
       &:before {
-        transform: rotate(
-            -40deg) translate(-5px, 5px);
-
-        @extend %transition;
+        transform: rotate(-45deg);
       }
 
       &:after {
-        transform: rotate(
-            40deg) translate(-3px, -4px);
-
-        @extend %transition;
+        transform: rotate(45deg);
       }
     }
   }

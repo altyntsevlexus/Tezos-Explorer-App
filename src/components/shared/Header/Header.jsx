@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
 
 import styles from './_Header.module.scss';
 import Logo from '../Logo';
@@ -9,6 +10,14 @@ import Aside from '../Aside/Aside';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleIsOpen = () => setIsOpen(!isOpen);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   const size = window.innerWidth;
 
   return (
@@ -16,11 +25,11 @@ const Header = () => {
       <div className={`wrapper ${styles.header__wrapper}`}>
         <Logo />
         <div className={styles.header__navigation}>
-          <Navigation isOpen={isOpen} handleIsOpen={setIsOpen} />
+          <Navigation isOpen={isOpen} handleIsOpen={handleIsOpen} />
           <Button />
         </div>
       </div>
-      {size <= 834 && <Aside isOpen={isOpen} handleIsOpen={setIsOpen} />}
+      {size <= 834 && <Aside isOpen={isOpen} handleIsOpen={handleIsOpen} />}
     </header>
   );
 };
