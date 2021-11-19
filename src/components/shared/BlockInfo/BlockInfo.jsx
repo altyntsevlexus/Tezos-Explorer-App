@@ -5,22 +5,22 @@ import { useBlockState } from '../../../contexts/blockContext';
 const BlockInfo = ({ headers, block }) => {
   const { isLoading } = useBlockState();
 
-  if (isLoading) {
-    return <div className={styled['block-info__loader']}>Loading...</div>;
-  }
-
   return (
     <div className={styled['block-info']}>
-      {headers.map((header) => {
-        return (
-          <div className={styled['block-info__item']} key={header.key}>
-            <p className={styled['block-info__header']}>{header.name}:</p>
-            <div className={styled['block-info__value']}>
-              {header.render ? header.render(block) : block[header.key]}
+      {isLoading ? (
+        <div className={styled['block-info__loader']}>Loading...</div>
+      ) : (
+        headers.map((header) => {
+          return (
+            <div className={styled['block-info__item']} key={header.key}>
+              <p className={styled['block-info__header']}>{header.name}:</p>
+              <div className={styled['block-info__value']}>
+                {header.render ? header.render(block) : block[header.key]}
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      )}
     </div>
   );
 };
