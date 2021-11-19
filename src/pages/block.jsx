@@ -1,9 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
-
-import useAddUnit from '../utils/addUnit';
+import addUnit from '../utils/addUnit';
 import { useBlockState } from '../contexts/blockContext';
 
 import BlockInfo from '../components/shared/BlockInfo';
@@ -27,18 +25,18 @@ const HEADERS = [
   {
     name: "Baker's fee",
     key: 'fees',
-    render: (block) => useAddUnit(block.fees, 'ꜩ'),
+    render: (block) => addUnit(block.fees, 'ꜩ'),
   },
   { name: "Baker's priority", key: 'priority' },
   {
     name: 'Transactions volume',
     key: 'volume',
-    render: (block) => useAddUnit(block.volume, 'ꜩ'),
+    render: (block) => addUnit(block.volume, 'ꜩ'),
   },
   {
     name: 'Block time',
     key: 'blockTime',
-    render: (block) => useAddUnit(block.blockTime, 'sec'),
+    render: (block) => addUnit(block.blockTime, 'sec'),
   },
   { name: 'Block fitness', key: 'fitness' },
   { name: 'Gas used', key: 'gas' },
@@ -53,23 +51,22 @@ const HEADERS = [
   {
     name: 'Cycle position',
     key: 'cyclePosition',
-    render: (block) => useAddUnit(block.cyclePosition, 'out of 4096'),
+    render: (block) => addUnit(block.cyclePosition, 'out of 4096'),
   },
 ];
 
 const Block = () => {
   const { id } = useParams();
 
-  const { block, handleBlock, isError, error } = useBlockState();
+  const { block, handleBlock, isError } = useBlockState();
 
   useEffect(() => handleBlock(id), [id]);
 
   return (
     <>
-      <Breadcrumbs />
       <BlockTitle className="wrapper__title" />
       {isError ? (
-        <ErrorMessage retry={() => handleBlock(id)} message={error} />
+        <ErrorMessage retry={() => handleBlock(id)} />
       ) : (
         <BlockInfo headers={HEADERS} block={block} />
       )}

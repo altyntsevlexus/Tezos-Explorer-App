@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { useBlocksState } from '../../contexts/blocksContext';
 import useCurrentLocation from '../../hooks/useCurrentLocation';
-import useAddUnit from '../../utils/addUnit';
+import addUnit from '../../utils/addUnit';
 
 import Title from '../../components/shared/Title';
-import Breadcrumbs from '../../components/shared/Breadcrumbs/Breadcrumbs';
 import Pagination from '../../components/table/Pagination';
 import Table from '../../components/table/Table';
 import PerPage from '../../components/table/PerPage';
@@ -41,12 +40,12 @@ const HEADERS = [
   {
     name: 'Volume',
     key: 'volume',
-    render: (row) => useAddUnit(row.volume, 'ꜩ'),
+    render: (row) => addUnit(row.volume, 'ꜩ'),
   },
   {
     name: 'Fees',
     key: 'fees',
-    render: (row) => useAddUnit(row.fees, 'ꜩ'),
+    render: (row) => addUnit(row.fees, 'ꜩ'),
   },
   {
     name: '# of endorsements',
@@ -117,7 +116,6 @@ const Blocks = () => {
 
   return (
     <>
-      <Breadcrumbs />
       <Title value={title} className="wrapper__title" />
       {isError ? (
         <ErrorMessage retry={() => handleBlocks(0, 15)} />

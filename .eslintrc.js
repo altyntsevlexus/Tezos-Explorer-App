@@ -25,5 +25,11 @@ module.exports = {
     ],
     'react/react-in-jsx-scope': 'off',
     camelcase: 0,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 };

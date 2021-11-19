@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+import PropTypes from 'prop-types';
 import Links from '../Links';
 import styles from './_Aside.module.scss';
 import Navigation from '../Navigation';
@@ -29,6 +29,11 @@ const Aside = ({ isOpen, handleIsOpen }) => {
       </div>
     </aside>
   );
+};
+
+Aside.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  handleIsOpen: PropTypes.func.isRequired,
 };
 
 export default Aside;

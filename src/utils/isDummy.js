@@ -1,5 +1,5 @@
-const useDummy = (value) => {
+const isDummy = (value) => {
   return value || value === 0 ? value : '-----';
 };
 
-export default useDummy;
+export default isDummy;

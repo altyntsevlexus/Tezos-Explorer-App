@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Blocks from '../pages/blocks';
 import Block from '../pages/block';
 import Error404 from '../pages/Error404';
+import Breadcrumbs from '../components/shared/Breadcrumbs/Breadcrumbs';
 
 const ROUTE_CONFIG = [
   { path: '/blocks', component: Blocks, exact: true },
@@ -12,13 +13,13 @@ const ROUTE_CONFIG = [
 
 const AppRouter = () => (
   <main className="wrapper">
+    <Breadcrumbs />
     <Switch>
       <Route exact path="/">
         <Redirect to="/blocks" />
       </Route>
-      {ROUTE_CONFIG.map((route, i) => (
-        // eslint-disable-next-line react/no-array-index-key
-        <Route key={i} path={route.path} exact={route.exact || false}>
+      {ROUTE_CONFIG.map((route) => (
+        <Route key={route.path} path={route.path} exact={route.exact || false}>
           <route.component />
         </Route>
       ))}
