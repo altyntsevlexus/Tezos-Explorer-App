@@ -18,8 +18,6 @@ const useCurrentLocation = () => {
     });
   }
 
-  console.log(breadcrumbs);
-
   const title = breadcrumbs[breadcrumbs.length - 1];
 
   return { breadcrumbs, title };
