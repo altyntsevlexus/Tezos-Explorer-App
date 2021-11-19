@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { getBlocks, getHead } from '../api';
 import { useNetworkState } from './networkContext';
-import useTransformDate from '../utils/transformDate';
-import useDummy from '../utils/isDummy';
+import transformDate from '../utils/transformDate';
+import isDummy from '../utils/isDummy';
 import handleError from '../utils/errorsHandler';
 
 const BlocksStateContext = createContext([]);
@@ -32,17 +32,17 @@ const transformBlocksData = (blocks) =>
     } = block;
 
     const newDate = new Date(block.timestamp * 1000);
-    const date = useTransformDate(newDate);
+    const date = transformDate(newDate);
 
     return {
-      level: useDummy(level),
-      baker: useDummy(bakerName),
-      timestamp: useDummy(date),
-      priority: useDummy(priority),
-      numOfOperations: useDummy(number_of_operations),
-      volume: useDummy(volume / 1000000),
-      fees: useDummy(fees / 1000000),
-      endorsements: useDummy(endorsements),
+      level: isDummy(level),
+      baker: isDummy(bakerName),
+      timestamp: isDummy(date),
+      priority: isDummy(priority),
+      numOfOperations: isDummy(number_of_operations),
+      volume: isDummy(volume / 1000000),
+      fees: isDummy(fees / 1000000),
+      endorsements: isDummy(endorsements),
     };
   });
 

@@ -1,3 +1,3 @@
-const useAddUnit = (value, unit) => value && `${value} ${unit}`;
+const addUnit = (value, unit) => value && `${value} ${unit}`;
 
-export default useAddUnit;
+export default addUnit;

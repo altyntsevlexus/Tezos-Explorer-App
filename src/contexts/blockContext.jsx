@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import { getBlock, getHead } from '../api';
 import { useNetworkState } from './networkContext';
-import useTransformDate from '../utils/transformDate';
-import useDummy from '../utils/isDummy';
+import transformDate from '../utils/transformDate';
+import isDummy from '../utils/isDummy';
 import handleError from '../utils/errorsHandler';
 
 const BlockStateContext = createContext([]);
@@ -39,22 +39,22 @@ const transformBlockData = (block) => {
   } = block;
 
   const newDate = new Date(timestamp * 1000);
-  const date = useTransformDate(newDate);
+  const date = transformDate(newDate);
 
   return {
-    level: useDummy(level),
-    hash: useDummy(hash),
-    timestamp: useDummy(date),
-    baker: useDummy(bakerName),
-    fees: useDummy(fees / 1000000),
-    priority: useDummy(priority),
-    volume: useDummy(volume / 1000000),
-    blockTime: useDummy(blockTime),
-    fitness: useDummy(fitness),
-    gas: useDummy(consumedGas / 1000000),
-    protocol: useDummy(protocol),
-    cycle: useDummy(metaCycle),
-    cyclePosition: useDummy(metaCyclePosition),
+    level: isDummy(level),
+    hash: isDummy(hash),
+    timestamp: isDummy(date),
+    baker: isDummy(bakerName),
+    fees: isDummy(fees / 1000000),
+    priority: isDummy(priority),
+    volume: isDummy(volume / 1000000),
+    blockTime: isDummy(blockTime),
+    fitness: isDummy(fitness),
+    gas: isDummy(consumedGas / 1000000),
+    protocol: isDummy(protocol),
+    cycle: isDummy(metaCycle),
+    cyclePosition: isDummy(metaCyclePosition),
   };
 };
 

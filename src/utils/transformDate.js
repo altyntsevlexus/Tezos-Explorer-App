@@ -1,4 +1,4 @@
-const useTransformDate = (date) => {
+const transformDate = (date) => {
   const year = date.getFullYear();
   const month = `0${date.getMonth() + 1}`.slice(-2);
   const day = `0${date.getDate()}`.slice(-2);
@@ -9,4 +9,4 @@ const useTransformDate = (date) => {
   return `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
 };
 
-export default useTransformDate;
+export default transformDate;
