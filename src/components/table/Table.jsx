@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useBlocksState } from '../../contexts/blocksContext';
+import Loader from '../shared/Loader';
 
 import Th from './Th';
 
-import styled from './_Table.module.scss';
+import styles from './_Table.module.scss';
 
 const Table = ({ cols, rows, currentSort, sortFunction }) => {
   const { isLoading } = useBlocksState();
@@ -21,12 +22,12 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
   };
 
   if (isLoading) {
-    return <div className={styled.table__loader}>Loading...</div>;
+    return <Loader />;
   }
 
   return (
-    <div className={styled.overflow}>
-      <table className={styled.table}>
+    <div className={styles.overflow}>
+      <table className={styles.table}>
         <thead>
           <tr>
             {cols.map((col) => (

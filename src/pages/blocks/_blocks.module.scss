@@ -2,6 +2,7 @@
 
 .blocks {
   padding: 25px;
+  min-height: 800px;
   border-radius: 25px;
   border: 5px solid;
   @include useTheme('border-color', 'table-border');

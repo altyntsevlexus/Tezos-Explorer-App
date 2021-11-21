@@ -12,7 +12,8 @@ import PerPage from '../../components/table/PerPage';
 import Baker from '../../components/shared/Baker';
 import ErrorMessage from '../../components/shared/ErrorMessage';
 
-import styled from './_blocks.module.scss';
+import styles from './_blocks.module.scss';
+import Loader from '../../components/shared/Loader';
 
 const HEADERS = [
   {
@@ -61,7 +62,7 @@ const byField = (field) => (a, b) => {
 };
 
 const Blocks = () => {
-  const { blocks, handleBlocks, total, isError } = useBlocksState();
+  const { blocks, handleBlocks, total, isError, isLoading } = useBlocksState();
   const [limit, setLimit] = useState('15');
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState({
@@ -120,21 +121,27 @@ const Blocks = () => {
       {isError ? (
         <ErrorMessage retry={() => handleBlocks(0, 15)} />
       ) : (
-        <div className={styled.blocks}>
-          <Table
-            cols={HEADERS}
-            rows={blocks}
-            currentSort={sort}
-            sortFunction={onSortBy}
-          />
-          <nav className={styled.blocks__navigation}>
-            <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
-            <Pagination
-              onPageChanged={onPageChanged}
-              currentPage={currentPage}
-              totalPages={totalPages}
-            />
-          </nav>
+        <div className={styles.blocks}>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <Table
+                cols={HEADERS}
+                rows={blocks}
+                currentSort={sort}
+                sortFunction={onSortBy}
+              />
+              <nav className={styles.blocks__navigation}>
+                <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
+                <Pagination
+                  onPageChanged={onPageChanged}
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                />
+              </nav>
+            </>
+          )}
         </div>
       )}
     </>
