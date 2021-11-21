@@ -8,23 +8,6 @@ $burger-item-margin: -6px;
   transition: all 0.2s;
 }
 
-%dropdown {
-  border: {
-    left: $border-style;
-    right: $border-style;
-    bottom: none;
-  }
-
-  position: absolute;
-  top: calc(50% - 4px);
-  right: -20px;
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 9px solid;
-}
-
 %burger-items {
   position: absolute;
   content: '';
@@ -63,14 +46,6 @@ $burger-item-margin: -6px;
 
       @include useTheme('background-color', 'header-footer');
       @include useTheme('border-color', 'table-border');
-    }
-  }
-
-  &__dropdown {
-    position: relative;
-
-    &:after {
-      @extend %dropdown;
     }
   }
 
@@ -124,14 +99,5 @@ $burger-item-margin: -6px;
     display: flex;
     align-items: flex-end;
     margin-bottom: 24px;
-  }
-
-  &__anchor--with-dropdown {
-    position: relative;
-
-    &:after {
-      @include useTheme('border-top-color', 'icon-fill');
-      @extend %dropdown;
-    }
   }
 }
