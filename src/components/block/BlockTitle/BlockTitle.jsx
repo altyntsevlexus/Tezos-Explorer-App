@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Title from '../Title';
+import Title from '../../shared/Title';
 import styles from './_BlockTitle.module.scss';
 import { useBlockState } from '../../../contexts/blockContext';
 import useCurrentLocation from '../../../hooks/useCurrentLocation';
 
-const BlockTitle = ({ className }) => {
+const BlockTitle = () => {
   const {
     block: { level },
     total,
@@ -14,9 +13,13 @@ const BlockTitle = ({ className }) => {
   const { title } = useCurrentLocation();
 
   return (
-    <div className={`${styles['block-title']} ${className}`}>
+    <div className={`${styles['block-title']} wrapper__title`}>
       {total === level ? (
-        <span className={styles['block-title__item']}>{'<'}</span>
+        <span
+          className={`${styles['block-title__item']} ${styles['block-title__item--inactive']}`}
+        >
+          {'<'}
+        </span>
       ) : (
         <Link
           className={styles['block-title__item']}
@@ -46,11 +49,3 @@ const BlockTitle = ({ className }) => {
 };
 
 export default BlockTitle;
-
-BlockTitle.propTypes = {
-  className: PropTypes.string,
-};
-
-BlockTitle.defaultProps = {
-  className: '',
-};

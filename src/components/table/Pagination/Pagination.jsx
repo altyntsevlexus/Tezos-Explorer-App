@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styled from './_Pagination.module.scss';
+import styles from './_Pagination.module.scss';
 
 const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
   const handlePreviousPage = () => {
@@ -14,10 +14,10 @@ const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
   };
 
   return (
-    <div className={styled.pagination}>
+    <div className={styles.pagination}>
       <button
         type="button"
-        className={styled.pagination__arrow}
+        className={styles.pagination__arrow}
         onClick={() => handlePreviousPage(1)}
       >
         {'<'}
@@ -27,7 +27,7 @@ const Pagination = ({ onPageChanged, currentPage, totalPages }) => {
       </p>
       <button
         type="button"
-        className={styled.pagination__arrow}
+        className={styles.pagination__arrow}
         onClick={() => handleNextPage(1)}
       >
         {'>'}

@@ -2,6 +2,7 @@
 @import '/src/styles/extends';
 
 .block-info {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 535px);
   grid-template-rows: repeat(6, auto);
@@ -51,14 +52,5 @@
     cursor: pointer;
 
     background: url('../../../images/copy.png') no-repeat;
-  }
-
-  &__loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 48px;
-    font-weight: 700;
   }
 }

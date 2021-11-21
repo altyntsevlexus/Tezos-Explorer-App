@@ -25,7 +25,7 @@ const ASIDE_CONFIG = [
   { content: 'Chart', path: '/charts', withDropdown: false, Icon: Chart },
   {
     content: 'Ecosystem',
-    path: '/Ecosystem',
+    path: '/ecosystem',
     withDropdown: true,
     Icon: Ecosystem,
   },
@@ -56,11 +56,7 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
                 <Icon className={styles['aside-nav__icon']} />
                 <Link
                   to={path}
-                  className={
-                    withDropdown
-                      ? styles['aside-nav__anchor--with-dropdown']
-                      : styles['aside-nav__anchor']
-                  }
+                  className={withDropdown ? 'arrow arrow--d--down' : null}
                 >
                   {content}
                 </Link>
@@ -81,7 +77,7 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
 
             return (
               <li
-                className={withDropdown ? styles.navigation__dropdown : null}
+                className={withDropdown ? 'arrow arrow--d--down' : null}
                 key={content}
               >
                 <Link to={path}>{content}</Link>

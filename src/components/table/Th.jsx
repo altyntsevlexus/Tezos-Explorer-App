@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
-import styles from './Th.module.scss';
 
 const Th = ({ headerName, sortBy, currentSort, sortFunction }) => {
   const sortArrow = () => {
     if (sortBy === currentSort.key) {
       return currentSort.direction
-        ? `${styles.arrow} ${styles['arrow--d--up']}`
-        : `${styles.arrow} ${styles['arrow--d--down']}`;
+        ? 'arrow arrow--d--up'
+        : 'arrow arrow--d--down';
     }
     return null;
   };

@@ -1,6 +1,6 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
-@import "extends";
+@import 'extends';
 
 #root {
   position: relative;
@@ -78,4 +78,39 @@ footer {
 
 .error {
   @extend %table-substitute;
+}
+
+$side-border-style: 6px solid transparent;
+$main-border-style: 9px solid;
+
+.arrow {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: calc(50% - 4px);
+    right: -20px;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+  }
+  &--d {
+    &--up::after {
+      border: {
+        left: $side-border-style;
+        right: $side-border-style;
+        bottom: $main-border-style;
+        top: none;
+      }
+    }
+    &--down::after {
+      border: {
+        left: $side-border-style;
+        right: $side-border-style;
+        bottom: none;
+        top: $main-border-style;
+      }
+    }
+  }
 }

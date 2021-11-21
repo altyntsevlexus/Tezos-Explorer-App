@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types';
-import styled from './_BlockInfo.module.scss';
+import styles from './_BlockInfo.module.scss';
 import { useBlockState } from '../../../contexts/blockContext';
+import Loader from '../../shared/Loader';
 
 const BlockInfo = ({ headers, block }) => {
   const { isLoading } = useBlockState();
 
   return (
-    <div className={styled['block-info']}>
+    <div className={styles['block-info']}>
       {isLoading ? (
-        <div className={styled['block-info__loader']}>Loading...</div>
+        <Loader />
       ) : (
         headers.map((header) => {
           return (
-            <div className={styled['block-info__item']} key={header.key}>
-              <p className={styled['block-info__header']}>{header.name}:</p>
-              <div className={styled['block-info__value']}>
+            <div className={styles['block-info__item']} key={header.key}>
+              <p className={styles['block-info__header']}>{header.name}:</p>
+              <div className={styles['block-info__value']}>
                 {header.render ? header.render(block) : block[header.key]}
               </div>
             </div>
