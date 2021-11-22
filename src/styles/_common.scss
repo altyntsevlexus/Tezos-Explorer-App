@@ -76,15 +76,6 @@ footer {
   flex-direction: column;
 }
 
-.error {
-  @extend %table-substitute;
-  @include media(tablet) {
-    font-size: 30px;
-  }
-  line-height: 1.2;
-  text-align: center;
-}
-
 $side-border-style: 6px solid transparent;
 $main-border-style: 9px solid;
 

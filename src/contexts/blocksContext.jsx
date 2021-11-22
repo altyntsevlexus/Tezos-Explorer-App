@@ -5,7 +5,7 @@ import { getBlocks, getHead } from '../api';
 import { useNetworkState } from './networkContext';
 import transformDate from '../utils/transformDate';
 import isDummy from '../utils/isDummy';
-import handleError from '../utils/errorsHandler';
+import { handleError } from '../utils/errorsHandler';
 
 const BlocksStateContext = createContext([]);
 BlocksStateContext.displayName = 'Blocks Context';
