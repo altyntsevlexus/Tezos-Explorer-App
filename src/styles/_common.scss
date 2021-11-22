@@ -76,10 +76,6 @@ footer {
   flex-direction: column;
 }
 
-.error {
-  @extend %table-substitute;
-}
-
 $side-border-style: 6px solid transparent;
 $main-border-style: 9px solid;
 

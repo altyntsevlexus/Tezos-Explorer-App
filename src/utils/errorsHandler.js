@@ -6,7 +6,10 @@ const errorNotifications = {
   400: 'Bad request',
 };
 
-const errorStatuses = Object.keys(errorNotifications);
+// eslint-disable-next-line import/no-mutable-exports
+let errorMessage = '';
+// eslint-disable-next-line import/no-mutable-exports
+let errorStatus = null;
 
 const handleError = (error) => {
   // eslint-disable-next-line no-console
@@ -14,9 +17,13 @@ const handleError = (error) => {
 
   const { status } = error.response;
 
-  const errorText = errorStatuses.includes(`${status}`)
-    ? errorNotifications[`${status}`]
-    : 'Unknown Error';
+  const errorText =
+    `${status}` in errorNotifications
+      ? errorNotifications[`${status}`]
+      : 'Unknown Error';
+
+  errorMessage = errorText;
+  errorStatus = status;
 
   return toast.error(errorText, {
     position: 'top-right',
@@ -29,4 +36,4 @@ const handleError = (error) => {
   });
 };
 
-export default handleError;
+export { handleError, errorMessage, errorStatus };
