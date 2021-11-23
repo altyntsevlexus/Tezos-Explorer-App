@@ -49,6 +49,13 @@ $burger-item-margin: -6px;
     }
   }
 
+  &__theme {
+    cursor: pointer;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
   &__burger {
     position: relative;
     width: 22px;

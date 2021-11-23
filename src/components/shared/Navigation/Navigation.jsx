@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './_Navigation.module.scss';
@@ -32,17 +31,10 @@ const ASIDE_CONFIG = [
 ];
 
 const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
-  const { theme, setTheme } = useThemeState();
-  const themeNow = `${theme[0].toUpperCase()}${theme.slice(1)}`;
+  const { theme, handleSetTheme } = useThemeState();
 
-  const [isLightTheme, setIsLightTheme] = useState(true);
-  const handleIsLightTheme = () => setIsLightTheme(!isLightTheme);
-
-  useEffect(() => {
-    const newTheme = isLightTheme ? 'light' : 'dark';
-
-    setTheme(newTheme);
-  }, [isLightTheme]);
+  const toggleTheme = () =>
+    theme === 'light' ? handleSetTheme('dark') : handleSetTheme('light');
 
   if (isAside) {
     return (
@@ -85,7 +77,9 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
             );
           })}
           {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-          <li onClick={handleIsLightTheme}>{themeNow}</li>
+          <li onClick={toggleTheme} className={styles.navigation__theme}>
+            {theme}
+          </li>
         </ul>
       </nav>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
