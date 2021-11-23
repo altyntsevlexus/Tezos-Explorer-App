@@ -1,7 +1,7 @@
 @import '/src/styles/mixins';
 
 .breadcrumbs {
-  @include typography(400, 18px, 22px, inherit);
+  @include typography(400, 18px, 22px);
   @include useTheme('color', 'title');
   display: flex;
   gap: 14px;

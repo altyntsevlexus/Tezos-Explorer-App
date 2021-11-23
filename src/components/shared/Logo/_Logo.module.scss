@@ -2,5 +2,6 @@
 @import '/src/styles/variables';
 
 .logo {
-  @include typography(700, 24px, 29px, $light);
+  @include typography(700, 24px, 29px);
+  color: $light;
 }

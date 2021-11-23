@@ -2,9 +2,9 @@
 @import '/src/styles/extends';
 
 .header {
-  @include typography(500, 18px, 22px, $light);
+  @include typography(500, 18px, 22px);
   @include useTheme('background-color', 'header-footer');
-
+  color: $light;
   padding: 25px 15px;
 
   &__wrapper {
