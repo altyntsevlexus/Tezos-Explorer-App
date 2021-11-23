@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react/cjs/react.development';
 
 const ThemeStateContext = createContext();
 ThemeStateContext.displayName = 'Theme Context';
@@ -16,12 +17,24 @@ const useThemeState = () => {
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
+  const storage = localStorage;
+
+  const handleSetTheme = (newTheme) => {
+    setTheme(newTheme);
+    storage.setItem('theme', newTheme);
+  };
+
+  useEffect(
+    () => storage.getItem('theme') && setTheme(storage.getItem('theme')),
+    [],
+  );
+
   const stateValue = useMemo(
     () => ({
       theme,
-      setTheme,
+      handleSetTheme,
     }),
-    [theme, setTheme],
+    [theme, handleSetTheme],
   );
 
   return (
