@@ -1,5 +1,4 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Breadcrumbs from '../components/shared/Breadcrumbs';
 import Blocks from '../pages/blocks';
 import Block from '../pages/block';
 import Error404 from '../pages/Error404';
@@ -12,7 +11,6 @@ const ROUTE_CONFIG = [
 
 const AppRouter = () => (
   <main className="wrapper">
-    <Breadcrumbs />
     <Switch>
       <Route exact path="/">
         <Redirect to="/blocks" />
