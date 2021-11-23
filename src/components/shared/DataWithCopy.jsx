@@ -1,9 +1,20 @@
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import copy from '../../images/copy.png';
 
 const DataWithCopy = ({ value }) => {
   const copyHash = () => {
     navigator.clipboard.writeText(value);
+
+    toast.success('Copied!', {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
