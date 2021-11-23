@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import addUnit from '../utils/addUnit';
 import { useBlockState } from '../contexts/blockContext';
 
+import Breadcrumbs from '../components/shared/Breadcrumbs';
 import BlockInfo from '../components/block/BlockInfo';
 import BlockTitle from '../components/block/BlockTitle';
 import Baker from '../components/shared/Baker';
@@ -64,6 +65,7 @@ const Block = () => {
 
   return (
     <>
+      <Breadcrumbs />
       <BlockTitle />
       {isError ? (
         <ErrorMessage retry={() => handleBlock(id)} />

@@ -9,9 +9,8 @@ $background-dark: linear-gradient(145deg, #171531ff, #171531ed);
 
 $themes: (
   light: (
-    button-background: $white,
-    button-border: transparent,
-    button-color: $light-section,
+    button-color: $white,
+    button-background: $light-section,
     header-footer: $light-section,
     title: $dark,
     table-headers: $link,
@@ -26,9 +25,8 @@ $themes: (
     icon-fill: $dark,
   ),
   dark: (
-    button-background: $dark-section,
-    button-border: $light,
-    button-color: $light,
+    button-color: $dark,
+    button-background: $light,
     header-footer: #1e1c37,
     title: $light,
     table-headers: $white,

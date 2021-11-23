@@ -4,19 +4,23 @@
 .button {
   width: 130px;
   height: 42px;
+  letter-spacing: 0.04em;
+  color: $light;
+  transition: 0.2s;
   border: 1px solid {
     radius: 5px;
+    color: $light;
   }
-  @include useTheme('background', 'button-background');
-  @include useTheme('color', 'button-color');
-  @include useTheme('border-color', 'button-border');
 
-  letter-spacing: 0.04em;
-}
+  &:hover {
+    color: $dark;
+    background: $light;
+  }
 
-.button__link {
-  display: block;
-  width: 22px;
-  height: 22px;
-  background: url('../../../images/login.svg') no-repeat center;
+  &__link {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url('../../../images/login.svg') no-repeat center;
+  }
 }

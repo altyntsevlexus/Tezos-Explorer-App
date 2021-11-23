@@ -2,7 +2,7 @@
 @import '/src/styles/mixins';
 
 .title {
-  @include typography(600, 32px, 39px, inherit);
+  @include typography(600, 32px, 39px);
   @include useTheme('color', 'title');
 
   &:first-letter {

@@ -1,12 +1,11 @@
 @import 'variables';
 
-@mixin typography($weight, $size, $height, $color: inherit) {
+@mixin typography($weight, $size, $height) {
   font: {
     weight: $weight;
     size: $size;
   }
 
-  color: $color;
   line-height: $height;
 }
 

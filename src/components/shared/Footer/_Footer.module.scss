@@ -3,7 +3,8 @@
 
 .footer {
   padding: 15px;
-  @include typography(500, 14px, 17px, $light);
+  color: $light;
+  @include typography(500, 14px, 17px);
   @include useTheme('background', 'header-footer');
 
   @include media(mobile) {

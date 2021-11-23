@@ -5,6 +5,7 @@ import { useBlocksState } from '../../contexts/blocksContext';
 import useCurrentLocation from '../../hooks/useCurrentLocation';
 import addUnit from '../../utils/addUnit';
 
+import Breadcrumbs from '../../components/shared/Breadcrumbs';
 import Title from '../../components/shared/Title';
 import Pagination from '../../components/table/Pagination';
 import Table from '../../components/table/Table';
@@ -117,6 +118,7 @@ const Blocks = () => {
 
   return (
     <>
+      <Breadcrumbs />
       <Title value={title} className="wrapper__title" />
       {isError ? (
         <ErrorMessage retry={() => handleBlocks(0, 15)} />

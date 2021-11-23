@@ -38,7 +38,7 @@ a {
 }
 
 main {
-  @include typography(400, 14px, 18px, inherit);
+  @include typography(400, 14px, 18px);
   padding: 50px 0 110px;
   flex-grow: 1;
 

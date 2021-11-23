@@ -1,3 +1,54 @@
-.error {
+@import '/src/styles/mixins';
 
+.error {
+  text-align: center;
+  @include useTheme('color', 'title');
+
+  &__code {
+    @include typography(600, 220px, 268px);
+
+    @include media(desktop) {
+      @include typography(600, 144px, 175px);
+    }
+
+    @include media(mobile) {
+      @include typography(600, 72px, 87px);
+    }
+  }
+
+  &__text {
+    @include typography(500, 36px, 44px);
+    margin-bottom: 94px;
+
+    @include media(desktop) {
+      @include typography(500, 24px, 29px);
+      margin-bottom: 72px;
+    }
+
+    @include media(mobile) {
+      @include typography(500, 20px, 24px);
+      margin-bottom: 56px;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 19px 0;
+    width: 100%;
+    max-width: 330px;
+    @include typography(600, 24px, 34px);
+    @include useTheme('background-color', 'button-background');
+    @include useTheme('color', 'button-color');
+
+    @include media(desktop) {
+      @include typography(600, 18px, 25px);
+      max-width: 300px;
+    }
+
+    @include media(mobile) {
+      padding: 13px 0;
+      max-width: 240px;
+    }
+  }
 }
