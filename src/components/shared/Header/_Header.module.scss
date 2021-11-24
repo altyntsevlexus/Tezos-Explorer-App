@@ -1,11 +1,23 @@
 @import '/src/styles/mixins';
 @import '/src/styles/extends';
 
+$burger-item-pos: -6px;
+
+%burger-item {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: $light;
+  transition: all 0.2s;
+}
+
 .header {
   @include typography(500, 18px, 22px);
   @include useTheme('background-color', 'header-footer');
   color: $light;
-  padding: 25px 15px;
+  padding: 25px 0;
 
   &__wrapper {
     display: flex;
@@ -23,6 +35,40 @@
     @include media(tablet) {
       flex-direction: row-reverse;
       max-width: 60px;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    width: 22px;
+    height: 3px;
+    background-color: $white;
+    display: none;
+
+    @include media(tablet) {
+      display: block;
+    }
+
+    &:before {
+      top: $burger-item-pos;
+      @extend %burger-item;
+    }
+
+    &:after {
+      bottom: $burger-item-pos;
+      @extend %burger-item;
+    }
+
+    &--clicked {
+      background-color: transparent;
+
+      &:before {
+        transform: rotate(-45deg) translate(-5px, 5px);
+      }
+
+      &:after {
+        transform: rotate(45deg) translate(-3px, -4px);
+      }
     }
   }
 }

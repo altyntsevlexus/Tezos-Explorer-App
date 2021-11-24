@@ -2,14 +2,10 @@
 @import '/src/styles/extends';
 
 .footer {
-  padding: 15px;
+  padding: 30px 0;
   color: $light;
   @include typography(500, 14px, 17px);
   @include useTheme('background', 'header-footer');
-
-  @include media(mobile) {
-    padding: 30px 0;
-  }
 
   &__copy {
     display: flex;

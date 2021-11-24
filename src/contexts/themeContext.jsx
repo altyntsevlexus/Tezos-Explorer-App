@@ -1,6 +1,5 @@
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react/cjs/react.development';
 
 const ThemeStateContext = createContext();
 ThemeStateContext.displayName = 'Theme Context';
@@ -24,10 +23,19 @@ const ThemeProvider = ({ children }) => {
     storage.setItem('theme', newTheme);
   };
 
-  useEffect(
-    () => storage.getItem('theme') && setTheme(storage.getItem('theme')),
-    [],
-  );
+  useEffect(() => {
+    switch (storage.getItem('theme')) {
+      case 'light':
+        setTheme('light');
+        break;
+      case 'dark':
+        setTheme('dark');
+        break;
+      default:
+        setTheme('light');
+        storage.setItem('theme', 'light');
+    }
+  }, []);
 
   const stateValue = useMemo(
     () => ({

@@ -1,16 +1,19 @@
 import axios from 'axios';
 
-const tezTrackerAPI = axios.create({
-  baseURL: 'https://api.teztracker.com/v2/data/tezos/',
+const tezTrackerAPI = axios.create({});
+
+tezTrackerAPI.interceptors.request.use((req) => {
+  req.baseURL = `https://api.teztracker.com/v2/data/tezos/${sessionStorage.getItem(
+    'network',
+  )}`;
+  return req;
 });
 
-const getBlocks = (network = 'mainnet', offset = 0, limit = 15) =>
-  tezTrackerAPI.get(`${network}/blocks?limit=${limit}&offset=${offset}`);
+const getBlocks = (offset = 0, limit = 15) =>
+  tezTrackerAPI.get(`/blocks?limit=${limit}&offset=${offset}`);
 
-const getBlock = (network = 'mainnet', id) =>
-  tezTrackerAPI.get(`${network}/blocks/${id}`);
+const getBlock = (id) => tezTrackerAPI.get(`/blocks/${id}`);
 
-const getHead = (network = 'mainnet') =>
-  tezTrackerAPI.get(`${network}/blocks/head`);
+const getHead = () => tezTrackerAPI.get(`/blocks/head`);
 
 export { getBlocks, getBlock, getHead };

@@ -2,7 +2,6 @@ import { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { getBlock, getHead } from '../api';
-import { useNetworkState } from './networkContext';
 import transformDate from '../utils/transformDate';
 import isDummy from '../utils/isDummy';
 import { handleError } from '../utils/errorsHandler';
@@ -64,13 +63,11 @@ const BlockProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const network = useNetworkState();
-
   const handleBlock = async (id) => {
     setIsError(false);
     setIsLoading(true);
     try {
-      const response = await getBlock(network, id);
+      const response = await getBlock(id);
       const transform = transformBlockData(response.data);
       const head = await getHead();
       setTotal(head.data.level);
