@@ -23,6 +23,9 @@ $themes: (
     aside-text: $dark,
     aside-fill: $white,
     icon-fill: $dark,
+    form-border: #d9dff8,
+    input-border: #d9dff8,
+    submit-background: $light-section,
   ),
   dark: (
     button-color: $dark,
@@ -39,5 +42,8 @@ $themes: (
     aside-text: $light,
     aside-fill: #25233d,
     icon-fill: $light,
+    form-border: $dark,
+    input-border: $dark,
+    submit-background: $dark-section,
   ),
 );

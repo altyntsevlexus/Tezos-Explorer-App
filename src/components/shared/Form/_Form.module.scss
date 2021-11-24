@@ -1,0 +1,162 @@
+@import "/src/styles/variables";
+@import "/src/styles/mixins";
+
+$percent-line-height: 142%;
+
+%form-typography {
+  @include typography(600, 18px, $percent-line-height);
+}
+
+%text-with-opacity {
+  color: $dark;
+  opacity: .6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 670px;
+  border: 5px solid {
+    radius: 30px;
+  };
+  color: $dark;
+
+  @include useTheme('border-color', 'form-border');
+  background-color: #fff;
+  padding: 48px;
+
+  &__item {
+    position: relative;
+
+    &--with-check {
+      display: flex;
+      margin-bottom: 35px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    margin-bottom: 65px;
+
+    padding: 25px 50px 25px 25px;
+    border: 1px solid {
+      radius: 10px;
+    };
+    @include useTheme('border-color', 'input-border');
+    @include typography(400, 14px, 17px);
+    outline: none;
+  }
+
+  &__img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 50px;
+    top: 65px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 15px;
+
+    @extend %form-typography;
+  }
+
+  &__error {
+    @include typography(500, 16px, 20px);
+    color: #FF3B30;
+
+    position: absolute;
+    bottom: 35px;
+    left: 0;
+  }
+
+  &__advice {
+    @extend .form__error;
+
+    color: $dark;
+    opacity: .6;
+    bottom: 18px;
+  }
+
+  &__button {
+    margin-bottom: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    padding: 20px 0;
+    border-radius: 10px;
+    @include useTheme('background-color', 'submit-background');
+    @include typography(600, 18px, $percent-line-height);
+    color: #fff;
+  }
+
+  &__restore {
+    margin-bottom: 35px;
+    align-self: flex-end;
+
+    @include typography(500, 16px, 20px);
+    @extend %text-with-opacity;
+  }
+
+  &__paragraph {
+    display: flex;
+    gap: 16px;
+
+    @extend %form-typography;
+  }
+
+  &__text {
+    color: $dark;
+    opacity: .6;
+  }
+
+  &__link {
+    color: $link;
+  }
+
+  &__checkbox {
+    display: block;
+    width: 21px;
+    height: 21px;
+    position: relative;
+    outline: none;
+    margin-right: 16px;
+
+    &:before {
+      content: "";
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: #fff;
+      border: 1px solid #D9DFF8 {
+        radius: 3px;
+      };
+      cursor: pointer;
+    }
+
+    &:checked:before {
+      background: {
+        color: #3D5981;
+        image: url("../../../images/checked.svg");
+        repeat: no-repeat;
+        position: center;
+      };
+    }
+  }
+
+  &__policy {
+    display: block;
+    max-width: 370px;
+    @extend %text-with-opacity;
+    @include typography(400, 14px, 17px);
+  }
+}
