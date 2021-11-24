@@ -31,6 +31,13 @@ a {
   &__title {
     margin: 80px 0 60px 0;
   }
+
+  @include media(desktop) {
+    padding: {
+      left: 30px;
+      right: 30px;
+    }
+  }
 }
 
 #root {
@@ -39,12 +46,11 @@ a {
 
 main {
   @include typography(400, 14px, 18px);
-  padding: 50px 0 110px;
-  flex-grow: 1;
-
-  @include media(desktop) {
-    padding: 50px 30px 110px;
+  padding: {
+    top: 50px;
+    bottom: 110px;
   }
+  flex-grow: 1;
 }
 
 footer {

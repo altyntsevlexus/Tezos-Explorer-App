@@ -22,18 +22,42 @@ const Header = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  const size = window.innerWidth;
+  const [width, setWidth] = useState(window.innerWidth);
+
+  // for testing
+  const updateWidth = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
+  // for testing end
 
   return (
     <header className={styles.header}>
       <div className={`wrapper ${styles.header__wrapper}`}>
         <Logo />
         <div className={styles.header__navigation}>
-          <Navigation isOpen={isOpen} handleIsOpen={handleIsOpen} />
+          {width >= 834 ? (
+            <Navigation />
+          ) : (
+            <button
+              type="button"
+              className={
+                isOpen
+                  ? `${styles.header__burger} ${styles['header__burger--clicked']}`
+                  : styles.header__burger
+              }
+              onClick={handleIsOpen}
+              aria-label="Open"
+            />
+          )}
           <Button />
         </div>
       </div>
-      {size <= 834 && <Aside isOpen={isOpen} handleIsOpen={handleIsOpen} />}
+      {width <= 834 && <Aside isOpen={isOpen} handleIsOpen={handleIsOpen} />}
     </header>
   );
 };

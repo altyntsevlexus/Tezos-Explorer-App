@@ -1,32 +1,6 @@
 @import '/src/styles/variables';
 @import '/src/styles/mixins';
 
-$border-style: 6px solid transparent;
-$burger-item-margin: -6px;
-
-%transition {
-  transition: all 0.2s;
-}
-
-%burger-items {
-  position: absolute;
-  content: '';
-  display: block;
-  width: 22px;
-  height: 3px;
-  background-color: $light;
-
-  @extend %transition;
-}
-
-@mixin burger-create($position, $value: $burger-item-margin) {
-  @if $position == 'top' {
-    top: $value;
-  } @else {
-    bottom: $value;
-  }
-}
-
 .navigation {
   width: 100%;
   max-width: 480px;
@@ -49,44 +23,10 @@ $burger-item-margin: -6px;
     }
   }
 
-  &__theme {
-    cursor: pointer;
+  &__button {
+    color: inherit;
     &::first-letter {
       text-transform: uppercase;
-    }
-  }
-
-  &__burger {
-    position: relative;
-    width: 22px;
-    height: 3px;
-    background-color: $white;
-    display: none;
-
-    @include media(tablet) {
-      display: block;
-    }
-
-    &:before {
-      @include burger-create('top');
-      @extend %burger-items;
-    }
-
-    &:after {
-      @include burger-create('bottom');
-      @extend %burger-items;
-    }
-
-    &--clicked {
-      background-color: transparent;
-
-      &:before {
-        transform: rotate(-45deg) translate(-5px, 5px);
-      }
-
-      &:after {
-        transform: rotate(45deg) translate(-3px, -4px);
-      }
     }
   }
 }

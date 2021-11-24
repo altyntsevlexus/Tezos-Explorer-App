@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import styles from './_Navigation.module.scss';
 import { useThemeState } from '../../../contexts/themeContext';
+import { useNetworkState } from '../../../contexts/networkContext';
 
 import { ReactComponent as Home } from '../../../images/home.svg';
 import { ReactComponent as Blocks } from '../../../images/block.svg';
@@ -30,11 +31,19 @@ const ASIDE_CONFIG = [
   },
 ];
 
-const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
+const Navigation = ({ isAside }) => {
   const { theme, handleSetTheme } = useThemeState();
+  const { network, handleSetNetwork } = useNetworkState();
+  const history = useHistory();
 
   const toggleTheme = () =>
     theme === 'light' ? handleSetTheme('dark') : handleSetTheme('light');
+  const toggleNetwork = () => {
+    history.push('/');
+    return network === 'mainnet'
+      ? handleSetNetwork('another')
+      : handleSetNetwork('mainnet');
+  };
 
   if (isAside) {
     return (
@@ -61,37 +70,40 @@ const Navigation = ({ isAside, handleIsOpen, isOpen }) => {
   }
 
   return (
-    <>
-      <nav className={styles.navigation}>
-        <ul className={styles.navigation__list}>
-          {NAVIGATION_CONFIG.map((navItem) => {
-            const { content, path, withDropdown } = navItem;
+    <nav className={styles.navigation}>
+      <ul className={styles.navigation__list}>
+        {NAVIGATION_CONFIG.map((navItem) => {
+          const { content, path, withDropdown } = navItem;
 
-            return (
-              <li
-                className={withDropdown ? 'arrow arrow--d--down' : null}
-                key={content}
-              >
-                <Link to={path}>{content}</Link>
-              </li>
-            );
-          })}
-          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-          <li onClick={toggleTheme} className={styles.navigation__theme}>
+          return (
+            <li
+              className={withDropdown ? 'arrow arrow--d--down' : null}
+              key={content}
+            >
+              <Link to={path}>{content}</Link>
+            </li>
+          );
+        })}
+        <li>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className={styles.navigation__button}
+          >
             {theme}
-          </li>
-        </ul>
-      </nav>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div
-        className={
-          isOpen
-            ? `${styles.navigation__burger} ${styles['navigation__burger--clicked']}`
-            : styles.navigation__burger
-        }
-        onClick={handleIsOpen}
-      />
-    </>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            onClick={toggleNetwork}
+            className={styles.navigation__button}
+          >
+            {network}
+          </button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
@@ -99,12 +111,8 @@ export default Navigation;
 
 Navigation.propTypes = {
   isAside: PropTypes.bool,
-  isOpen: PropTypes.bool,
-  handleIsOpen: PropTypes.func,
 };
 
 Navigation.defaultProps = {
   isAside: false,
-  isOpen: false,
-  handleIsOpen: () => null,
 };
