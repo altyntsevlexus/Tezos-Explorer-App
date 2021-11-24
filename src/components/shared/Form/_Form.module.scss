@@ -1,5 +1,5 @@
-@import "/src/styles/variables";
-@import "/src/styles/mixins";
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
 
 $percent-line-height: 142%;
 
@@ -9,7 +9,7 @@ $percent-line-height: 142%;
 
 %text-with-opacity {
   color: $dark;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .form {
@@ -17,14 +17,14 @@ $percent-line-height: 142%;
   flex-direction: column;
   width: 100%;
   max-width: 670px;
-  border: 5px solid {
-    radius: 30px;
-  };
   color: $dark;
-
-  @include useTheme('border-color', 'form-border');
   background-color: #fff;
   padding: calc(48px - 5px);
+  border: 5px solid {
+    radius: 30px;
+  }
+
+  @include useTheme('border-color', 'form-border');
 
   @include typography(400, 14px, 17px);
 
@@ -33,7 +33,7 @@ $percent-line-height: 142%;
     padding: 25px 15px;
     border: 3px solid {
       radius: 20px;
-    };
+    }
   }
 
   &__item {
@@ -48,11 +48,10 @@ $percent-line-height: 142%;
   &__input {
     width: 100%;
     margin-bottom: 65px;
-
     padding: 25px 50px 25px 25px;
     border: 1px solid {
       radius: 10px;
-    };
+    }
     @include useTheme('border-color', 'input-border');
     outline: none;
 
@@ -61,7 +60,7 @@ $percent-line-height: 142%;
 
       padding: 15px {
         right: 30px;
-      };
+      }
     }
   }
 
@@ -89,7 +88,7 @@ $percent-line-height: 142%;
   }
 
   &__error {
-    color: #FF3B30;
+    color: #ff3b30;
 
     position: absolute;
     bottom: 35px;
@@ -112,7 +111,7 @@ $percent-line-height: 142%;
     @extend .form__error;
 
     color: $dark;
-    opacity: .6;
+    opacity: 0.6;
     bottom: 6px;
 
     @include media(mobile) {
@@ -164,7 +163,7 @@ $percent-line-height: 142%;
 
   &__text {
     color: $dark;
-    opacity: .6;
+    opacity: 0.6;
   }
 
   &__link {
@@ -180,7 +179,7 @@ $percent-line-height: 142%;
     margin-right: 16px;
 
     &:before {
-      content: "";
+      content: '';
       display: flex;
       justify-content: center;
       align-items: center;
@@ -189,18 +188,18 @@ $percent-line-height: 142%;
       width: 24px;
       height: 24px;
       background-color: #fff;
-      border: 1px solid #D9DFF8 {
+      border: 1px solid #d9dff8 {
         radius: 3px;
-      };
+      }
       cursor: pointer;
     }
 
     &:checked:before {
       background: {
-        image: url("../../../images/checked.svg");
+        image: url('../../../images/checked.svg');
         repeat: no-repeat;
         position: center;
-      };
+      }
       @include useTheme('background-color', 'submit-background');
     }
   }
