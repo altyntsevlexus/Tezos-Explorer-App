@@ -19,6 +19,15 @@
   align-items: center;
 
   padding: 0 152px;
+
+  @include media(tablet) {
+    margin: 0;
+    padding: 80px 0 110px;
+  }
+
+  @include media(mobile) {
+    padding: 0;
+  }
 }
 
 %form-title {
@@ -28,4 +37,11 @@
 %form-subtitle {
   margin-bottom: 60px;
   @include useTheme('color', 'title');
+
+  @include media(mobile) {
+    margin-bottom: 30px;
+    max-width: 232px;
+
+    text-align: center;
+  }
 }

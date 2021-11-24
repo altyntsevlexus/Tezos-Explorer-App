@@ -2,43 +2,11 @@ import { useFormik } from 'formik';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+// import * as yup from 'yup';
 import styles from './_Form.module.scss';
 import showPass from '../../../images/show_pass.svg';
 import hidePass from '../../../images/hide_password.svg';
-
-const validate = (values) => {
-  const errors = {};
-
-  if (!values.email) {
-    errors.email = 'Required';
-  } else if (!values.email.includes('@')) {
-    errors.email = 'Email address must contain the @ character';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
-
-  if (!values.password) {
-    errors.password = 'Required';
-  } else if (values.password.length < 8) {
-    errors.password = 'Password minimum length 8 characters ';
-  } else if (!/[0-9]/.test(values.password)) {
-    errors.password = 'Password require at list 1 number 0-9';
-  } else if (!/[a-z]/.test(values.password)) {
-    errors.password = 'Password must contain at least 1 lowercase letter';
-  } else if (!/[A-Z]/.test(values.password)) {
-    errors.password = 'Password must contain at least 1 uppercase letter';
-  } else if (!/[!@#$%^&*]/.test(values.password)) {
-    errors.password = 'Password must contain at least 1 special character';
-  }
-
-  if (!values.confirm) {
-    errors.confirm = 'Required';
-  } else if (values.password !== values.confirm) {
-    errors.confirm = 'Passwords do not match';
-  }
-
-  return errors;
-};
+import validate from '../../../utils/validation';
 
 // eslint-disable-next-line consistent-return
 const Form = ({ value }) => {
@@ -47,18 +15,18 @@ const Form = ({ value }) => {
       email: '',
       password: '',
       confirm: '',
+      checkbox: false,
     },
-    validate,
     onSubmit: (values) => {
-      // eslint-disable-next-line no-alert
       alert(JSON.stringify(values, null, 2));
     },
+    validate,
   });
 
-  if (value === 'login') {
-    const [isShown, setIsShown] = useState(false);
-    const [isShownConfirm, setIsShownConfirm] = useState(false);
+  const [isShown, setIsShown] = useState(false);
+  const [isShownConfirm, setIsShownConfirm] = useState(false);
 
+  if (value === 'login') {
     return (
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.form__item}>
@@ -77,7 +45,7 @@ const Form = ({ value }) => {
             onBlur={formik.handleBlur}
             value={formik.values.email}
           />
-          {formik.errors.email ? (
+          {formik.errors.email && formik.touched.email ? (
             <div className={styles.form__error}>{formik.errors.email}</div>
           ) : null}
         </div>
@@ -105,9 +73,6 @@ const Form = ({ value }) => {
             className={styles.form__img}
             onClick={() => setIsShown(!isShown)}
           />
-          {formik.errors.password ? (
-            <div className={styles.form__error}>{formik.errors.password}</div>
-          ) : null}
         </div>
         <div className={styles.form__item}>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -133,7 +98,7 @@ const Form = ({ value }) => {
             className={styles.form__img}
             onClick={() => setIsShownConfirm(!isShownConfirm)}
           />
-          {formik.errors.confirm ? (
+          {formik.errors.confirm && formik.touched.confirm ? (
             <div className={styles.form__error}>{formik.errors.confirm}</div>
           ) : null}
         </div>
@@ -156,9 +121,6 @@ const Form = ({ value }) => {
   }
 
   if (value === 'signup') {
-    const [isShown, setIsShown] = useState(false);
-    const [isShownConfirm, setIsShownConfirm] = useState(false);
-
     return (
       <form onSubmit={formik.handleSubmit} className={styles.form}>
         <div className={styles.form__item}>
@@ -177,7 +139,7 @@ const Form = ({ value }) => {
             onBlur={formik.handleBlur}
             value={formik.values.email}
           />
-          {formik.errors.email ? (
+          {formik.errors.email && formik.touched.email ? (
             <div className={styles.form__error}>{formik.errors.email}</div>
           ) : null}
         </div>
@@ -205,7 +167,7 @@ const Form = ({ value }) => {
             className={styles.form__img}
             onClick={() => setIsShown(!isShown)}
           />
-          {formik.errors.password ? (
+          {formik.errors.password && formik.touched.password ? (
             <div className={styles.form__error}>{formik.errors.password}</div>
           ) : (
             <div className={styles.form__advice}>
@@ -238,7 +200,7 @@ const Form = ({ value }) => {
             className={styles.form__img}
             onClick={() => setIsShownConfirm(!isShownConfirm)}
           />
-          {formik.errors.confirm ? (
+          {formik.errors.confirm && formik.touched.confirm ? (
             <div className={styles.form__error}>{formik.errors.confirm}</div>
           ) : null}
         </div>
@@ -247,8 +209,10 @@ const Form = ({ value }) => {
         >
           <input
             type="checkbox"
+            name="checkbox"
             id="checkbox"
             className={styles.form__checkbox}
+            onChange={formik.handleChange}
           />
           <label htmlFor="checkbox" className={styles.form__policy}>
             By creating an account, you agree to Tezos Explorer{' '}
@@ -261,6 +225,13 @@ const Form = ({ value }) => {
             </Link>
             .
           </label>
+          {formik.errors.checkbox && formik.touched.checkbox ? (
+            <div
+              className={`${styles.form__error} ${styles['form__error--checkbox']}`}
+            >
+              {formik.errors.checkbox}
+            </div>
+          ) : null}
         </div>
         <button type="submit" className={styles.form__button}>
           Create an account

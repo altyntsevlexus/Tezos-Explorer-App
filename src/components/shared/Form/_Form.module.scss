@@ -24,7 +24,17 @@ $percent-line-height: 142%;
 
   @include useTheme('border-color', 'form-border');
   background-color: #fff;
-  padding: 48px;
+  padding: calc(48px - 5px);
+
+  @include typography(400, 14px, 17px);
+
+  @include media(mobile) {
+    @include typography(400, 11px, 13px);
+    padding: 25px 15px;
+    border: 3px solid {
+      radius: 20px;
+    };
+  }
 
   &__item {
     position: relative;
@@ -44,8 +54,15 @@ $percent-line-height: 142%;
       radius: 10px;
     };
     @include useTheme('border-color', 'input-border');
-    @include typography(400, 14px, 17px);
     outline: none;
+
+    @include media(mobile) {
+      margin-bottom: 43px;
+
+      padding: 15px {
+        right: 30px;
+      };
+    }
   }
 
   &__img {
@@ -55,6 +72,13 @@ $percent-line-height: 142%;
     position: absolute;
     right: 50px;
     top: 65px;
+
+    @include media(mobile) {
+      right: 15px;
+      top: 55px;
+      width: 15px;
+      height: 15px;
+    }
   }
 
   &__label {
@@ -65,12 +89,23 @@ $percent-line-height: 142%;
   }
 
   &__error {
-    @include typography(500, 16px, 20px);
     color: #FF3B30;
 
     position: absolute;
     bottom: 35px;
     left: 0;
+
+    @include media(tablet) {
+      bottom: 28px;
+    }
+
+    @include media(mobile) {
+      bottom: 16px;
+    }
+
+    &--checkbox {
+      bottom: -20px;
+    }
   }
 
   &__advice {
@@ -78,7 +113,11 @@ $percent-line-height: 142%;
 
     color: $dark;
     opacity: .6;
-    bottom: 18px;
+    bottom: 6px;
+
+    @include media(mobile) {
+      bottom: 0;
+    }
   }
 
   &__button {
@@ -93,6 +132,11 @@ $percent-line-height: 142%;
     @include useTheme('background-color', 'submit-background');
     @include typography(600, 18px, $percent-line-height);
     color: #fff;
+
+    @include media(mobile) {
+      padding: 15px 0;
+      @include typography(400, 14px, 17px);
+    }
   }
 
   &__restore {
@@ -108,6 +152,14 @@ $percent-line-height: 142%;
     gap: 16px;
 
     @extend %form-typography;
+
+    @include media(tablet) {
+      justify-content: space-between;
+    }
+
+    @include media(mobile) {
+      @include typography(400, 12px, 14px);
+    }
   }
 
   &__text {
@@ -145,11 +197,11 @@ $percent-line-height: 142%;
 
     &:checked:before {
       background: {
-        color: #3D5981;
         image: url("../../../images/checked.svg");
         repeat: no-repeat;
         position: center;
       };
+      @include useTheme('background-color', 'submit-background');
     }
   }
 
@@ -157,6 +209,5 @@ $percent-line-height: 142%;
     display: block;
     max-width: 370px;
     @extend %text-with-opacity;
-    @include typography(400, 14px, 17px);
   }
 }
