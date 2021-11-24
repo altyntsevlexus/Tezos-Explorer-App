@@ -2,10 +2,28 @@
 @import '/src/styles/mixins';
 
 .title {
-  @include typography(600, 32px, 39px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   @include useTheme('color', 'title');
 
-  &:first-letter {
-    text-transform: uppercase;
+  &--pos--center {
+    text-align: center;
+  }
+
+  &__value {
+    @include typography(600, 32px, 39px);
+
+    @include media(mobile) {
+      @include typography(600, 24px, 29px);
+    }
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__subtitle {
+    @include typography(400, 18px, 22px);
   }
 }

@@ -29,16 +29,9 @@ const BlockTitle = () => {
           {'<'}
         </Link>
       )}
-      <div className={styles['block-title__wrapper']}>
-        <Title
-          value={`Block: ${title}`}
-          className={styles['block-title__heading']}
-        />
-        <h3 className={styles['block-title__sub-title']}>Block information</h3>
-      </div>
+      <Title value={`Block: ${title}`} subtitle="Block information" centered />
       <Link
         className={styles['block-title__item']}
-        role="button"
         aria-label="Previous block id"
         to={`/blocks/${level - 1}`}
       >

@@ -119,7 +119,7 @@ const Blocks = () => {
   return (
     <>
       <Breadcrumbs />
-      <Title value={title} className="wrapper__title" />
+      <Title value={title} wrapped />
       {isError ? (
         <ErrorMessage retry={() => handleBlocks(0, 15)} />
       ) : (
