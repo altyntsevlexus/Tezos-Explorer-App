@@ -2,6 +2,9 @@
 @import '/src/styles/mixins';
 
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 130px;
   height: 42px;
   letter-spacing: 0.04em;

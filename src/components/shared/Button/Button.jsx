@@ -24,9 +24,9 @@ const Button = ({ buttonValue }) => {
   }
 
   return (
-    <button type="button" className={styles.button}>
+    <Link to="/login" className={styles.button}>
       {buttonValue}
-    </button>
+    </Link>
   );
 };
 
