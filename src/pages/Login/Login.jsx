@@ -4,10 +4,12 @@ import styles from './_Login.module.scss';
 
 const Login = () => (
   <section className={styles.login}>
-    <Title value="Login" className={styles.login__title} />
-    <p className={styles['login__sub-title']}>
-      Welcome back! Log In with your Email
-    </p>
+    <Title
+      value="Login"
+      subtitle="Welcome back! Log In with your Email"
+      wrapped
+      centered
+    />
     <Form value="login" />
   </section>
 );

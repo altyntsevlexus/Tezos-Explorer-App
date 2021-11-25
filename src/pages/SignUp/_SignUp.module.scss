@@ -1,13 +1,5 @@
-@import "/src/styles/extends";
+@import '/src/styles/extends';
 
 .login {
   @extend %form-wrapper;
-
-  &__title {
-    @extend %form-title;
-  }
-
-  &__sub-title {
-    @extend %form-subtitle;
-  }
 }

@@ -1,42 +1,21 @@
 @import '/src/styles/mixins';
 
 .block-title {
-  @include typography(600, 32px, 39px);
-  @include useTheme('color', 'title');
-
   display: flex;
   justify-content: center;
-  width: 100%;
-  height: 69px;
+  align-items: center;
+  gap: 32px;
+  @include useTheme('color', 'title');
+  @include typography(600, 32px, 39px);
 
   @include media(mobile) {
+    gap: 16px;
     @include typography(600, 24px, 29px);
-    max-height: 59px;
-  }
-
-  &__heading {
-    font: inherit;
-  }
-
-  &__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 35px;
-
-    @include media(mobile) {
-      margin: 0 10px;
-    }
-  }
-
-  &__sub-title {
-    @include typography(400, 18px, 22px);
   }
 
   &__item {
-    display: flex;
-    align-items: center;
+    width: 32px;
+    text-align: center;
 
     &--inactive {
       opacity: 0.5;
