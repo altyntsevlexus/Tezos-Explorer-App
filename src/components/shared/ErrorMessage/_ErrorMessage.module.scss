@@ -6,6 +6,7 @@
   @extend %table-substitute;
   border: 5px solid;
   @include useTheme('border-color', 'table-border');
+  @include useTheme('color', 'title');
 
   @include media(tablet) {
     font-size: 30px;
@@ -13,5 +14,22 @@
 
   @include media(mobile) {
     font-size: 18px;
+  }
+
+  &__icon {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    @include useTheme('fill', 'title');
+
+    @include media(tablet) {
+      width: 20px;
+      height: 20px;
+    }
+
+    @include media(mobile) {
+      width: 15px;
+      height: 15px;
+    }
   }
 }

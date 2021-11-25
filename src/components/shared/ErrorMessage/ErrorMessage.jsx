@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router-dom';
+import { ReactComponent as Refresh } from '../../../images/refresh.svg';
 import styles from './_ErrorMessage.module.scss';
-import refresh from '../../../images/refresh.png';
 import { errorMessage, errorStatus } from '../../../utils/errorsHandler';
 
 const ErrorMessage = ({ retry }) => {
@@ -14,12 +14,7 @@ const ErrorMessage = ({ retry }) => {
     <div className={styles['error-message']}>
       {`${errorStatus}: ${errorMessage}`}
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <img
-        src={refresh}
-        alt="Try again"
-        className="custom-button"
-        onClick={retry}
-      />
+      <Refresh onClick={retry} className={styles['error-message__icon']} />
     </div>
   );
 };
