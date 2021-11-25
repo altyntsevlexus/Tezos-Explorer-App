@@ -46,13 +46,13 @@ const Form = ({ value }) => {
             value={formik.values.email}
           />
           {formik.errors.email && formik.touched.email ? (
-            <div className={styles.form__error}>{formik.errors.email}</div>
+            <p className={styles.form__error}>{formik.errors.email}</p>
           ) : null}
         </div>
         <div className={styles.form__item}>
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
           <label htmlFor="password" className={styles.form__label}>
-            Passwords
+            Password
           </label>
           <input
             type={isShown ? 'text' : 'password'}
@@ -98,13 +98,18 @@ const Form = ({ value }) => {
             className={styles.form__img}
             onClick={() => setIsShownConfirm(!isShownConfirm)}
           />
-          {formik.errors.confirm && formik.touched.confirm ? (
-            <div className={styles.form__error}>{formik.errors.confirm}</div>
-          ) : null}
+          <div className={styles['form__error-restore']}>
+            {formik.errors.confirm && formik.touched.confirm ? (
+              <p className={styles.form__error}>{formik.errors.confirm}</p>
+            ) : (
+              <p />
+            )}
+            <Link to="/restore-password" className={styles.form__restore}>
+              Forgot password?
+            </Link>
+          </div>
         </div>
-        <Link to="/restore-password" className={styles.form__restore}>
-          Forgot password?
-        </Link>
+
         <button type="submit" className={styles.form__button}>
           Log in
         </button>
@@ -140,7 +145,7 @@ const Form = ({ value }) => {
             value={formik.values.email}
           />
           {formik.errors.email && formik.touched.email ? (
-            <div className={styles.form__error}>{formik.errors.email}</div>
+            <p className={styles.form__error}>{formik.errors.email}</p>
           ) : null}
         </div>
         <div className={styles.form__item}>
@@ -168,12 +173,12 @@ const Form = ({ value }) => {
             onClick={() => setIsShown(!isShown)}
           />
           {formik.errors.password && formik.touched.password ? (
-            <div className={styles.form__error}>{formik.errors.password}</div>
+            <p className={styles.form__error}>{formik.errors.password}</p>
           ) : (
-            <div className={styles.form__advice}>
+            <p className={styles.form__advice}>
               Password should contain both letter and number, with minimum
               length of 8 characters
-            </div>
+            </p>
           )}
         </div>
         <div className={styles.form__item}>
@@ -201,36 +206,36 @@ const Form = ({ value }) => {
             onClick={() => setIsShownConfirm(!isShownConfirm)}
           />
           {formik.errors.confirm && formik.touched.confirm ? (
-            <div className={styles.form__error}>{formik.errors.confirm}</div>
+            <p className={styles.form__error}>{formik.errors.confirm}</p>
           ) : null}
         </div>
-        <div
-          className={`${styles.form__item} ${styles[`form__item--with-check`]}`}
-        >
-          <input
-            type="checkbox"
-            name="checkbox"
-            id="checkbox"
-            className={styles.form__checkbox}
-            onChange={formik.handleChange}
-          />
-          <label htmlFor="checkbox" className={styles.form__policy}>
-            By creating an account, you agree to Tezos Explorer{' '}
-            <Link to="/term_of_services" className={styles.form__link}>
-              Terms of Service
-            </Link>{' '}
-            &{' '}
-            <Link to="/privacy_policy" className={styles.form__link}>
-              Privacy Policy
-            </Link>
-            .
-          </label>
+        <div className={styles.form__item}>
+          <div className={styles.form__check}>
+            <input
+              type="checkbox"
+              name="checkbox"
+              id="checkbox"
+              className={styles.form__checkbox}
+              onChange={formik.handleChange}
+            />
+            <label htmlFor="checkbox" className={styles.form__policy}>
+              By creating an account, you agree to Tezos Explorer{' '}
+              <Link to="/term_of_services" className={styles.form__link}>
+                Terms of Service
+              </Link>
+              {' & '}
+              <Link to="/privacy_policy" className={styles.form__link}>
+                Privacy Policy
+              </Link>
+              .
+            </label>
+          </div>
           {formik.errors.checkbox && formik.touched.checkbox ? (
-            <div
+            <p
               className={`${styles.form__error} ${styles['form__error--checkbox']}`}
             >
               {formik.errors.checkbox}
-            </div>
+            </p>
           ) : null}
         </div>
         <button type="submit" className={styles.form__button}>

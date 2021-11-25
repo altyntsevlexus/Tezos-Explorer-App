@@ -15,11 +15,12 @@ $percent-line-height: 142%;
 .form {
   display: flex;
   flex-direction: column;
+  gap: 26px;
   width: 100%;
-  max-width: 670px;
+  max-width: 700px;
   color: $dark;
-  background-color: #fff;
-  padding: calc(48px - 5px);
+  background-color: $white;
+  padding: 48px;
   border: 5px solid {
     radius: 30px;
   }
@@ -31,6 +32,7 @@ $percent-line-height: 142%;
   @include media(mobile) {
     @include typography(400, 11px, 13px);
     padding: 25px 15px;
+    gap: 20px;
     border: 3px solid {
       radius: 20px;
     }
@@ -38,26 +40,25 @@ $percent-line-height: 142%;
 
   &__item {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-    &--with-check {
-      display: flex;
-      margin-bottom: 35px;
-    }
+  &__check {
+    display: flex;
   }
 
   &__input {
     width: 100%;
-    margin-bottom: 65px;
     padding: 25px 50px 25px 25px;
+    outline: none;
     border: 1px solid {
       radius: 10px;
     }
     @include useTheme('border-color', 'input-border');
-    outline: none;
 
     @include media(mobile) {
-      margin-bottom: 43px;
-
       padding: 15px {
         right: 30px;
       }
@@ -69,12 +70,12 @@ $percent-line-height: 142%;
     width: 24px;
     height: 24px;
     position: absolute;
-    right: 50px;
-    top: 65px;
+    right: 25px;
+    top: 63px;
 
     @include media(mobile) {
       right: 15px;
-      top: 55px;
+      top: 56px;
       width: 15px;
       height: 15px;
     }
@@ -82,91 +83,62 @@ $percent-line-height: 142%;
 
   &__label {
     display: block;
-    margin-bottom: 15px;
 
     @extend %form-typography;
   }
 
   &__error {
     color: #ff3b30;
+  }
 
-    position: absolute;
-    bottom: 35px;
-    left: 0;
+  &__restore {
+    @include typography(500, 16px, 20px);
+    @extend %text-with-opacity;
+  }
 
-    @include media(tablet) {
-      bottom: 28px;
-    }
-
-    @include media(mobile) {
-      bottom: 16px;
-    }
-
-    &--checkbox {
-      bottom: -20px;
-    }
+  &__error-restore {
+    display: flex;
+    justify-content: space-between;
   }
 
   &__advice {
-    @extend .form__error;
-
-    color: $dark;
-    opacity: 0.6;
-    bottom: 6px;
-
-    @include media(mobile) {
-      bottom: 0;
-    }
+    @extend %text-with-opacity;
+    max-width: 510px;
   }
 
   &__button {
-    margin-bottom: 36px;
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-
     padding: 20px 0;
     border-radius: 10px;
     @include useTheme('background-color', 'submit-background');
     @include typography(600, 18px, $percent-line-height);
-    color: #fff;
+    color: $light;
 
     @include media(mobile) {
+      margin: 4px 0;
       padding: 15px 0;
       @include typography(400, 14px, 17px);
     }
-  }
-
-  &__restore {
-    margin-bottom: 35px;
-    align-self: flex-end;
-
-    @include typography(500, 16px, 20px);
-    @extend %text-with-opacity;
   }
 
   &__paragraph {
     display: flex;
     gap: 16px;
 
-    @extend %form-typography;
-
-    @include media(tablet) {
-      justify-content: space-between;
-    }
+    @include typography(400, 18px, $percent-line-height);
 
     @include media(mobile) {
+      justify-content: space-between;
       @include typography(400, 12px, 14px);
     }
   }
 
-  &__text {
-    color: $dark;
-    opacity: 0.6;
-  }
-
   &__link {
+    font-weight: 600;
     color: $link;
   }
 
@@ -183,11 +155,10 @@ $percent-line-height: 142%;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
       position: absolute;
       width: 24px;
       height: 24px;
-      background-color: #fff;
+      background-color: $white;
       border: 1px solid #d9dff8 {
         radius: 3px;
       }
