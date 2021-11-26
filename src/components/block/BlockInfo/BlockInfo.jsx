@@ -8,20 +8,15 @@ const BlockInfo = ({ headers, block }) => {
 
   return (
     <div className={styles['block-info']}>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        headers.map((header) => {
-          return (
-            <div className={styles['block-info__item']} key={header.key}>
-              <p className={styles['block-info__header']}>{header.name}:</p>
-              <div className={styles['block-info__value']}>
-                {header.render ? header.render(block) : block[header.key]}
-              </div>
-            </div>
-          );
-        })
-      )}
+      {isLoading && <Loader />}
+      {headers.map((header) => (
+        <div className={styles['block-info__item']} key={header.key}>
+          <p className={styles['block-info__header']}>{header.name}:</p>
+          <div className={styles['block-info__value']}>
+            {header.render ? header.render(block) : block[header.key]}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

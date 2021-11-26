@@ -1,15 +1,11 @@
 @import '/src/styles/variables';
 
 $size: 80px;
-$position: calc(50% - 40px);
 
 .loader {
   position: absolute;
   width: $size;
   height: $size;
-  top: $position;
-  left: $position;
-  transform: translate(-50%, -50%);
   border: {
     radius: 50%;
     top: 10px solid $light;
@@ -27,4 +23,18 @@ $position: calc(50% - 40px);
   to {
     transform: rotate(360deg);
   }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: rgba($color: $dark-section, $alpha: 0.3);
 }

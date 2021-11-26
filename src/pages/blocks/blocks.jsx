@@ -124,26 +124,21 @@ const Blocks = () => {
         <ErrorMessage retry={() => handleBlocks(0, 15)} />
       ) : (
         <div className={styles.blocks}>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <>
-              <Table
-                cols={HEADERS}
-                rows={blocks}
-                currentSort={sort}
-                sortFunction={onSortBy}
-              />
-              <nav className={styles.blocks__navigation}>
-                <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
-                <Pagination
-                  onPageChanged={onPageChanged}
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                />
-              </nav>
-            </>
-          )}
+          {isLoading && <Loader />}
+          <Table
+            cols={HEADERS}
+            rows={blocks}
+            currentSort={sort}
+            sortFunction={onSortBy}
+          />
+          <nav className={styles.blocks__navigation}>
+            <PerPage limit={limit} handleChangeLimit={onLimitChanged} />
+            <Pagination
+              onPageChanged={onPageChanged}
+              currentPage={currentPage}
+              totalPages={totalPages}
+            />
+          </nav>
         </div>
       )}
     </>
