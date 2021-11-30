@@ -1,6 +1,7 @@
 @import '/src/styles/mixins';
 
 .blocks {
+  position: relative;
   padding: 25px;
   min-height: 800px;
   border-radius: 25px;

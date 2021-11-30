@@ -1,14 +1,10 @@
 import PropTypes from 'prop-types';
-import { useBlocksState } from '../../contexts/blocksContext';
-import Loader from '../shared/Loader';
 
 import Th from './Th';
 
 import styles from './_Table.module.scss';
 
 const Table = ({ cols, rows, currentSort, sortFunction }) => {
-  const { isLoading } = useBlocksState();
-
   const sortedRows = () => {
     return rows.map((row) => (
       <tr key={row.level}>
@@ -20,10 +16,6 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
       </tr>
     ));
   };
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   return (
     <div className={styles.overflow}>
