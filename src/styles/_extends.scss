@@ -18,3 +18,12 @@
   justify-content: center;
   align-items: center;
 }
+
+%form-typography {
+  @include typography(600, 18px, 142%);
+}
+
+%text-with-opacity {
+  color: $dark;
+  opacity: 0.6;
+}

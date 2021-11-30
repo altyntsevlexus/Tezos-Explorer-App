@@ -1,5 +1,5 @@
 import Title from '../../components/shared/Title';
-import Form from '../../components/shared/Form';
+import Forms from '../../components/shared/Forms';
 import styles from './_Login.module.scss';
 
 const Login = () => (
@@ -10,7 +10,7 @@ const Login = () => (
       wrapped
       centered
     />
-    <Form value="login" />
+    <Forms value="login" />
   </section>
 );
 
