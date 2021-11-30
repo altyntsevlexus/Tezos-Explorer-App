@@ -1,0 +1,84 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import 'src/styles/extends';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+  max-width: 700px;
+  color: $dark;
+  background-color: $white;
+  padding: 48px;
+  border: 5px solid {
+    radius: 30px;
+  }
+
+  @include useTheme('border-color', 'form-border');
+
+  @include typography(400, 14px, 17px);
+
+  @include media(mobile) {
+    @include typography(400, 11px, 13px);
+    padding: 25px 15px;
+    gap: 20px;
+    border: 3px solid {
+      radius: 20px;
+    }
+  }
+
+  &__error {
+    color: #ff3b30;
+  }
+
+  &__restore {
+    @include typography(500, 16px, 20px);
+    @extend %text-with-opacity;
+  }
+
+  &__error-restore {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 10px;
+    @include useTheme('background-color', 'submit-background');
+    @include typography(600, 18px, 140%);
+    color: $light;
+
+    @include media(mobile) {
+      margin: 4px 0;
+      padding: 15px 0;
+      @include typography(400, 14px, 17px);
+    }
+  }
+
+  &__paragraph {
+    display: flex;
+    gap: 16px;
+
+    @include typography(400, 18px, 140%);
+
+    @include media(mobile) {
+      justify-content: space-between;
+      @include typography(400, 12px, 14px);
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    color: $link;
+  }
+
+  &__text {
+    @extend %text-with-opacity;
+  }
+}

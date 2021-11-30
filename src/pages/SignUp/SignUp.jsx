@@ -1,5 +1,5 @@
 import Title from '../../components/shared/Title';
-import Form from '../../components/shared/Form';
+import Forms from '../../components/shared/Forms';
 import styles from './_SignUp.module.scss';
 
 const SignUp = () => (
@@ -10,7 +10,7 @@ const SignUp = () => (
       wrapped
       centered
     />
-    <Form value="signup" />
+    <Forms value="signup" />
   </section>
 );
 
