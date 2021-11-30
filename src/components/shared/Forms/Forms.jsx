@@ -5,6 +5,31 @@ import styles from './_Forms.module.scss';
 import validation from '../../../utils/validation';
 import Input from './Input';
 
+const formConfig = [
+  {
+    label: 'Email Address',
+    name: 'email',
+    id: 'email',
+    type: 'email',
+    placeholder: 'Enter your email address...',
+  },
+
+  {
+    label: 'Password',
+    name: 'password',
+    id: 'password',
+    type: 'password',
+    placeholder: 'Enter your password...',
+  },
+  {
+    label: 'Confirm password',
+    name: 'confirm',
+    id: 'confirm',
+    type: 'confirm',
+    placeholder: 'Confirm password...',
+  },
+];
+
 // eslint-disable-next-line consistent-return
 const Forms = ({ value }) => {
   if (value === 'login') {
@@ -23,19 +48,20 @@ const Forms = ({ value }) => {
         }}
       >
         <Form className={styles.form}>
-          <Input
-            label="Enter your Email"
-            name="email"
-            id="email"
-            type="email"
-          />
-          <Input
-            label="Password"
-            name="password"
-            id="password"
-            type="password"
-          />
-          <Input label="Confirm" name="confirm" id="confirm" type="confirm" />
+          {formConfig.map((input) => {
+            const { label, name, id, type, placeholder } = input;
+
+            return (
+              <Input
+                label={label}
+                name={name}
+                id={id}
+                type={type}
+                placeholder={placeholder}
+                key={placeholder}
+              />
+            );
+          })}
           <Link to="/restore-password" className={styles.form__restore}>
             Forgot password?
           </Link>
@@ -72,20 +98,21 @@ const Forms = ({ value }) => {
         }}
       >
         <Form className={styles.form}>
-          <Input
-            label="Enter your Email"
-            name="email"
-            id="email"
-            type="email"
-          />
-          <Input
-            label="Password"
-            name="password"
-            id="password"
-            type="password"
-          />
-          <Input label="Confirm" name="confirm" id="confirm" type="confirm" />
-          <Input label="asd" name="checkbox" id="checkbox" type="checkbox" />
+          {formConfig.map((input) => {
+            const { label, name, id, type, placeholder } = input;
+
+            return (
+              <Input
+                label={label}
+                name={name}
+                id={id}
+                type={type}
+                placeholder={placeholder}
+                key={placeholder}
+              />
+            );
+          })}
+          <Input name="checkbox" id="checkbox" type="checkbox" />
           <button type="submit" className={styles.form__button}>
             Create an account
           </button>

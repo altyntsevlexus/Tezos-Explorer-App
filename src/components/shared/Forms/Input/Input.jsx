@@ -112,8 +112,12 @@ const Input = ({ label, ...props }) => {
 export default Input;
 
 Input.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+};
+
+Input.defaultProps = {
+  label: '',
 };
