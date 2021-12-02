@@ -9,7 +9,7 @@ const Table = ({ cols, rows, currentSort, sortFunction }) => {
     return rows.map((row) => (
       <tr key={row.level}>
         {cols.map((col) => (
-          <td key={`${row.level} ${row[col.key]}`}>
+          <td key={row[col.key] + col.key}>
             {col.render ? col.render(row) : row[col.key]}
           </td>
         ))}

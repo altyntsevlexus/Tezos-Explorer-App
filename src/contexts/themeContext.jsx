@@ -24,17 +24,11 @@ const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    switch (storage.getItem('theme')) {
-      case 'light':
-        setTheme('light');
-        break;
-      case 'dark':
-        setTheme('dark');
-        break;
-      default:
-        setTheme('light');
-        storage.setItem('theme', 'light');
-    }
+    const storageTheme = storage.getItem('theme');
+
+    return storageTheme
+      ? setTheme(storageTheme)
+      : storage.setItem('theme', 'light');
   }, []);
 
   const stateValue = useMemo(

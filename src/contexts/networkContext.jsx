@@ -26,17 +26,11 @@ const NetworkProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    switch (storage.getItem('network')) {
-      case 'mainnet':
-        setNetwork('mainnet');
-        break;
-      case 'another':
-        setNetwork('another');
-        break;
-      default:
-        setNetwork('mainnet');
-        storage.setItem('network', 'mainnet');
-    }
+    const storageNetwork = storage.getItem('network');
+
+    return storageNetwork
+      ? setNetwork(storageNetwork)
+      : storage.setItem('network', 'mainnet');
   }, []);
 
   const stateValue = useMemo(
