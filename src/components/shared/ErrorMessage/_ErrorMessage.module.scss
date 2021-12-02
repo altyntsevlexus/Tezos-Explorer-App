@@ -4,32 +4,39 @@
 
 .error-message {
   @extend %table-substitute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
   border: 5px solid;
   @include useTheme('border-color', 'table-border');
   @include useTheme('color', 'title');
 
+  @include typography(500, 76px, 80px);
+
   @include media(tablet) {
-    font-size: 30px;
+    @include typography(500, 42px, 50px);
   }
 
   @include media(mobile) {
-    font-size: 18px;
+    @include typography(500, 26px, 30px);
   }
 
   &__icon {
-    margin-left: 10px;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
     @include useTheme('fill', 'title');
 
     @include media(tablet) {
-      width: 20px;
-      height: 20px;
+      width: 40px;
+      height: 40px;
     }
 
     @include media(mobile) {
-      width: 15px;
-      height: 15px;
+      width: 30px;
+      height: 30px;
     }
   }
 }
