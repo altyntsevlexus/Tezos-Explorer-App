@@ -10,6 +10,8 @@ import { ReactComponent as Blocks } from '../../../images/block.svg';
 import { ReactComponent as Bakers } from '../../../images/backers.svg';
 import { ReactComponent as Chart } from '../../../images/charts.svg';
 import { ReactComponent as Ecosystem } from '../../../images/ecosystem.svg';
+import { ReactComponent as Sun } from '../../../images/sun.svg';
+import { ReactComponent as Moon } from '../../../images/moon.svg';
 
 const NAVIGATION_CONFIG = [
   { content: 'Home', path: '/home', withDropdown: false },
@@ -76,23 +78,16 @@ const Navigation = ({ isAside }) => {
           const { content, path, withDropdown } = navItem;
 
           return (
-            <li
-              className={withDropdown ? 'arrow arrow--d--down' : null}
-              key={content}
-            >
-              <Link to={path}>{content}</Link>
+            <li key={content}>
+              <Link
+                to={path}
+                className={withDropdown ? 'arrow arrow--d--down' : null}
+              >
+                {content}
+              </Link>
             </li>
           );
         })}
-        <li>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className={styles.navigation__button}
-          >
-            {theme}
-          </button>
-        </li>
         <li>
           <button
             type="button"
@@ -100,6 +95,15 @@ const Navigation = ({ isAside }) => {
             className={styles.navigation__button}
           >
             {network}
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className={styles.navigation__icon}
+          >
+            {theme === 'light' ? <Sun /> : <Moon />}
           </button>
         </li>
       </ul>

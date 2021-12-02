@@ -27,14 +27,17 @@ $burger-item-pos: -6px;
 
   &__navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    width: 100%;
-    max-width: 682px;
+    gap: 115px;
+
+    @include media(desktop) {
+      gap: 30px;
+    }
 
     @include media(tablet) {
       flex-direction: row-reverse;
-      max-width: 60px;
+      gap: 20px;
     }
   }
 

@@ -86,12 +86,11 @@ $side-border-style: 6px solid transparent;
 $main-border-style: 9px solid;
 
 .arrow {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
   &::after {
-    position: absolute;
-    top: calc(50% - 4px);
-    right: -20px;
     content: '';
     display: block;
     width: 0;
