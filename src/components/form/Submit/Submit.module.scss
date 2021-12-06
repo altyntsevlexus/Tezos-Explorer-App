@@ -1,0 +1,22 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import 'src/styles/extends';
+
+.submit {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 10px;
+  @include useTheme('background-color', 'submit-background');
+  @include typography(600, 18px, 140%);
+  color: $light;
+
+  @include media(mobile) {
+    margin: 4px 0;
+    padding: 15px 0;
+    @include typography(400, 14px, 17px);
+  }
+}
