@@ -1,0 +1,16 @@
+@import '/src/styles/extends';
+
+.sign-up {
+  @extend %form-wrapper;
+
+  &__link {
+    font-weight: 600;
+    color: $link;
+  }
+
+  &__policy {
+    display: block;
+    max-width: 370px;
+    @extend %text-with-opacity;
+  }
+}

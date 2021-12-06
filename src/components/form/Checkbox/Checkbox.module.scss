@@ -1,0 +1,52 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import 'src/styles/extends';
+
+.input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__error {
+    color: #ff3b30;
+    display: inline-block;
+  }
+
+  &__check {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__checkbox {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    outline: none;
+
+    &:before {
+      content: '';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: $white;
+      border: 1px solid #d9dff8 {
+        radius: 3px;
+      }
+      cursor: pointer;
+    }
+
+    &:checked:before {
+      background: {
+        image: url('../../../images/checked.svg');
+        repeat: no-repeat;
+        position: center;
+      }
+      @include useTheme('background-color', 'submit-background');
+    }
+  }
+}

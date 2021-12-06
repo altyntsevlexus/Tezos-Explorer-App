@@ -1,9 +1,9 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Blocks from '../pages/blocks';
 import Block from '../pages/block';
-import Error404 from '../pages/Error404';
-import Login from '../pages/Login';
-import SignUp from '../pages/SignUp';
+import Error404 from '../pages/error404';
+import Login from '../pages/login';
+import SignUp from '../pages/signUp';
 
 const ROUTE_CONFIG = [
   { path: '/blocks', component: Blocks, exact: true },

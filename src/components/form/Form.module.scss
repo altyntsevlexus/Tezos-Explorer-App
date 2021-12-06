@@ -1,0 +1,30 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import 'src/styles/extends';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  width: 100%;
+  max-width: 700px;
+  color: $dark;
+  background-color: $white;
+  padding: 48px;
+  border: 5px solid {
+    radius: 30px;
+  }
+
+  @include useTheme('border-color', 'form-border');
+
+  @include typography(400, 14px, 17px);
+
+  @include media(mobile) {
+    @include typography(400, 11px, 13px);
+    padding: 25px 15px;
+    gap: 20px;
+    border: 3px solid {
+      radius: 20px;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import 'src/styles/extends';
+
+.input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__item {
+    width: 100%;
+    padding: 25px 50px 25px 25px;
+    outline: none;
+    border: 1px solid {
+      radius: 10px;
+    }
+    @include useTheme('border-color', 'input-border');
+
+    @include media(mobile) {
+      padding: 15px {
+        right: 30px;
+      }
+    }
+
+    &--error {
+      border-color: #ff3b30 !important;
+    }
+
+    &:focus {
+      border-color: $link;
+    }
+  }
+
+  &__error {
+    color: #ff3b30;
+    display: inline-block;
+  }
+
+  &__label {
+    @extend %form-typography;
+  }
+}
