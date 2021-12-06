@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './_Error404.module.scss';
+import styles from './error404.module.scss';
 
 const Error404 = () => (
   <div className={styles.error}>
