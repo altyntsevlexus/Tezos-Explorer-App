@@ -7,28 +7,7 @@ import Submit from '../../components/form/Submit';
 import Paragraph from '../../components/form/Paragraph';
 import Checkbox from '../../components/form/Checkbox';
 import styles from './signUp.module.scss';
-
-const formConfig = [
-  {
-    label: 'Email Address',
-    name: 'email',
-    type: 'email',
-    placeholder: 'Enter your email address...',
-  },
-
-  {
-    label: 'Password',
-    name: 'password',
-    type: 'password',
-    placeholder: 'Enter your password...',
-  },
-  {
-    label: 'Confirm password',
-    name: 'confirm',
-    type: 'password',
-    placeholder: 'Confirm password...',
-  },
-];
+import formConfig from '../../utils/formConfig';
 
 const initialValues = {
   password: '',
