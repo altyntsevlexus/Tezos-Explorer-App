@@ -4,10 +4,12 @@
 import { useState } from 'react';
 import { useField } from 'formik';
 import PropTypes from 'prop-types';
-import styles from './_Input.module.scss';
-import Eye from '../Eye';
+import styles from './_TextInput.module.scss';
+import InputIcon from '../InputIcon';
+import showPass from '../../../images/show_pass.svg';
+import hidePass from '../../../images/hide_password.svg';
 
-const Input = ({ label, ...props }) => {
+const TextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const [isShown, setIsShown] = useState(false);
   const handleSetIsShown = () => setIsShown(!isShown);
@@ -30,7 +32,14 @@ const Input = ({ label, ...props }) => {
         autoComplete="on"
       />
       {props.type === 'password' && (
-        <Eye handleSetIsShown={handleSetIsShown} isShown={isShown} />
+        <InputIcon
+          isShown={isShown}
+          alt={isShown ? 'Hide Pass' : 'Show Pass'}
+          ariaLabel={isShown ? 'Hide Pass' : 'Show Pass'}
+          className={styles.input__icon}
+          clickHandler={handleSetIsShown}
+          src={isShown ? hidePass : showPass}
+        />
       )}
       {meta.touched && meta.error && (
         <div className={styles.input__error}>{meta.error}</div>
@@ -39,14 +48,14 @@ const Input = ({ label, ...props }) => {
   );
 };
 
-export default Input;
+export default TextInput;
 
-Input.propTypes = {
+TextInput.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
 
-Input.defaultProps = {
+TextInput.defaultProps = {
   label: '',
 };

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Title from '../../components/shared/Title';
 import Form from '../../components/form';
 import validationSchema from '../../utils/validation';
-import Input from '../../components/form/Input';
+import TextInput from '../../components/form/TextInput';
 import Submit from '../../components/form/Submit';
 import Paragraph from '../../components/form/Paragraph';
 import styles from './login.module.scss';
@@ -31,7 +31,7 @@ const Login = () => (
       }}
     >
       {formConfig.map((input) => (
-        <Input
+        <TextInput
           label={input.label}
           name={input.name}
           type={input.type}
