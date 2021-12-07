@@ -4,8 +4,7 @@
   @extend %form-wrapper;
 
   &__link {
-    font-weight: 600;
-    color: $link;
+    @extend %form-link;
   }
 
   &__policy {

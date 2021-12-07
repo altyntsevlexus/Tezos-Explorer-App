@@ -40,4 +40,24 @@
   &__label {
     @extend %form-typography;
   }
+
+  @import '/src/styles/variables';
+  @import '/src/styles/mixins';
+  @import 'src/styles/extends';
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 25px;
+    top: 63px;
+
+    @include media(mobile) {
+      right: 15px;
+      top: 56px;
+      width: 15px;
+      height: 15px;
+    }
+  }
 }
