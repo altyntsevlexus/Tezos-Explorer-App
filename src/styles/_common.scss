@@ -6,13 +6,8 @@
   position: relative;
 }
 
-.custom-button {
-  cursor: pointer;
-}
-
 button {
-  @extend .custom-button;
-
+  cursor: pointer;
   background: none;
   outline: none;
   border: none;
@@ -55,6 +50,10 @@ main {
 
 footer {
   flex-shrink: 0;
+}
+
+body {
+  overscroll-behavior-y: none;
 }
 
 .theme-light {
