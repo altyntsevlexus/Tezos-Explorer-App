@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styles from './_Links.module.scss';
+import styles from './Links.module.scss';
 
 const LINKS_CONFIG = [
   { content: 'Settings', path: '#' },

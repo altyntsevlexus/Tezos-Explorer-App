@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import Th from './Th';
 
-import styles from './_Table.module.scss';
+import styles from './Table.module.scss';
 
 const Table = ({ cols, rows, currentSort, sortFunction }) => {
   const sortedRows = () => {

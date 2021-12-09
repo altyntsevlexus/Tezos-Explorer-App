@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import styles from './_PerPage.module.scss';
+import styles from './PerPage.module.scss';
 
 const PerPage = ({ limit, handleChangeLimit }) => (
   <div className={styles['per-page']}>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 
-import styles from './_Header.module.scss';
+import styles from './Header.module.scss';
 import Logo from '../Logo';
 import Button from '../Button';
 import Navigation from '../Navigation';

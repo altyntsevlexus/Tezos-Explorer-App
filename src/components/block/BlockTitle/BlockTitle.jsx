@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import Title from '../../shared/Title';
-import styles from './_BlockTitle.module.scss';
+import styles from './BlockTitle.module.scss';
 import { useBlockState } from '../../../contexts/blockContext';
 import useCurrentLocation from '../../../hooks/useCurrentLocation';
 

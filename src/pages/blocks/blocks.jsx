@@ -13,7 +13,7 @@ import PerPage from '../../components/table/PerPage';
 import Baker from '../../components/shared/Baker';
 import ErrorMessage from '../../components/shared/ErrorMessage';
 
-import styles from './_blocks.module.scss';
+import styles from './blocks.module.scss';
 import Loader from '../../components/shared/Loader';
 
 const HEADERS = [

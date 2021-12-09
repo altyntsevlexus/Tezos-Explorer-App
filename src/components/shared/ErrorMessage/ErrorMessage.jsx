@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router-dom';
 import { ReactComponent as Refresh } from '../../../images/refresh.svg';
-import styles from './_ErrorMessage.module.scss';
+import styles from './ErrorMessage.module.scss';
 import { errorMessage, errorStatus } from '../../../utils/errorsHandler';
 
 const ErrorMessage = ({ retry }) => {

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link, useHistory } from 'react-router-dom';
 
-import styles from './_Navigation.module.scss';
+import styles from './Navigation.module.scss';
 import { useThemeState } from '../../../contexts/themeContext';
 import { useNetworkState } from '../../../contexts/networkContext';
 

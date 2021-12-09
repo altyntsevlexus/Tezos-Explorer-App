@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './_Title.module.scss';
+import styles from './Title.module.scss';
 
 const Title = ({ value, subtitle, wrapped, centered }) => {
   const center = centered && styles['title--pos--center'];

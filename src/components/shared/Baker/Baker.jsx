@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import icon from '../../../images/baker.png';
 
-import styles from './_Baker.module.scss';
+import styles from './Baker.module.scss';
 
 const Baker = ({ value }) =>
   value && (

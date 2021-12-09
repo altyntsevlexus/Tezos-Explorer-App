@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './_BlockInfo.module.scss';
+import styles from './BlockInfo.module.scss';
 import { useBlockState } from '../../../contexts/blockContext';
 import Loader from '../../shared/Loader';
 
