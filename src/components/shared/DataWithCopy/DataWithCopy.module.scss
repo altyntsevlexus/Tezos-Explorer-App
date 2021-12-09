@@ -1,0 +1,12 @@
+@import '/src/styles/extends';
+
+.copy {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  &__icon {
+    height: 30px;
+    @include useTheme('fill', 'table-text');
+  }
+}

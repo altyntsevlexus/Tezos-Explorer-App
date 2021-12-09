@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import copy from '../../images/copy.png';
+import { ReactComponent as Icon } from '../../../images/copy.svg';
+import styles from './DataWithCopy.module.scss';
 
 const DataWithCopy = ({ value }) => {
   const copyHash = () => {
@@ -18,16 +19,14 @@ const DataWithCopy = ({ value }) => {
   };
 
   return (
-    <div>
-      <div>{value}</div>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-      <img
-        src={copy}
-        alt="Copy hash"
-        onClick={copyHash}
-        className="custom-button"
-      />
-    </div>
+    value && (
+      <div className={styles.copy}>
+        <p>{value}</p>
+        <button type="button" onClick={copyHash} className={styles.copy__icon}>
+          <Icon />
+        </button>
+      </div>
+    )
   );
 };
 
