@@ -4,11 +4,8 @@
 
 .input {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 
-  &__item {
+  &__field {
     width: 100%;
     padding: 25px 50px 25px 25px;
     outline: none;
@@ -32,32 +29,18 @@
     }
   }
 
-  &__error {
-    color: #ff3b30;
-    display: inline-block;
-  }
-
-  &__label {
-    @extend %form-typography;
-  }
-
-  @import '/src/styles/variables';
-  @import '/src/styles/mixins';
-  @import 'src/styles/extends';
-
   &__icon {
-    display: block;
     width: 24px;
     height: 24px;
     position: absolute;
     right: 25px;
-    top: 63px;
+    top: 50%;
+    transform: translateY(-50%);
 
     @include media(mobile) {
-      right: 15px;
-      top: 56px;
       width: 15px;
       height: 15px;
+      right: 15px;
     }
   }
 }
