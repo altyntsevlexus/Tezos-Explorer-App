@@ -1,0 +1,19 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+@import 'src/styles/extends';
+
+.group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &__error {
+    color: #ff3b30;
+    display: inline-block;
+  }
+
+  &__label {
+    @extend %form-typography;
+  }
+}

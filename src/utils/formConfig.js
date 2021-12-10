@@ -11,12 +11,14 @@ const formConfig = [
     name: 'password',
     type: 'password',
     placeholder: 'Enter your password...',
+    hidable: true,
   },
   {
     label: 'Confirm password',
     name: 'confirm',
     type: 'password',
     placeholder: 'Confirm password...',
+    hidable: true,
   },
 ];
 

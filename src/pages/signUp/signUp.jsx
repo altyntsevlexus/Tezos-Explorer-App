@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import Title from '../../components/shared/Title';
 import Form from '../../components/form';
 import validationSchema from '../../utils/validation';
-import TextInput from '../../components/form/TextInput';
+import Input from '../../components/form/Input';
+import FieldGroup from '../../components/form/FieldGroup';
 import Submit from '../../components/form/Submit';
 import Paragraph from '../../components/form/Paragraph';
 import Checkbox from '../../components/form/Checkbox';
@@ -33,13 +34,14 @@ const SignUp = () => (
       }}
     >
       {formConfig.map((input) => (
-        <TextInput
-          label={input.label}
-          name={input.name}
-          type={input.type}
-          placeholder={input.placeholder}
-          key={input.placeholder}
-        />
+        <FieldGroup label={input.label} name={input.name} key={input.label}>
+          <Input
+            name={input.name}
+            type={input.type}
+            placeholder={input.placeholder}
+            hidable={input.hidable}
+          />
+        </FieldGroup>
       ))}
       <Checkbox name="checkbox">
         <label htmlFor="checkbox" className={styles['sign-up__policy']}>

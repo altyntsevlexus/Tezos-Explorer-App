@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import Title from '../../components/shared/Title';
 import Form from '../../components/form';
 import validationSchema from '../../utils/validation';
-import TextInput from '../../components/form/TextInput';
+import FieldGroup from '../../components/form/FieldGroup';
+import Input from '../../components/form/Input';
 import Submit from '../../components/form/Submit';
 import Paragraph from '../../components/form/Paragraph';
 import styles from './login.module.scss';
@@ -31,13 +32,14 @@ const Login = () => (
       }}
     >
       {formConfig.map((input) => (
-        <TextInput
-          label={input.label}
-          name={input.name}
-          type={input.type}
-          placeholder={input.placeholder}
-          key={input.placeholder}
-        />
+        <FieldGroup label={input.label} name={input.name} key={input.label}>
+          <Input
+            name={input.name}
+            type={input.type}
+            placeholder={input.placeholder}
+            hidable={input.hidable}
+          />
+        </FieldGroup>
       ))}
       <Link to="/restore-password" className={styles.login__restore}>
         Forgot password?
