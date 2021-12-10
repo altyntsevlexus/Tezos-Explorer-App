@@ -40,11 +40,9 @@ const Navigation = ({ isAside }) => {
 
   const toggleTheme = () =>
     theme === 'light' ? handleSetTheme('dark') : handleSetTheme('light');
-  const toggleNetwork = () => {
+  const changeNetwork = (e) => {
     history.push('/');
-    return network === 'mainnet'
-      ? handleSetNetwork('another')
-      : handleSetNetwork('mainnet');
+    handleSetNetwork(e.target.value);
   };
 
   if (isAside) {
@@ -89,13 +87,15 @@ const Navigation = ({ isAside }) => {
           );
         })}
         <li>
-          <button
-            type="button"
-            onClick={toggleNetwork}
-            className={styles.navigation__button}
+          <select
+            name="network"
+            onChange={changeNetwork}
+            className={styles.navigation__select}
+            value={network}
           >
-            {network}
-          </button>
+            <option value="mainnet">Mainnet</option>
+            <option value="another">Another</option>
+          </select>
         </li>
         <li>
           <button

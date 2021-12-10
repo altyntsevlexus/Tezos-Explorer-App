@@ -11,11 +11,14 @@
     gap: 25px;
   }
 
-  &__button {
+  &__select {
     color: inherit;
-    &::first-letter {
-      text-transform: uppercase;
-    }
+    background-color: transparent;
+    border: none;
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
   &__icon {
