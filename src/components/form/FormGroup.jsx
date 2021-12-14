@@ -27,24 +27,22 @@ const FormGroup = ({ formConfig, classForIcon }) => {
 
     return (
       <FieldGroup label={label} name={name} key={label}>
-        {hidable ? (
-          <Input
-            name={name}
-            type={inputType}
-            placeholder={placeholder}
-            id={id}
-            icon={
+        <Input
+          name={name}
+          type={inputType}
+          placeholder={placeholder}
+          id={id}
+          icon={
+            hidable && (
               <InputIcon
                 src={src}
                 clickHandler={handleIsPasswordShown}
                 alt={alt}
                 className={classForIcon}
               />
-            }
-          />
-        ) : (
-          <Input name={name} type={type} placeholder={placeholder} id={id} />
-        )}
+            )
+          }
+        />
       </FieldGroup>
     );
   });
