@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom';
 import Title from '../../components/shared/Title';
 import Form from '../../components/form';
 import validationSchema from '../../utils/validation';
-import Input from '../../components/form/Input';
-import FieldGroup from '../../components/form/FieldGroup';
 import Submit from '../../components/form/Submit';
 import Paragraph from '../../components/form/Paragraph';
 import Checkbox from '../../components/form/Checkbox';
 import styles from './signUp.module.scss';
 import formConfig from '../../utils/formConfig';
+import FormGroup from '../../components/form/FormGroup';
 
 const initialValues = {
   password: '',
@@ -33,16 +32,10 @@ const SignUp = () => (
         setSubmitting(false);
       }}
     >
-      {formConfig.map((input) => (
-        <FieldGroup label={input.label} name={input.name} key={input.label}>
-          <Input
-            name={input.name}
-            type={input.type}
-            placeholder={input.placeholder}
-            hidable={input.hidable}
-          />
-        </FieldGroup>
-      ))}
+      <FormGroup
+        classForIcon={styles['sign-up__icon']}
+        formConfig={formConfig}
+      />
       <Checkbox name="checkbox">
         <label htmlFor="checkbox" className={styles['sign-up__policy']}>
           By creating an account, you agree to Tezos Explorer{' '}
@@ -50,7 +43,7 @@ const SignUp = () => (
             Terms of Service
           </Link>
           {' & '}
-          <Link to="/privacy_policy" className={styles['sign-up__link']}>
+          <Link to="/privacy-policy" className={styles['sign-up__link']}>
             Privacy Policy
           </Link>
           .

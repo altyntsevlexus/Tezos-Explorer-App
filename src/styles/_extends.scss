@@ -29,3 +29,18 @@
   font-weight: 600;
   color: $link;
 }
+
+%input-icon {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include media(mobile) {
+      width: 15px;
+      height: 15px;
+      right: 15px;
+    }
+}

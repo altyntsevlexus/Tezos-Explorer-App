@@ -1,3 +1,3 @@
-import Forma from './Form';
+import Form from './Form';
 
-export default Forma;
+export default Form;

@@ -1,60 +1,40 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react';
-import { useField } from 'formik';
 import PropTypes from 'prop-types';
+import { useFormikContext } from 'formik';
 import styles from './Input.module.scss';
-import InputIcon from '../InputIcon';
-import showPass from '../../../images/show_pass.svg';
-import hidePass from '../../../images/hide_password.svg';
 
-const Input = ({ hidable, ...props }) => {
-  const [field, meta] = useField(props);
-  const [isShown, setIsShown] = useState(props.type !== 'password');
-  const handleSetIsShown = () => setIsShown(!isShown);
-  const inputType =
-    props.type === 'password'
-      ? isShown
-        ? 'text'
-        : 'password'
-      : hidable
-      ? isShown
-        ? props.type
-        : 'password'
-      : props.type;
-
+const Input = ({ type, name, id, placeholder, icon }) => {
+  const { errors, touched, handleChange, handleBlur } = useFormikContext();
   return (
     <div className={styles.input}>
       <input
+        type={type}
+        name={name}
+        id={id}
+        placeholder={placeholder}
+        autoComplete="on"
         className={
-          meta.touched && meta.error
-            ? `${styles.input__field} ${styles[`input__field--error`]}`
+          touched[`${id}`] && errors[`${id}`]
+            ? `${styles.input__field} ${styles['input__field--error']}`
             : styles.input__field
         }
-        {...props}
-        {...field}
-        type={inputType}
-        autoComplete="on"
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
-      {hidable && (
-        <InputIcon
-          alt={isShown ? 'Hide' : 'Show'}
-          className={styles.input__icon}
-          clickHandler={handleSetIsShown}
-          src={isShown ? hidePass : showPass}
-        />
-      )}
+      {icon}
     </div>
   );
 };
 
-export default Input;
-
 Input.propTypes = {
-  hidable: PropTypes.bool,
   type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  icon: PropTypes.node,
 };
 
 Input.defaultProps = {
-  hidable: false,
+  icon: null,
 };
+
+export default Input;

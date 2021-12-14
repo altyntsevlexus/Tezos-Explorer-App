@@ -48,4 +48,8 @@
   &__text {
     @extend %text-with-opacity;
   }
+
+  &__icon {
+    @extend %input-icon;
+  }
 }

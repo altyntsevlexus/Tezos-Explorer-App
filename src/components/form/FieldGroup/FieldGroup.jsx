@@ -1,22 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { useField } from 'formik';
+import { useFormikContext } from 'formik';
 import PropTypes from 'prop-types';
 import styles from './FieldGroup.module.scss';
 
-const FieldGroup = ({ label, children, ...props }) => {
-  const [, meta] = useField(props);
+const FieldGroup = ({ label, children, name }) => {
+  const { errors, touched } = useFormikContext();
 
   return (
     <div className={styles.group}>
-      <label htmlFor={props.name} className={styles.group__label}>
+      <label htmlFor={name} className={styles.group__label}>
         {label}
       </label>
       {children}
 
-      {meta.touched && meta.error && (
-        <div className={styles.group__error}>{meta.error}</div>
+      {touched[`${name}`] && errors[`${name}`] && (
+        <div className={styles.group__error}>{errors[`${name}`]}</div>
       )}
     </div>
   );
