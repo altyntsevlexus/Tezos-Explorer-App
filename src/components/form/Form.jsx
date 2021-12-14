@@ -3,7 +3,7 @@ import { Formik, Form as FormikForm } from 'formik';
 import PropTypes from 'prop-types';
 import styles from './Form.module.scss';
 
-const Forma = ({ children, initialValues, validationSchema, onSubmit }) => {
+const Form = ({ children, initialValues, validationSchema, onSubmit }) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -16,8 +16,8 @@ const Forma = ({ children, initialValues, validationSchema, onSubmit }) => {
   );
 };
 
-export default Forma;
+export default Form;
 
-Forma.propTypes = {
+Form.propTypes = {
   children: PropTypes.node.isRequired,
 };
