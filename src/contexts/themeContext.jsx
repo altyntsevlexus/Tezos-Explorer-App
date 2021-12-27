@@ -1,8 +1,9 @@
 import { createContext, useContext, useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-const ThemeStateContext = createContext();
+const ThemeStateContext = createContext('');
 ThemeStateContext.displayName = 'Theme Context';
+
 const useThemeState = () => {
   const context = useContext(ThemeStateContext);
 
@@ -16,20 +17,28 @@ const useThemeState = () => {
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState('light');
 
-  const storage = localStorage;
+  let handleSetTheme;
 
-  const handleSetTheme = (newTheme) => {
-    setTheme(newTheme);
-    storage.setItem('theme', newTheme);
-  };
+  try {
+    const storage = localStorage;
 
-  useEffect(() => {
-    const storageTheme = storage.getItem('theme');
+    handleSetTheme = (newTheme) => {
+      setTheme(newTheme);
+      storage.setItem('theme', newTheme);
+    };
 
-    return storageTheme
-      ? setTheme(storageTheme)
-      : storage.setItem('theme', 'light');
-  }, []);
+    useEffect(() => {
+      const storageTheme = storage.getItem('theme');
+
+      return storageTheme
+        ? setTheme(storageTheme)
+        : storage.setItem('theme', 'light');
+    }, []);
+  } catch {
+    handleSetTheme = (newTheme) => {
+      setTheme(newTheme);
+    };
+  }
 
   const stateValue = useMemo(
     () => ({
