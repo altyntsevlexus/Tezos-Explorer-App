@@ -1,10 +1,10 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { getBlock, getHead } from '../api';
 import transformDate from '../utils/transformDate';
 import isDummy from '../utils/isDummy';
 import { handleError } from '../utils/errorsHandler';
+import { useAPIState } from '../api/contextApi';
 
 const BlockStateContext = createContext([]);
 BlockStateContext.displayName = 'Block Context';
@@ -17,6 +17,8 @@ const useBlockState = () => {
 
   return context;
 };
+
+const MUTEZ = 1000000;
 
 const transformBlockData = (block) => {
   const {
@@ -45,12 +47,12 @@ const transformBlockData = (block) => {
     hash: isDummy(hash),
     timestamp: isDummy(date),
     baker: isDummy(bakerName),
-    fees: isDummy(fees / 1000000),
+    fees: isDummy(fees / MUTEZ),
     priority: isDummy(priority),
-    volume: isDummy(volume / 1000000),
+    volume: isDummy(volume / MUTEZ),
     blockTime: isDummy(blockTime),
     fitness: isDummy(fitness),
-    gas: isDummy(consumedGas / 1000000),
+    gas: isDummy(consumedGas / MUTEZ),
     protocol: isDummy(protocol),
     cycle: isDummy(metaCycle),
     cyclePosition: isDummy(metaCyclePosition),
@@ -62,6 +64,8 @@ const BlockProvider = ({ children }) => {
   const [total, setTotal] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+
+  const { getBlock, getHead } = useAPIState();
 
   const handleBlock = async (id) => {
     setIsError(false);
