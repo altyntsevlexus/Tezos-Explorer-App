@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/Tezos-Explorer-App/static/css/main.1a9f325b.chunk.css",
+    "main.js": "/Tezos-Explorer-App/static/js/main.9bbcb421.chunk.js",
+    "main.js.map": "/Tezos-Explorer-App/static/js/main.9bbcb421.chunk.js.map",
+    "runtime-main.js": "/Tezos-Explorer-App/static/js/runtime-main.66e010dc.js",
+    "runtime-main.js.map": "/Tezos-Explorer-App/static/js/runtime-main.66e010dc.js.map",
+    "static/css/2.f4c56af9.chunk.css": "/Tezos-Explorer-App/static/css/2.f4c56af9.chunk.css",
+    "static/js/2.79ed1d06.chunk.js": "/Tezos-Explorer-App/static/js/2.79ed1d06.chunk.js",
+    "static/js/2.79ed1d06.chunk.js.map": "/Tezos-Explorer-App/static/js/2.79ed1d06.chunk.js.map",
+    "index.html": "/Tezos-Explorer-App/index.html",
+    "static/css/2.f4c56af9.chunk.css.map": "/Tezos-Explorer-App/static/css/2.f4c56af9.chunk.css.map",
+    "static/css/main.1a9f325b.chunk.css.map": "/Tezos-Explorer-App/static/css/main.1a9f325b.chunk.css.map",
+    "static/js/2.79ed1d06.chunk.js.LICENSE.txt": "/Tezos-Explorer-App/static/js/2.79ed1d06.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/Tezos-Explorer-App/static/media/background45.ef3e0a49.png",
+    "static/media/backers.c1bd4e75.svg": "/Tezos-Explorer-App/static/media/backers.c1bd4e75.svg",
+    "static/media/baker.d9cbf9ee.png": "/Tezos-Explorer-App/static/media/baker.d9cbf9ee.png",
+    "static/media/block.26b5beb7.svg": "/Tezos-Explorer-App/static/media/block.26b5beb7.svg",
+    "static/media/charts.110f76f0.svg": "/Tezos-Explorer-App/static/media/charts.110f76f0.svg",
+    "static/media/Checkbox.module.scss": "/Tezos-Explorer-App/static/media/checked.08b2d531.svg",
+    "static/media/copy.5e552e15.svg": "/Tezos-Explorer-App/static/media/copy.5e552e15.svg",
+    "static/media/ecosystem.d9da0f5c.svg": "/Tezos-Explorer-App/static/media/ecosystem.d9da0f5c.svg",
+    "static/media/hide_password.97ff7186.svg": "/Tezos-Explorer-App/static/media/hide_password.97ff7186.svg",
+    "static/media/home.a25ce11a.svg": "/Tezos-Explorer-App/static/media/home.a25ce11a.svg",
+    "static/media/Button.module.scss": "/Tezos-Explorer-App/static/media/login.550956e7.svg",
+    "static/media/moon.9cbfb29f.svg": "/Tezos-Explorer-App/static/media/moon.9cbfb29f.svg",
+    "static/media/refresh.699b7f9f.svg": "/Tezos-Explorer-App/static/media/refresh.699b7f9f.svg",
+    "static/media/show_pass.06dc9c65.svg": "/Tezos-Explorer-App/static/media/show_pass.06dc9c65.svg",
+    "static/media/sun.f425c459.svg": "/Tezos-Explorer-App/static/media/sun.f425c459.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66e010dc.js",
+    "static/css/2.f4c56af9.chunk.css",
+    "static/js/2.79ed1d06.chunk.js",
+    "static/css/main.1a9f325b.chunk.css",
+    "static/js/main.9bbcb421.chunk.js"
+  ]
+}
