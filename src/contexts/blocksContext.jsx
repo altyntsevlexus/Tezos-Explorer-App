@@ -11,7 +11,7 @@ BlocksStateContext.displayName = 'Blocks Context';
 const useBlocksState = () => {
   const context = useContext(BlocksStateContext);
 
-  if (!context) {
+  if (context.length === 0) {
     throw new Error('useBlocksState must be used within a BlocksProvider');
   }
 

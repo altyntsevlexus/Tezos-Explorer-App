@@ -6,12 +6,12 @@ import isDummy from '../utils/isDummy';
 import { handleError } from '../utils/errorsHandler';
 import { useAPIState } from '../api/contextApi';
 
-const BlockStateContext = createContext([]);
+const BlockStateContext = createContext({});
 BlockStateContext.displayName = 'Block Context';
 const useBlockState = () => {
   const context = useContext(BlockStateContext);
 
-  if (!context) {
+  if (Object.keys(context).length === 0) {
     throw new Error('BlockStateContext must be used within a BlockProvider');
   }
 
